@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<evaml
+  name="Nivelamento"
+  xsi:noNamespaceSchemaLocation="EvaML-Schema/evaml_schema.xsd"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <settings>
+        <voice tone="pt-BR_IsabelaV3Voice" />
+        <lightEffects mode="ON" />
+        <audioEffects mode="ON" />
+    </settings>
+    <script>
+        <talk>Olá, vamos começar com algumas perguntas para testarmos seu conhecimento prévio.</talk>
+        <counter var="pont_min" op="=" value="0" />
+        <loop times="3">
+        <useMacro macro="Multiplicando" />
+        <useMacro macro="Nivelamento" />
+        </loop>
+        <loop times="2">
+            <useMacro macro="Multiplicando" />
+            <useMacro macro="Nivelamento_2" />
+        </loop>
+        <useMacro macro="Multiplicando" />
+        <useMacro macro="Nivelamento_3" />
+    </script>
+    <macros>
+        <macro id="Multiplicando">
+            <random min="1" max="10" />
+            <switch var="$">
+              <case op="exact" value="1">
+                <counter var="multiplicando" op="=" value="1" />
+              </case>
+              <case op="exact" value="2">
+                <counter var="multiplicando" op="=" value="2" />
+              </case>
+              <case op="exact" value="3">
+                <counter var="multiplicando" op="=" value="3" />
+              </case>
+              <case op="exact" value="4">
+                <counter var="multiplicando" op="=" value="4" />
+              </case>
+              <case op="exact" value="5">
+                <counter var="multiplicando" op="=" value="5" />
+              </case>
+              <case op="exact" value="6">
+                <counter var="multiplicando" op="=" value="6" />
+              </case>
+              <case op="exact" value="7">
+                <counter var="multiplicando" op="=" value="7" />
+              </case>
+              <case op="exact" value="8">
+                <counter var="multiplicando" op="=" value="8" />
+              </case>
+              <case op="exact" value="9">
+                <counter var="multiplicando" op="=" value="9" />
+              </case>
+              <case op="exact" value="10">
+                <counter var="multiplicando" op="=" value="10" />
+              </case>
+            </switch>
+        </macro>
+        <macro id="Nivelamento">
+            <random min="1" max="10" />
+            <talk>Quanto é #multiplicando vezes $?</talk>
+            <switch var="$">
+                <case op="exact" value="1">
+                    <counter var="multiplicando" op="*" value="1" />
+                </case>
+                <case op="exact" value="2">
+                    <counter var="multiplicando" op="*" value="2" />
+                </case>
+                <case op="exact" value="3">
+                    <counter var="multiplicando" op="*" value="3" />
+                </case>
+                <case op="exact" value="4">
+                    <counter var="multiplicando" op="*" value="4" />
+                </case>
+                <case op="exact" value="5">
+                    <counter var="multiplicando" op="*" value="5" />
+                </case>
+                <case op="exact" value="6">
+                    <counter var="multiplicando" op="*" value="6" />
+                </case>
+                <case op="exact" value="7">
+                    <counter var="multiplicando" op="*" value="7" />
+                </case>
+                <case op="exact" value="8">
+                    <counter var="multiplicando" op="*" value="8" />
+                </case>
+                <case op="exact" value="9">
+                    <counter var="multiplicando" op="*" value="9" />
+                </case>
+                <case op="exact" value="10">
+                    <counter var="multiplicando" op="*" value="10" />
+                </case>
+            </switch>
+            <listen />
+            <switch var="$">
+                <case op="eq" value="multiplicando">
+                    <counter var="pont_min" op="+" value="1" />
+                    <talk>Parabéns.</talk>
+                </case>
+                <default>
+                    <talk>Vamos para a próxima, esta foi por pouco</talk>
+                </default>
+            </switch>
+        </macro>
+        <macro id="Nivelamento_2">
+            <random min="2" max="5" />
+            <talk>Em um pote cabe #multiplicando canetas.      Quantas canetas serão necessárias para colocarmos em $ potes? /
+                Em uma sala possuem #multiplicando computadores com $ telas.    Quantas telas existem nesta sala?
+            </talk>
+            <switch var="$">
+                <case op="exact" value="1">
+                    <counter var="multiplicando" op="*" value="1" />
+                </case>
+                <case op="exact" value="2">
+                    <counter var="multiplicando" op="*" value="2" />
+                </case>
+                <case op="exact" value="3">
+                    <counter var="multiplicando" op="*" value="3" />
+                </case>
+                <case op="exact" value="4">
+                    <counter var="multiplicando" op="*" value="4" />
+                </case>
+                <case op="exact" value="5">
+                    <counter var="multiplicando" op="*" value="5" />
+                </case>
+                <case op="exact" value="6">
+                    <counter var="multiplicando" op="*" value="6" />
+                </case>
+                <case op="exact" value="7">
+                    <counter var="multiplicando" op="*" value="7" />
+                </case>
+                <case op="exact" value="8">
+                    <counter var="multiplicando" op="*" value="8" />
+                </case>
+                <case op="exact" value="9">
+                    <counter var="multiplicando" op="*" value="9" />
+                </case>
+                <case op="exact" value="10">
+                    <counter var="multiplicando" op="*" value="10" />
+                </case>
+            </switch>
+            <listen />
+            <switch var="$">
+                <case op="eq" value="multiplicando">
+                    <counter var="pont_min" op="+" value="3" />
+                    <talk>Parabéns.</talk>
+                </case>
+                <default>
+                    <talk>Vamos para a próxima, esta foi por pouco</talk>
+                </default>
+            </switch>
+        </macro>
+        <macro id="Nivelamento_3">
+            <random min="6" max="9" />
+            <talk>Para fazer um bolo são necessários #multiplicando ovos. Quantos ovos serão necessários para fazer $ bolos?/
+                Bruna comprou #multiplicando caixas de morango para vender, em cada caixa há $ morangos. Quantos morangos ela comprou?</talk>
+                <switch var="$">
+                    <case op="exact" value="1">
+                        <counter var="multiplicando" op="*" value="1" />
+                    </case>
+                    <case op="exact" value="2">
+                        <counter var="multiplicando" op="*" value="2" />
+                    </case>
+                    <case op="exact" value="3">
+                        <counter var="multiplicando" op="*" value="3" />
+                    </case>
+                    <case op="exact" value="4">
+                        <counter var="multiplicando" op="*" value="4" />
+                    </case>
+                    <case op="exact" value="5">
+                        <counter var="multiplicando" op="*" value="5" />
+                    </case>
+                    <case op="exact" value="6">
+                        <counter var="multiplicando" op="*" value="6" />
+                    </case>
+                    <case op="exact" value="7">
+                        <counter var="multiplicando" op="*" value="7" />
+                    </case>
+                    <case op="exact" value="8">
+                        <counter var="multiplicando" op="*" value="8" />
+                    </case>
+                    <case op="exact" value="9">
+                        <counter var="multiplicando" op="*" value="9" />
+                    </case>
+                    <case op="exact" value="10">
+                        <counter var="multiplicando" op="*" value="10" />
+                    </case>
+                </switch>
+                <listen />
+                <switch var="$">
+                    <case op="eq" value="multiplicando">
+                        <counter var="pont_min" op="+" value="15" />
+                        <talk>Parabéns.</talk>
+                    </case>
+                    <default>
+                        <talk>Vamos para a próxima, esta foi por pouco</talk>
+                    </default>
+                </switch>
+        </macro>
+    </macros>
+</evaml>

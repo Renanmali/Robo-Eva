@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<evaml
+  name="Jogo_do_A"
+  xsi:noNamespaceSchemaLocation="EvaML-Schema/evaml_schema.xsd"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <settings>
+    <voice tone="pt-BR_IsabelaV3Voice" />
+    <lightEffects mode="ON" />
+    <audioEffects mode="ON" />
+  </settings>
+  <script>
+    <talk>F. I. O. F. W. B. I. B. W. F. U. W. E. A. H. U. D. A. A. H. A. D. Y. E. A</talk>
+    <counter var="A" op="=" value="5" />
+    <listen />
+    <switch var="$">
+        <case op="exact" value="5">
+            <talk>Acertou</talk>
+        </case>
+    </switch>
+  </script>
+</evaml>

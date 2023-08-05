@@ -1,0 +1,376 @@
+<evaml 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    name="Jogo_da_ordem" 
+    xsi:noNamespaceSchemaLocation="EvaML-Schema/evaml_schema.xsd">
+  <settings>
+    <voice tone="pt-BR_IsabelaV3Voice" />
+    <lightEffects mode="ON" />
+    <audioEffects mode="ON" />
+  </settings>
+  <script>
+    <useMacro macro="Apresenta" />
+    <counter var="total" op="=" value="0" id="retorna"/>
+    <useMacro macro="numero" />
+    <useMacro macro="ordem" />
+    <useMacro macro="numero" />
+    <useMacro macro="ordem1" />
+    <useMacro macro="numero" />
+    <useMacro macro="ordem2" />
+    <useMacro macro="numero" />
+    <useMacro macro="ordem3" />
+    <useMacro macro="numero" />
+    <useMacro macro="ordem4" />
+    <listen />
+    <useMacro macro="compara" />
+    <led animation="HAPPY" id="input"/>
+    <listen />
+    <useMacro macro="compara1" />
+    <led animation="HAPPY" id="input2"/>
+    <listen />
+    <useMacro macro="compara2" />
+    <led animation="HAPPY" id="input3"/>
+    <listen />
+    <useMacro macro="compara3" />
+    <led animation="HAPPY" id="input4"/>
+    <listen />
+    <useMacro macro="compara4" />
+    <switch var="#total">
+        <case op="eq" value="5">
+            <talk>Parabéns, você acertou!</talk>
+            <talk>Vamos mais uma vez?</talk>
+            <listen />
+            <switch var="$">
+                <case op="exact" value="sim">
+                    <goto target="retorna" />
+                </case>
+                <case op="exact" value="nao">
+                    <talk>Foi um prazer jogar com você, $1, até a próxima. </talk>
+                    <stop />
+                </case>
+            </switch>
+        </case>
+        <case op="lt" value="5">
+            <talk>Você errou, vamos tentar outra vez?</talk>
+            <listen />
+            <switch var="$">
+                <case op="exact" value="sim">
+                    <goto target="retorna" />
+                </case>
+                <default>
+                    <talk>Então tudo bem, $1. Nos vemos em outra oportunidade</talk>
+                    <stop />
+                </default>
+            </switch>
+        </case>
+    </switch>
+  </script>
+  <macros>
+  <!-- Macro que define os 5 algarismos que serão ditos-->
+    <macro id="Apresenta">
+      <audio source="mario-game-intro" block="TRUE" />
+      <evaEmotion emotion="HAPPY" />
+      <light state="ON" color="YELLOW"/>
+      <talk>Olá, eu sou robô Eva. E você? Qual é o seu nome?</talk>
+      <evaEmotion emotion="NEUTRAL" />
+      <led animation="LISTEN" />
+      <listen />
+      <light state="ON" color="GREEN"/>
+    </macro>
+    <macro id="numero">
+        <random min="0" max="9" />
+        <switch var="$">
+            <case op="exact" value="0">
+                <talk>0</talk>
+            </case>
+            <case op="exact" value="1">
+                <talk>1</talk>
+            </case>
+            <case op="exact" value="2">
+                <talk>2</talk>
+            </case>
+            <case op="exact" value="3">
+                <talk>3</talk>
+            </case>
+            <case op="exact" value="4">
+                <talk>4</talk>
+            </case>
+            <case op="exact" value="5">
+                <talk>5</talk>
+            </case>
+            <case op="exact" value="6">
+                <talk>6</talk>
+            </case>
+            <case op="exact" value="7">
+                <talk>7</talk>
+            </case>
+            <case op="exact" value="8">
+                <talk>8</talk>
+            </case>
+            <case op="exact" value="9">
+                <talk>9</talk>
+            </case>
+        </switch>
+    </macro>
+    <macro id="ordem">
+        <counter var="init" op="=" value="11" />
+        <switch var="$">
+            <case op="exact" value="0">
+                <counter var="init" op="=" value="0" />
+            </case>
+            <case op="exact" value="1">
+                <counter var="init" op="=" value="1" />
+            </case>
+            <case op="exact" value="2">
+                <counter var="init" op="=" value="2" />
+            </case>
+            <case op="exact" value="3">
+                <counter var="init" op="=" value="3" />
+            </case>
+            <case op="exact" value="4">
+                <counter var="init" op="=" value="4" />
+            </case>
+            <case op="exact" value="5">
+                <counter var="init" op="=" value="5" />
+            </case>
+            <case op="exact" value="6">
+                <counter var="init" op="=" value="6" />
+            </case>
+            <case op="exact" value="7">
+                <counter var="init" op="=" value="7" />
+            </case>
+            <case op="exact" value="8">
+                <counter var="init" op="=" value="8" />
+            </case>
+            <case op="exact" value="9">
+                <counter var="init" op="=" value="9" />
+            </case>
+
+        </switch>
+    </macro>
+    <macro id="ordem1">
+        <counter var="init_1" op="=" value="11" />
+        <switch var="$">
+            <case op="exact" value="0">
+                <counter var="init_1" op="=" value="0" />
+            </case>
+            <case op="exact" value="1">
+                <counter var="init_1" op="=" value="1" />
+            </case>
+            <case op="exact" value="2">
+                <counter var="init_1" op="=" value="2" />
+            </case>
+            <case op="exact" value="3">
+                <counter var="init_1" op="=" value="3" />
+            </case>
+            <case op="exact" value="4">
+                <counter var="init_1" op="=" value="4" />
+            </case>
+            <case op="exact" value="5">
+                <counter var="init_1" op="=" value="5" />
+            </case>
+            <case op="exact" value="6">
+                <counter var="init_1" op="=" value="6" />
+            </case>
+            <case op="exact" value="7">
+                <counter var="init_1" op="=" value="7" />
+            </case>
+            <case op="exact" value="8">
+                <counter var="init_1" op="=" value="8" />
+            </case>
+            <case op="exact" value="9">
+                <counter var="init_1" op="=" value="9" />
+            </case>
+
+        </switch>
+    </macro>
+    <macro id="ordem2">
+        <counter var="init_2" op="=" value="11" />
+        <switch var="$">
+            <case op="exact" value="0">
+                <counter var="init_2" op="=" value="0" />
+            </case>
+            <case op="exact" value="1">
+                <counter var="init_2" op="=" value="1" />
+            </case>
+            <case op="exact" value="2">
+                <counter var="init_2" op="=" value="2" />
+            </case>
+            <case op="exact" value="3">
+                <counter var="init_2" op="=" value="3" />
+            </case>
+            <case op="exact" value="4">
+                <counter var="init_2" op="=" value="4" />
+            </case>
+            <case op="exact" value="5">
+                <counter var="init_2" op="=" value="5" />
+            </case>
+            <case op="exact" value="6">
+                <counter var="init_2" op="=" value="6" />
+            </case>
+            <case op="exact" value="7">
+                <counter var="init_2" op="=" value="7" />
+            </case>
+            <case op="exact" value="8">
+                <counter var="init_2" op="=" value="8" />
+            </case>
+            <case op="exact" value="9">
+                <counter var="init_2" op="=" value="9" />
+            </case>
+
+        </switch>
+    </macro>
+    <macro id="ordem3">
+        <counter var="init_3" op="=" value="11" />
+        <switch var="$">
+            <case op="exact" value="0">
+                <counter var="init_3" op="=" value="0" />
+            </case>
+            <case op="exact" value="1">
+                <counter var="init_3" op="=" value="1" />
+            </case>
+            <case op="exact" value="2">
+                <counter var="init_3" op="=" value="2" />
+            </case>
+            <case op="exact" value="3">
+                <counter var="init_3" op="=" value="3" />
+            </case>
+            <case op="exact" value="4">
+                <counter var="init_3" op="=" value="4" />
+            </case>
+            <case op="exact" value="5">
+                <counter var="init_3" op="=" value="5" />
+            </case>
+            <case op="exact" value="6">
+                <counter var="init_3" op="=" value="6" />
+            </case>
+            <case op="exact" value="7">
+                <counter var="init_3" op="=" value="7" />
+            </case>
+            <case op="exact" value="8">
+                <counter var="init_3" op="=" value="8" />
+            </case>
+            <case op="exact" value="9">
+                <counter var="init_3" op="=" value="9" />
+            </case>
+
+        </switch>
+    </macro>
+    <macro id="ordem4">
+        <counter var="init_4" op="=" value="11" />
+        <switch var="$">
+            <case op="exact" value="0">
+                <counter var="init_4" op="=" value="0" />
+            </case>
+            <case op="exact" value="1">
+                <counter var="init_4" op="=" value="1" />
+            </case>
+            <case op="exact" value="2">
+                <counter var="init_4" op="=" value="2" />
+            </case>
+            <case op="exact" value="3">
+                <counter var="init_4" op="=" value="3" />
+            </case>
+            <case op="exact" value="4">
+                <counter var="init_4" op="=" value="4" />
+            </case>
+            <case op="exact" value="5">
+                <counter var="init_4" op="=" value="5" />
+            </case>
+            <case op="exact" value="6">
+                <counter var="init_4" op="=" value="6" />
+            </case>
+            <case op="exact" value="7">
+                <counter var="init_4" op="=" value="7" />
+            </case>
+            <case op="exact" value="8">
+                <counter var="init_4" op="=" value="8" />
+            </case>
+            <case op="exact" value="9">
+                <counter var="init_4" op="=" value="9" />
+            </case>
+
+        </switch>
+    </macro>
+<!-- Macros que realizam a comparação com as respostas ditas pelo usuário-->
+    <macro id="compara">
+        <switch var="$">
+            <case op="eq" value="#init">
+                <counter var="comp0" op="=" value="10" />
+                  <counter var="total" op="+" value="1" />
+            </case>
+            <default>
+                <goto target="input" />
+            </default>
+        </switch>
+    </macro>
+    <macro id="compara1">
+        <switch var="$">
+            <case op="eq" value="#init_1">
+                <counter var="comp1" op="=" value="10" />
+                  <counter var="total" op="+" value="1" />
+            </case>
+            <default>
+                <goto target="input2" />
+            </default>
+        </switch>
+    </macro>
+    <macro id="compara2">
+        <switch var="$">
+            <case op="eq" value="#init_2">
+                <counter var="comp2" op="=" value="10" />
+                  <counter var="total" op="+" value="1" />
+            </case>
+            <default>
+                <goto target="input3" />
+            </default>
+        </switch>
+    </macro>
+    <macro id="compara3">
+        <switch var="$">
+            <case op="eq" value="#init_3">
+                <counter var="comp3" op="=" value="10" />
+                  <counter var="total" op="+" value="1" />
+            </case>
+            <default>
+                <goto target="input4" />
+            </default>
+        </switch>
+    </macro>
+    <macro id="compara4">
+        <switch var="$">
+            <case op="eq" value="#init_4">
+                <counter var="comp4" op="=" value="10" />
+                  <counter var="total" op="+" value="1" />
+            </case>
+        </switch>
+    </macro>
+    <macro id="Total">
+        <counter var="total" op="=" value="0" />
+        <switch var="#comp0">
+            <case op="eq" value="10">
+                <counter var="total" op="+" value="1" />
+            </case>
+        </switch>
+        <switch var="#comp1">
+            <case op="eq" value="10">
+                <counter var="total" op="+" value="1" />
+            </case>
+        </switch>
+        <switch var="#comp2">
+            <case op="eq" value="10">
+                <counter var="total" op="=" value="1" />
+            </case>
+        </switch>
+        <switch var="#comp3">
+            <case op="eq" value="10">
+                <counter var="total" op="=" value="1" />
+            </case>
+        </switch>
+        <switch var="#comp4">
+            <case op="eq" value="10">
+                <counter var="total" op="=" value="1" />
+            </case>
+        </switch>
+    </macro>
+  </macros>
+</evaml>

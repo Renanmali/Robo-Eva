@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<evaml
+  name="Jogo_da_repetição"
+  xsi:noNamespaceSchemaLocation="EvaML-Schema/evaml_schema.xsd"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <settings>
+    <voice tone="pt-BR_IsabelaV3Voice" />
+    <lightEffects mode="ON" />
+    <audioEffects mode="ON" />
+  </settings>
+  <script>
+    <led animation="LISTEN" id="retorna"/>
+    <useMacro macro="declara" />
+    <useMacro macro="cores" />
+    <useMacro macro="pch" />
+    <useMacro macro="automovel" />
+    <useMacro macro="fruta" />
+    <useMacro macro="animal" />
+    <listen />
+    <useMacro macro="compara_cor" />
+    <useMacro macro="pontuacao_1" />
+    <led animation="LISTEN" id="pula"/>
+    <useMacro macro="compara_pch" />
+    <useMacro macro="pontuacao_2" />
+    <led animation="LISTEN" id="pula_1"/>
+    <useMacro macro="compara_aut" />
+    <useMacro macro="pontuacao_3" />
+    <led animation="LISTEN" id="pula_2"/>
+    <useMacro macro="compara_fruta" />
+    <useMacro macro="pontuacao_4" />
+    <led animation="LISTEN" id="pula_3"/>
+    <useMacro macro="compara_animal" />
+    <useMacro macro="pontuacao_5" />
+    <talk id="Fim">Quer jogar de novo?</talk>
+    <listen />
+    <switch var="$">
+        <case op="exact" value="sim">
+            <goto target="retorna" />
+        </case>
+        <case op="exact" value="não">
+            <talk>Ok, torço para que tenha gostado da experiência.</talk>
+        </case>
+    </switch>
+  </script>
+  <macros>
+    <!-- Macro que faz a apresentação do robô Eva-->
+    <macro id="apresenta">
+        <audio source="mario-game-intro" block="TRUE" />
+        <evaEmotion emotion="HAPPY" />
+        <light state="ON" color="YELLOW"/>
+        <talk>Olá, eu sou o robô EVA e agora gostaria de te convidar para jogar o jogo da repetição comigo.</talk>
+        <evaEmotion emotion="NEUTRAL" />
+        <talk>Antes de começarmos, eu tenho uma pergunta.</talk>
+        <talk>Qual é o seu nome?</talk>
+        <light state="ON" color="GREEN"/>
+        <listen />
+      </macro>
+    <!-- Macro que explica as regras do jogo-->
+    <macro id="regras">
+        <talk></talk>
+    </macro>
+    <!-- Macro utilizada para definir as cores que
+         serão ditas no jogo da repetição -->
+    <macro id="cores">
+        <random min="1" max="5" />
+        <switch var="$">
+            <case op="exact" value="1">
+                <talk>azul</talk>
+                <counter var="cor" op="=" value="1" />
+            </case>
+            <case op="exact" value="2">
+                <talk>vermelho</talk>
+                <counter var="cor" op="=" value="2" />
+            </case>
+            <case op="exact" value="3">
+                <talk>amarelo</talk>
+                <counter var="cor" op="=" value="3" />
+            </case>
+            <case op="exact" value="4">
+                <talk>rosa</talk>
+                <counter var="cor" op="=" value="4" />
+            </case>
+            <case op="exact" value="5">
+                <talk>verde</talk>
+                <counter var="cor" op="=" value="5" />
+            </case>
+        </switch>
+    </macro>
+    <!-- Macro utilizada para as partes do corpo humano
+        que serão usadas no jogo da repetição-->
+    <macro id="pch">
+        <random min="6" max="10" />
+        <switch var="$">
+            <case op="eq" value="6">
+                <talk>cabeça</talk>
+                <counter var="pch" op="=" value="6" />
+            </case>
+            <case op="eq" value="7">
+                <talk>ombro</talk>
+                <counter var="pch" op="=" value="7" />
+            </case>
+            <case op="eq" value="8">
+                <talk>joelho</talk>
+                <counter var="pch" op="=" value="8" />
+            </case>
+            <case op="eq" value="9">
+                <talk>pé</talk>
+                <counter var="pch" op="=" value="9" />
+            </case>
+            <case op="eq" value="10">
+                <talk>ouvido</talk>
+                <counter var="pch" op="=" value="10" />
+            </case>
+        </switch>
+    </macro>
+    <!-- Macro utilizada para definir os automóveis que
+         serão ditos no jogo da repetição -->
+    <macro id="automovel">
+        <random min="11" max="15" />
+        <switch var="$">
+            <case op="eq" value="11">
+                <talk>carro</talk>
+                <counter var="automovel" op="=" value="11" />
+            </case>
+            <case op="eq" value="12">
+                <talk>trem</talk>
+                <counter var="automovel" op="=" value="12" />
+            </case>
+            <case op="eq" value="13">
+                <talk>ônibus</talk>
+                <counter var="automovel" op="=" value="13" />
+            </case>
+            <case op="eq" value="14">
+                <talk>moto</talk>
+                <counter var="automovel" op="=" value="14" />
+            </case>
+            <case op="eq" value="15">
+                <talk>barco</talk>
+                <counter var="automovel" op="=" value="15" />
+            </case>
+        </switch>
+    </macro>
+    <!-- Macro utilizada para definir as frutas que
+         serão ditas no jogo da repetição -->
+    <macro id="fruta">
+        <random min="16" max="20" />
+        <switch var="$">
+            <case op="eq" value="16">
+                <talk>uva</talk>
+                <counter var="fruta" op="=" value="16" />
+            </case>
+            <case op="eq" value="17">
+                <talk>melancia</talk>
+                <counter var="fruta" op="=" value="17" />
+            </case>
+            <case op="eq" value="18">
+                <talk>morango</talk>
+                <counter var="fruta" op="=" value="18" />
+            </case>
+            <case op="eq" value="19">
+                <talk>laranja</talk>
+                <counter var="fruta" op="=" value="19" />
+            </case>
+            <case op="eq" value="20">
+                <talk>amora</talk>
+                <counter var="fruta" op="=" value="20" />
+            </case>
+        </switch>
+    </macro>
+     <!-- Macro utilizada para definir os animais que
+         serão ditos no jogo da repetição -->
+    <macro id="animal">
+        <random min="21" max="25" />
+        <switch var="$">
+            <case op="eq" value="21">
+                <talk>pato</talk>
+                <counter var="animal" op="=" value="21" />
+            </case>
+            <case op="eq" value="22">
+                <talk>baleia</talk>
+                <counter var="animal" op="=" value="22" />
+            </case>
+            <case op="eq" value="23">
+                <talk>pôrco</talk>
+                <counter var="animal" op="=" value="23" />
+            </case>
+            <case op="eq" value="24">
+                <talk>cabra</talk>
+                <counter var="animal" op="=" value="24" />
+            </case>
+            <case op="eq" value="25">
+                <talk>gato</talk>
+                <counter var="animal" op="=" value="25" />
+            </case>
+        </switch>
+    </macro>
+    <macro id="resposta">
+        <listen />
+    </macro>
+    <!-- Macros abaixo foram definidas para realizar a comparação entre o listen com os variáveis anteriores!!-->
+    <macro id="compara_cor">
+        <switch var="$">
+            <case op="contain" value="azul">
+                <counter var="ponto" op="=" value="1" />
+            </case>
+            <case op="contain" value="vermelho">
+                <counter var="ponto" op="=" value="2" />
+            </case>
+            <case op="contain" value="amarelo">
+                <counter var="ponto" op="=" value="3" />
+            </case>
+            <case op="contain" value="rosa">
+                <counter var="ponto" op="=" value="4" />
+            </case>
+            <case op="contain" value="verde">
+                <counter var="ponto" op="=" value="5" />
+            </case>
+            <default>
+                <counter var="ponto" op="=" value="0" />
+            </default>
+        </switch>
+        <switch var="#ponto">
+            <case op="eq" value="#cor">
+                <counter var="cor1" op="=" value="10" />
+            </case>
+            <case op="ne" value="#cor">
+                <goto target="pula" />
+            </case>
+        </switch>
+    </macro>
+    <macro id="compara_pch">
+        <switch var="$">
+        <case op="contain" value="cabeça">
+                <counter var="ponto" op="=" value="6" />
+            </case>
+            <case op="contain" value="ombro">
+                <counter var="ponto" op="=" value="7" />
+            </case>
+            <case op="contain" value="joelho">
+                <counter var="ponto" op="=" value="8" />
+            </case>
+            <case op="contain" value="pé">
+                <counter var="ponto" op="=" value="9" />
+            </case>
+            <case op="contain" value="ouvido">
+                <counter var="ponto" op="=" value="10" />
+            </case>
+            <default>
+                <counter var="ponto" op="=" value="0" />
+            </default>
+        </switch>
+        <switch var="#ponto">
+            <case op="eq" value="#pch">
+                <counter var="pch1" op="=" value="10" />
+            </case>
+            <case op="ne" value="#pch">
+                <goto target="pula_1" />
+            </case>
+        </switch>
+        
+    </macro>
+    <macro id="compara_aut">
+        <switch var="$">
+            <case op="contain" value="carro">
+                <counter var="ponto" op="=" value="11" />
+            </case>
+            <case op="contain" value="trem">
+                <counter var="ponto" op="=" value="12" />
+            </case>
+            <case op="contain" value="onibus">
+                <counter var="ponto" op="=" value="13" />
+            </case>
+            <case op="contain" value="moto">
+                <counter var="ponto" op="=" value="14" />
+            </case>
+            <case op="contain" value="barco">
+                <counter var="ponto" op="=" value="15" />
+            </case>
+            <default>
+                <counter var="ponto" op="=" value="0" />
+            </default>
+        </switch>
+        <switch var="#ponto">
+            <case op="eq" value="#automovel">
+                <counter var="aut1" op="=" value="10" />
+            </case>
+            <case op="ne" value="#automovel">
+                <goto target="pula_2" />
+            </case>
+        </switch>
+    </macro>
+    <macro id="compara_fruta">
+        <switch var="$">
+            <case op="contain" value="uva">
+                <counter var="ponto" op="=" value="16" />
+            </case>
+            <case op="contain" value="melancia">
+                <counter var="ponto" op="=" value="17" />
+            </case>
+            <case op="contain" value="morango">
+                <counter var="ponto" op="=" value="18" />
+            </case>
+            <case op="contain" value="laranja">
+             <counter var="ponto" op="=" value="19" />
+            </case>
+            <case op="contain" value="amora">
+                <counter var="ponto" op="=" value="20" />
+            </case>
+            <default>
+                <counter var="ponto" op="=" value="0" />
+            </default>
+        </switch>
+        <switch var="#ponto">
+            <case op="eq" value="#fruta">
+                <counter var="fruta1" op="=" value="10" />
+            </case>
+            <case op="ne" value="#fruta">
+                <goto target="pula_3" />
+            </case>
+        </switch>
+    </macro>
+    <macro id="compara_animal">
+        <switch var="$">
+            <case op="contain" value="pato">
+                <counter var="ponto" op="=" value="21" />
+            </case>
+            <case op="contain" value="baleia">
+                <counter var="ponto" op="=" value="22" />
+            </case>
+            <case op="contain" value="porco">
+                <counter var="ponto" op="=" value="23" />
+            </case>
+            <case op="contain" value="cabra">
+                <counter var="ponto" op="=" value="24" />
+            </case>
+            <case op="contain" value="gato">
+                <counter var="ponto" op="=" value="25" />
+            </case>
+            <default>
+                <counter var="ponto" op="=" value="0" />
+            </default>
+        </switch>
+        <switch var="#ponto">
+            <case op="eq" value="#animal">
+                <counter var="animal1" op="=" value="10" />
+            </case>
+            <case op="ne" value="#animal">
+                <goto target="Fim" />
+            </case>
+        </switch>
+    </macro>
+<!-- 
+    <macro id="comp_tudo">
+        <switch var="$">
+            <case op="contain" value="azul">
+                <counter var="ponto_cor" op="=" value="1" />
+            </case>
+            <case op="contain" value="vermelho">
+                <counter var="ponto_cor" op="=" value="2" />
+            </case>
+            <case op="contain" value="amarelo">
+                <counter var="ponto_cor" op="=" value="3" />
+            </case>
+            <case op="contain" value="rosa">
+                <counter var="ponto_cor" op="=" value="4" />
+            </case>
+            <case op="contain" value="verde">
+                <counter var="ponto_cor" op="=" value="5" />
+            </case>
+            <default>
+                <counter var="ponto_cor" op="=" value="0" />
+            </default>
+        </switch>
+        <switch var="#ponto_cor">
+            <case op="eq" value="#cor">
+                <counter var="cor1" op="=" value="10" />
+            </case>
+            <case op="ne" value="#cor">
+                <goto target="linha" />
+            </case>
+        </switch>
+        <switch var="$" id="linha">
+        <case op="contain" value="cabeça">
+                <counter var="ponto_pch" op="=" value="6" />
+            </case>
+            <case op="contain" value="ombro">
+                <counter var="ponto_pch" op="=" value="7" />
+            </case>
+            <case op="contain" value="joelho">
+                <counter var="ponto_pch" op="=" value="8" />
+            </case>
+            <case op="contain" value="pé">
+                <counter var="ponto_pch" op="=" value="9" />
+            </case>
+            <case op="contain" value="ouvido">
+                <counter var="ponto_pch" op="=" value="10" />
+            </case>
+            <default>
+                <counter var="ponto_pch" op="=" value="0" />
+            </default>
+        </switch>
+        <switch var="#ponto_pch" >
+            <case op="eq" value="#pch">
+                <counter var="pch1" op="=" value="10" />
+            </case>
+            <case op="ne" value="#pch">
+                <goto target="linha_1" />
+            </case>
+        </switch>
+        <switch var="$" id="linha_1">
+            <case op="contain" value="carro">
+                <counter var="ponto_aut" op="=" value="11" />
+            </case>
+            <case op="contain" value="trem">
+                <counter var="ponto_aut" op="=" value="12" />
+            </case>
+            <case op="contain" value="ônibus">
+                <counter var="ponto_aut" op="=" value="13" />
+            </case>
+            <case op="contain" value="moto">
+                <counter var="ponto_aut" op="=" value="14" />
+            </case>
+            <case op="contain" value="barco">
+                <counter var="ponto_aut" op="=" value="15" />
+            </case>
+            <default>
+                <counter var="ponto_aut" op="=" value="0" />
+            </default>
+        </switch>
+        <switch var="#ponto_aut">
+            <case op="eq" value="#automovel">
+                <counter var="aut1" op="=" value="10" />
+            </case>
+            <case op="ne" value="#automovel">
+                <goto target="linha_2" />
+            </case>
+        </switch>
+        <switch var="$" id="linha_2">
+            <case op="contain" value="uva">
+                <counter var="ponto_fru" op="=" value="16" />
+            </case>
+            <case op="contain" value="melancia">
+                <counter var="ponto_fru" op="=" value="17" />
+            </case>
+            <case op="contain" value="morango">
+                <counter var="ponto_fru" op="=" value="18" />
+            </case>
+            <case op="contain" value="laranja">
+             <counter var="ponto_fru" op="=" value="19" />
+            </case>
+            <case op="contain" value="amora">
+                <counter var="ponto_fru" op="=" value="20" />
+            </case>
+            <default>
+                <counter var="ponto_fru" op="=" value="0" />
+            </default>
+        </switch>
+        <switch var="#ponto_fru">
+            <case op="eq" value="#fruta">
+                <counter var="fruta1" op="=" value="10" />
+            </case>
+            <case op="ne" value="#fruta">
+                <goto target="linha_fim" />
+            </case>
+        </switch>
+        <switch var="$" id="linha_fim">
+            <case op="contain" value="pato">
+                <counter var="ponto_ani" op="=" value="21" />
+            </case>
+            <case op="contain" value="baleia">
+                <counter var="ponto_ani" op="=" value="22" />
+            </case>
+            <case op="contain" value="porco">
+                <counter var="ponto_ani" op="=" value="23" />
+            </case>
+            <case op="contain" value="cabra">
+                <counter var="ponto_ani" op="=" value="24" />
+            </case>
+            <case op="contain" value="gato">
+                <counter var="ponto_ani" op="=" value="25" />
+            </case>
+            <default>
+                <counter var="ponto_ani" op="=" value="0" />
+            </default>
+        </switch>
+        <switch var="#ponto_ani">
+            <case op="eq" value="#animal">
+                <counter var="animal1" op="=" value="10" />
+             </case>
+             <case op="ne" value="#animal">
+             </case>
+        </switch>
+    </macro>
+-->
+    <!-- Macros criadas para a pontuação do jogador -->
+    <macro id="pontuacao_1" >
+        <switch var="#cor1">
+            <case op="eq" value="10">
+                <counter var="pont_fim" op="+" value="1" />
+            </case>
+        </switch>
+    </macro>
+    <macro id="pontuacao_2">
+        <switch var="#pch1">
+            <case op="eq" value="10">
+                <counter var="pont_fim" op="+" value="1" />
+            </case>
+        </switch>
+    </macro>
+    <macro id="pontuacao_3">
+        <switch var="#aut1">
+            <case op="eq" value="10">
+                <counter var="pont_fim" op="+" value="1" />
+            </case>
+        </switch>
+    </macro>
+    <macro id="pontuacao_4">
+        <switch var="#fruta1">
+            <case op="eq" value="10">
+                <counter var="pont_fim" op="+" value="1" />
+            </case>
+        </switch>
+    </macro>
+    <macro id="pontuacao_5">
+        <switch var="#animal1">
+            <case op="eq" value="10">
+                <counter var="pont_fim" op="+" value="1" />
+            </case>
+        </switch>
+    </macro>
+<!-- Macro utilizada para declarar as variáveis utilizadas no jogo-->
+    <macro id="declara">
+        <counter var="animal1" op="=" value="0" />
+        <counter var="cor1" op="=" value="0" />
+        <counter var="pch1" op="=" value="0" />
+        <counter var="fruta1" op="=" value="0" />
+        <counter var="aut1" op="=" value="0" />
+        <counter var="pont_fim" op="=" value="0" />
+    </macro>
+  </macros>
+</evaml>
