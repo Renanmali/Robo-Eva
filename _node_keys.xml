@@ -1,0 +1,2768 @@
+<evaml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="jogo_do_milhao" xsi:noNamespaceSchemaLocation="EvaML-Schema/evaml_schema.xsd" id="83fd826e880874584952cf06f7532128">
+  <settings>
+    <voice tone="pt-BR_IsabelaV3Voice" key="1000" />
+    <audioEffects mode="ON" />
+    <lightEffects mode="ON" />
+  </settings>
+
+  <script>
+    <evaEmotion emotion="HAPPY" key="1001" />
+      <talk key="1002">Olá, meu nome é Eva! 
+            Qual o seu nome?</talk>
+      <evaEmotion emotion="NEUTRAL" key="1003" />
+      <listen key="1004" />
+      <evaEmotion emotion="HAPPY" key="1005" />
+      <talk key="1006">Olá $ !</talk>
+      <evaEmotion emotion="NEUTRAL" key="1007" />
+      <talk key="1008">Vamos jogar o Desafio das Perguntas?</talk>
+      <listen key="1009" />
+      <switch var="$">
+        <case op="exact" value="Sim" key="1010" child_proc="false">
+          <evaEmotion emotion="HAPPY" key="1011" />
+          <talk key="1012">Ôba! Esse é o meu jogo favorito!</talk>
+          <audio source="applause-moderate" block="TRUE" key="1013" />
+          <evaEmotion emotion="NEUTRAL" key="1014" />
+        </case>
+        <case op="exact" value="Não" key="1015" child_proc="false">
+          <evaEmotion emotion="SAD" key="1016" />
+          <talk key="1017">Tudo bem! Até a próxima $1!</talk>
+          <stop />
+        </case>
+      <default key="1018" child_proc="false" /></switch>
+    <evaEmotion emotion="HAPPY" key="1019" />
+      <talk key="1020">Agora, vamos começar o nível fácil.</talk>
+      <evaEmotion emotion="NEUTRAL" key="1021" />
+      <talk key="1022">
+            Cada nível te faz três perguntas e para avançar para o próximo, você precisa acertar todas as respostas.
+            Se você errar uma pergunta, o nível é reiniciado! </talk>
+      <evaEmotion emotion="HAPPY" key="1023" />
+      <talk key="1024">Boa sorte!</talk>
+      <audio source="cheering" block="TRUE" key="1025" />
+      <evaEmotion emotion="NEUTRAL" key="1026" />
+    <counter var="acertos" op="=" value="0" key="1027" />
+    <counter var="perg1" op="=" value="0" key="1028" />
+    <counter var="perg2" op="=" value="0" key="1029" />
+    <counter var="perg3" op="=" value="0" key="1030" />
+    
+    <random min="1" max="20" id="iniciofacil" key="1031" />
+    <switch var="$">
+      <case op="eq" value="1" key="1032" child_proc="false">
+        <counter var="perg1" op="=" value="1" key="1033" />
+      </case>
+      <case op="eq" value="2" key="1034" child_proc="false">
+        <counter var="perg1" op="=" value="2" key="1035" />
+      </case>
+      <case op="eq" value="3" key="1036" child_proc="false">
+        <counter var="perg1" op="=" value="3" key="1037" />
+      </case>
+      <case op="eq" value="4" key="1038" child_proc="false">
+        <counter var="perg1" op="=" value="4" key="1039" />
+      </case>
+      <case op="eq" value="5" key="1040" child_proc="false">
+        <counter var="perg1" op="=" value="5" key="1041" />
+      </case>
+      <case op="eq" value="6" key="1042" child_proc="false">
+        <counter var="perg1" op="=" value="6" key="1043" />
+      </case>
+      <case op="eq" value="7" key="1044" child_proc="false">
+        <counter var="perg1" op="=" value="7" key="1045" />
+      </case>
+      <case op="eq" value="8" key="1046" child_proc="false">
+        <counter var="perg1" op="=" value="8" key="1047" />
+      </case>
+      <case op="eq" value="9" key="1048" child_proc="false">
+        <counter var="perg1" op="=" value="9" key="1049" />
+      </case>
+      <case op="eq" value="10" key="1050" child_proc="false">
+        <counter var="perg1" op="=" value="10" key="1051" />
+      </case>
+      <case op="eq" value="11" key="1052" child_proc="false">
+        <counter var="perg1" op="=" value="11" key="1053" />
+      </case>
+      <case op="eq" value="12" key="1054" child_proc="false">
+        <counter var="perg1" op="=" value="12" key="1055" />
+      </case>
+      <case op="eq" value="13" key="1056" child_proc="false">
+        <counter var="perg1" op="=" value="13" key="1057" />
+      </case>
+      <case op="eq" value="14" key="1058" child_proc="false">
+        <counter var="perg1" op="=" value="14" key="1059" />
+      </case>
+      <case op="eq" value="15" key="1060" child_proc="false">
+        <counter var="perg1" op="=" value="15" key="1061" />
+      </case>
+      <case op="eq" value="16" key="1062" child_proc="false">
+        <counter var="perg1" op="=" value="16" key="1063" />
+      </case>
+      <case op="eq" value="17" key="1064" child_proc="false">
+        <counter var="perg1" op="=" value="17" key="1065" />
+      </case>
+      <case op="eq" value="18" key="1066" child_proc="false">
+        <counter var="perg1" op="=" value="18" key="1067" />
+      </case>
+      <case op="eq" value="19" key="1068" child_proc="false">
+        <counter var="perg1" op="=" value="19" key="1069" />
+      </case>
+      <case op="eq" value="20" key="1070" child_proc="false">
+        <counter var="perg1" op="=" value="20" key="1071" />
+      </case>
+    <default key="1072" child_proc="false" /></switch>
+    <light state="OFF" key="1073" />
+    <talk key="1074">Pergunta 1:</talk>
+    <light state="ON" color="YELLOW" key="1075" />
+    <evaEmotion emotion="NEUTRAL" key="1076" />
+            <switch var="$">
+                <case op="exact" value="1" key="1077" child_proc="false">
+                  <talk key="1078">A palavra Big em inglês significa:</talk>
+                  <talk key="1079">Lêtra A, Grande. 
+                        Lêtra B, Pequeno.
+                        Lêtra C, Bonito.
+                        Lêtra D, Porco.</talk>
+                  <counter var="compara" op="=" value="1" key="1080" />
+                </case>
+                <case op="exact" value="2" key="1081" child_proc="false">
+                  <talk key="1082">Quem produz um líquido quente chamado lava?</talk>
+                  <talk key="1083">Lêtra A, As tempestades.
+                        Lêtra B, Os furacões.
+                        Lêtra C, Os maremotos.
+                        Lêtra D, Os vulcões.</talk>
+                  <counter var="compara" op="=" value="4" key="1084" />
+                </case>
+                <case op="exact" value="3" key="1085" child_proc="false">
+                  <talk key="1086">Que feriado se comemora no dia vinte e cinco de dezembro?</talk>
+                  <talk key="1087">Lêtra A, Natal.
+                        Lêtra B, Páscoa.
+                        Lêtra C, Carnaval.
+                        Lêtra D, Tiradentes.</talk>
+                  <counter var="compara" op="=" value="1" key="1088" />
+                </case>
+                <case op="exact" value="4" key="1089" child_proc="false">
+                  <talk key="1090">O que é a Via Láctea?</talk>
+                  <talk key="1091">Lêtra A, Galáxia.
+                        Lêtra B, Marca de Leite.
+                        Lêtra C, Civilização antiga.
+                        Lêtra D, Marca de carro.</talk>
+                  <counter var="compara" op="=" value="1" key="1092" />
+                </case>
+                <case op="exact" value="5" key="1093" child_proc="false">
+                  <talk key="1094">Qual é a capital da França</talk>
+                  <talk key="1095">Lêtra A, Paris.
+                        Lêtra B, Lille.
+                        Lêtra C, Marselha.
+                        Lêtra D, Mônaco.</talk>
+                  <counter var="compara" op="=" value="1" key="1096" />
+                </case>
+                <case op="exact" value="6" key="1097" child_proc="false">
+                  <talk key="1098">Quem nasce em São Paulo é:</talk>
+                  <talk key="1099">Lêtra A, Capixaba.
+                        Lêtra B, Paulista.
+                        Lêtra C, São Paulino.
+                        Lêtra D, Santista.</talk>
+                  <counter var="compara" op="=" value="2" key="1100" />
+                </case>
+                <case op="exact" value="7" key="1101" child_proc="false">
+                  <talk key="1102">O Pluto é o cachorro de quem?</talk>
+                  <talk key="1103">Lêtra A, do Franjinha.
+                        Lêtra B, do Mickey.
+                        Lêtra C, do Salsicha.
+                        Lêtra D, do Homer Simpson.</talk>
+                  <counter var="compara" op="=" value="2" key="1104" />
+                </case>
+                <case op="exact" value="8" key="1105" child_proc="false">
+                  <talk key="1106">Qual é o nome do profissional que apaga incêndios?</talk>
+                  <talk key="1107">Lêtra A, Juiz.
+                        Lêtra B, Bombeiro.
+                        Lêtra C, Carpinteiro.
+                        Lêtra D, Eletricista.</talk>
+                  <counter var="compara" op="=" value="2" key="1108" />
+                </case>
+                <case op="exact" value="9" key="1109" child_proc="false">
+                  <talk key="1110">De onde as abelhas extraem mel?</talk>
+                  <talk key="1111">Lêtra A, das Rochas.
+                        Lêtra B, das Flores.
+                        Lêtra C, da Terra.
+                        Lêtra D, da Água.</talk>
+                  <counter var="compara" op="=" value="2" key="1112" />
+                </case>
+                <case op="exact" value="10" key="1113" child_proc="false">
+                  <talk key="1114">O estádio do Maracanã fica localizado em qual estado?</talk>
+                  <talk key="1115">Lêtra A, São Paulo.
+                        Lêtra B, Rio de Janeiro.
+                        Lêtra C, Rio Grande do Sul.
+                        Lêtra D, Belo Horizonte.</talk>
+                  <counter var="compara" op="=" value="2" key="1116" />
+                </case>
+                <case op="exact" value="11" key="1117" child_proc="false">
+                  <talk key="1118">Qual é o nome do boneco de neve do filme Frozen?</talk>
+                  <talk key="1119">Lêtra A, Geladinho.
+                        Lêtra B, Senhor Frio.
+                        Lêtra C, Olaf.
+                        Lêtra D, Neve.</talk>
+                  <counter var="compara" op="=" value="3" key="1120" />
+                </case>
+                <case op="exact" value="12" key="1121" child_proc="false">
+                  <talk key="1122">Quem nasce na "Cidade Maravilhosa" é:</talk>
+                  <talk key="1123">Lêtra A, Paulista.
+                        Lêtra B, Gaúcho. 
+                        Lêtra C, Carioca. 
+                        Lêtra D, Cearense.</talk>
+                  <counter var="compara" op="=" value="3" key="1124" />
+                </case>
+                <case op="exact" value="13" key="1125" child_proc="false">
+                  <talk key="1126">Qual fruta envenenada Branca de Neve comeu?</talk>
+                  <talk key="1127">Lêtra A, Pêra. 
+                        Lêtra B, Banana. 
+                        Lêtra C, Maçã. 
+                        Lêtra D, Laranja.</talk>
+                  <counter var="compara" op="=" value="3" key="1128" />
+                </case>
+                <case op="exact" value="14" key="1129" child_proc="false">
+                  <talk key="1130">Que personagem dos quadrinhos usa um coelho como arma e tem dentes grandes?</talk>
+                  <talk key="1131">Lêtra A, Magali.
+                        Lêtra B, Cebolinha. 
+                        Lêtra C, Mônica. 
+                        Lêtra D, Cascão.</talk>
+                  <counter var="compara" op="=" value="3" key="1132" />
+                </case>
+                <case op="exact" value="15" key="1133" child_proc="false">
+                  <talk key="1134">Quem é a mulher do Tarzan?</talk>
+                  <talk key="1135">Lêtra A, Diana. 
+                        Lêtra B, Louis Laine. 
+                        Lêtra C, Jane. 
+                        Lêtra D, Chita.</talk>
+                  <counter var="compara" op="=" value="3" key="1136" />
+                </case>
+                <case op="exact" value="16" key="1137" child_proc="false">
+                    <talk key="1138">Qual dos seguintes animais é um mamífero:</talk>
+                    <talk key="1139">Lêtra A, Pinguim. 
+                          Lêtra B, Jacaré. 
+                          Lêtra C, Gaivota. 
+                          Lêtra D, Cachorro.</talk>
+                    <counter var="compara" op="=" value="4" key="1140" />
+                </case>
+                <case op="exact" value="17" key="1141" child_proc="false">
+                  <talk key="1142">Uma pessoa que fica em terceiro lugar em uma competição, recebe qual medalha?</talk>
+                  <talk key="1143">Lêtra A, Chumbo. 
+                        Lêtra B, Ouro. 
+                        Lêtra C, Prata. 
+                        Lêtra D, Bronze.</talk>
+                  <counter var="compara" op="=" value="4" key="1144" />
+                </case>
+                <case op="exact" value="18" key="1145" child_proc="false">
+                  <talk key="1146">Popularmente, como é chamada a pessoa que tem o hábito de falar palavrão?</talk>
+                  <talk key="1147">Lêtra A, Boca Aberta. 
+                        Lêtra B, Boca de Siri. 
+                        Lêtra C, Boca Fechada.
+                        Lêtra D, Boca Suja.</talk>
+                  <counter var="compara" op="=" value="4" key="1148" />
+                </case>
+                <case op="exact" value="19" key="1149" child_proc="false">
+                  <talk key="1150">Harry Potter é uma série de livros de:</talk>
+                  <talk key="1151">Lêtra A, Comédia. 
+                        Lêtra B, Romance. 
+                        Lêtra C, Terror. 
+                        Lêtra D, Fantasia.</talk>
+                  <counter var="compara" op="=" value="4" key="1152" />
+                </case>
+                <case op="exact" value="20" key="1153" child_proc="false">
+                  <talk key="1154">Quantos anos tem um século?</talk>
+                  <talk key="1155">Lêtra A, Dez. 
+                        Lêtra B, Quinhentos. 
+                        Lêtra C, Mil. 
+                        Lêtra D, Cem.</talk>
+                  <counter var="compara" op="=" value="4" key="1156" />
+                </case>
+            <default key="1157" child_proc="false" /></switch>
+            <listen key="1158" />
+            <switch var="$">
+                <case op="contain" value="A" key="1159" child_proc="false">
+                    <counter var="ponto" op="=" value="1" key="1160" />
+                </case>
+                <case op="contain" value="B" key="1161" child_proc="false">
+                    <counter var="ponto" op="=" value="2" key="1162" />
+                </case>  
+                <case op="contain" value="C" key="1163" child_proc="false">
+                    <counter var="ponto" op="=" value="3" key="1164" />
+                </case>  
+                <case op="contain" value="D" key="1165" child_proc="false">
+                    <counter var="ponto" op="=" value="4" key="1166" />
+                </case>
+                <default key="1167" child_proc="false">
+                  <counter var="ponto" op="=" value="0" key="1168" />
+                </default>   
+            </switch>
+            <switch var="#ponto">
+                <case op="eq" value="#compara" key="1169" child_proc="false">
+                  <evaEmotion emotion="HAPPY" key="1170" />
+                  <light state="ON" color="GREEN" key="1171" />
+                  <talk key="1172">Você acertou!</talk>
+                  <evaEmotion emotion="NEUTRAL" key="1173" />
+                  <light state="OFF" key="1174" />
+                  <counter var="acertos" op="+" value="1" key="1175" />
+                </case>
+                <case op="ne" value="#compara" key="1176" child_proc="false">
+                  <evaEmotion emotion="SAD" key="1177" />
+                  <light state="ON" color="RED" key="1178" />
+                  <talk key="1179">Errou, na próxima você acerta!</talk>
+                  <evaEmotion emotion="NEUTRAL" key="1180" />
+                  <light state="OFF" key="1181" />
+                </case>
+              <default key="1182" child_proc="false" /></switch>
+    <switch var="#acertos">
+      
+      <case op="eq" value="0" key="1183" child_proc="false">
+        <counter var="acertos" op="=" value="0" key="1184" />
+        <light state="ON" color="WHITE" key="1185" />
+        <talk key="1186">Vamos reiniciar a fase?</talk>
+        <listen key="1187" />
+        <switch var="$">
+          <case op="exact" value="sim" key="1188" child_proc="false">
+            <goto target="iniciofacil" />
+          </case>
+          <case op="exact" value="não" key="1189" child_proc="false">
+            <light state="OFF" key="1190" />
+            <evaEmotion emotion="SAD" key="1191" />
+            <talk key="1192">Tudo bem! Até a próxima $1!</talk>
+            <stop />
+          </case>
+        <default key="1193" child_proc="false" /></switch>
+      </case>
+      
+      <case op="eq" value="1" key="1194" child_proc="false">
+        <random min="1" max="20" id="meiofacil" key="1195" />
+        <switch var="$">
+          <case op="eq" value="1" key="1196" child_proc="false">
+            <counter var="perg2" op="=" value="1" key="1197" />
+          </case>
+          <case op="eq" value="2" key="1198" child_proc="false">
+            <counter var="perg2" op="=" value="2" key="1199" />
+          </case>
+          <case op="eq" value="3" key="1200" child_proc="false">
+            <counter var="perg2" op="=" value="3" key="1201" />
+          </case>
+          <case op="eq" value="4" key="1202" child_proc="false">
+            <counter var="perg2" op="=" value="4" key="1203" />
+          </case>
+          <case op="eq" value="5" key="1204" child_proc="false">
+            <counter var="perg2" op="=" value="5" key="1205" />
+          </case>
+          <case op="eq" value="6" key="1206" child_proc="false">
+            <counter var="perg2" op="=" value="6" key="1207" />
+          </case>
+          <case op="eq" value="7" key="1208" child_proc="false">
+            <counter var="perg2" op="=" value="7" key="1209" />
+          </case>
+          <case op="eq" value="8" key="1210" child_proc="false">
+            <counter var="perg2" op="=" value="8" key="1211" />
+          </case>
+          <case op="eq" value="9" key="1212" child_proc="false">
+            <counter var="perg2" op="=" value="9" key="1213" />
+          </case>
+          <case op="eq" value="10" key="1214" child_proc="false">
+            <counter var="perg2" op="=" value="10" key="1215" />
+          </case>
+          <case op="eq" value="11" key="1216" child_proc="false">
+            <counter var="perg2" op="=" value="11" key="1217" />
+          </case>
+          <case op="eq" value="12" key="1218" child_proc="false">
+            <counter var="perg2" op="=" value="12" key="1219" />
+          </case>
+          <case op="eq" value="13" key="1220" child_proc="false">
+            <counter var="perg2" op="=" value="13" key="1221" />
+          </case>
+          <case op="eq" value="14" key="1222" child_proc="false">
+            <counter var="perg2" op="=" value="14" key="1223" />
+          </case>
+          <case op="eq" value="15" key="1224" child_proc="false">
+            <counter var="perg2" op="=" value="15" key="1225" />
+          </case>
+          <case op="eq" value="16" key="1226" child_proc="false">
+            <counter var="perg2" op="=" value="16" key="1227" />
+          </case>
+          <case op="eq" value="17" key="1228" child_proc="false">
+            <counter var="perg2" op="=" value="17" key="1229" />
+          </case>
+          <case op="eq" value="18" key="1230" child_proc="false">
+            <counter var="perg2" op="=" value="18" key="1231" />
+          </case>
+          <case op="eq" value="19" key="1232" child_proc="false">
+            <counter var="perg2" op="=" value="19" key="1233" />
+          </case>
+          <case op="eq" value="20" key="1234" child_proc="false">
+            <counter var="perg2" op="=" value="20" key="1235" />
+          </case>
+        <default key="1236" child_proc="false" /></switch>
+
+        <switch var="#perg2">
+          <case op="eq" value="#perg1" key="1237" child_proc="false">
+            <goto target="meiofacil" />
+          </case>
+          <case op="ne" value="#perg1" key="1238" child_proc="false">
+            <talk key="1239">Pergunta 2:</talk>
+            <light state="ON" color="YELLOW" key="1240" />
+            <evaEmotion emotion="NEUTRAL" key="1241" />
+            <switch var="$">
+                <case op="exact" value="1" key="1242" child_proc="false">
+                  <talk key="1243">A palavra Big em inglês significa:</talk>
+                  <talk key="1244">Lêtra A, Grande. 
+                        Lêtra B, Pequeno.
+                        Lêtra C, Bonito.
+                        Lêtra D, Porco.</talk>
+                  <counter var="compara" op="=" value="1" key="1245" />
+                </case>
+                <case op="exact" value="2" key="1246" child_proc="false">
+                  <talk key="1247">Quem produz um líquido quente chamado lava?</talk>
+                  <talk key="1248">Lêtra A, As tempestades.
+                        Lêtra B, Os furacões.
+                        Lêtra C, Os maremotos.
+                        Lêtra D, Os vulcões.</talk>
+                  <counter var="compara" op="=" value="4" key="1249" />
+                </case>
+                <case op="exact" value="3" key="1250" child_proc="false">
+                  <talk key="1251">Que feriado se comemora no dia vinte e cinco de dezembro?</talk>
+                  <talk key="1252">Lêtra A, Natal.
+                        Lêtra B, Páscoa.
+                        Lêtra C, Carnaval.
+                        Lêtra D, Tiradentes.</talk>
+                  <counter var="compara" op="=" value="1" key="1253" />
+                </case>
+                <case op="exact" value="4" key="1254" child_proc="false">
+                  <talk key="1255">O que é a Via Láctea?</talk>
+                  <talk key="1256">Lêtra A, Galáxia.
+                        Lêtra B, Marca de Leite.
+                        Lêtra C, Civilização antiga.
+                        Lêtra D, Marca de carro.</talk>
+                  <counter var="compara" op="=" value="1" key="1257" />
+                </case>
+                <case op="exact" value="5" key="1258" child_proc="false">
+                  <talk key="1259">Qual é a capital da França</talk>
+                  <talk key="1260">Lêtra A, Paris.
+                        Lêtra B, Lille.
+                        Lêtra C, Marselha.
+                        Lêtra D, Mônaco.</talk>
+                  <counter var="compara" op="=" value="1" key="1261" />
+                </case>
+                <case op="exact" value="6" key="1262" child_proc="false">
+                  <talk key="1263">Quem nasce em São Paulo é:</talk>
+                  <talk key="1264">Lêtra A, Capixaba.
+                        Lêtra B, Paulista.
+                        Lêtra C, São Paulino.
+                        Lêtra D, Santista.</talk>
+                  <counter var="compara" op="=" value="2" key="1265" />
+                </case>
+                <case op="exact" value="7" key="1266" child_proc="false">
+                  <talk key="1267">O Pluto é o cachorro de quem?</talk>
+                  <talk key="1268">Lêtra A, do Franjinha.
+                        Lêtra B, do Mickey.
+                        Lêtra C, do Salsicha.
+                        Lêtra D, do Homer Simpson.</talk>
+                  <counter var="compara" op="=" value="2" key="1269" />
+                </case>
+                <case op="exact" value="8" key="1270" child_proc="false">
+                  <talk key="1271">Qual é o nome do profissional que apaga incêndios?</talk>
+                  <talk key="1272">Lêtra A, Juiz.
+                        Lêtra B, Bombeiro.
+                        Lêtra C, Carpinteiro.
+                        Lêtra D, Eletricista.</talk>
+                  <counter var="compara" op="=" value="2" key="1273" />
+                </case>
+                <case op="exact" value="9" key="1274" child_proc="false">
+                  <talk key="1275">De onde as abelhas extraem mel?</talk>
+                  <talk key="1276">Lêtra A, das Rochas.
+                        Lêtra B, das Flores.
+                        Lêtra C, da Terra.
+                        Lêtra D, da Água.</talk>
+                  <counter var="compara" op="=" value="2" key="1277" />
+                </case>
+                <case op="exact" value="10" key="1278" child_proc="false">
+                  <talk key="1279">O estádio do Maracanã fica localizado em qual estado?</talk>
+                  <talk key="1280">Lêtra A, São Paulo.
+                        Lêtra B, Rio de Janeiro.
+                        Lêtra C, Rio Grande do Sul.
+                        Lêtra D, Belo Horizonte.</talk>
+                  <counter var="compara" op="=" value="2" key="1281" />
+                </case>
+                <case op="exact" value="11" key="1282" child_proc="false">
+                  <talk key="1283">Qual é o nome do boneco de neve do filme Frozen?</talk>
+                  <talk key="1284">Lêtra A, Geladinho.
+                        Lêtra B, Senhor Frio.
+                        Lêtra C, Olaf.
+                        Lêtra D, Neve.</talk>
+                  <counter var="compara" op="=" value="3" key="1285" />
+                </case>
+                <case op="exact" value="12" key="1286" child_proc="false">
+                  <talk key="1287">Quem nasce na "Cidade Maravilhosa" é:</talk>
+                  <talk key="1288">Lêtra A, Paulista.
+                        Lêtra B, Gaúcho. 
+                        Lêtra C, Carioca. 
+                        Lêtra D, Cearense.</talk>
+                  <counter var="compara" op="=" value="3" key="1289" />
+                </case>
+                <case op="exact" value="13" key="1290" child_proc="false">
+                  <talk key="1291">Qual fruta envenenada Branca de Neve comeu?</talk>
+                  <talk key="1292">Lêtra A, Pêra. 
+                        Lêtra B, Banana. 
+                        Lêtra C, Maçã. 
+                        Lêtra D, Laranja.</talk>
+                  <counter var="compara" op="=" value="3" key="1293" />
+                </case>
+                <case op="exact" value="14" key="1294" child_proc="false">
+                  <talk key="1295">Que personagem dos quadrinhos usa um coelho como arma e tem dentes grandes?</talk>
+                  <talk key="1296">Lêtra A, Magali.
+                        Lêtra B, Cebolinha. 
+                        Lêtra C, Mônica. 
+                        Lêtra D, Cascão.</talk>
+                  <counter var="compara" op="=" value="3" key="1297" />
+                </case>
+                <case op="exact" value="15" key="1298" child_proc="false">
+                  <talk key="1299">Quem é a mulher do Tarzan?</talk>
+                  <talk key="1300">Lêtra A, Diana. 
+                        Lêtra B, Louis Laine. 
+                        Lêtra C, Jane. 
+                        Lêtra D, Chita.</talk>
+                  <counter var="compara" op="=" value="3" key="1301" />
+                </case>
+                <case op="exact" value="16" key="1302" child_proc="false">
+                    <talk key="1303">Qual dos seguintes animais é um mamífero:</talk>
+                    <talk key="1304">Lêtra A, Pinguim. 
+                          Lêtra B, Jacaré. 
+                          Lêtra C, Gaivota. 
+                          Lêtra D, Cachorro.</talk>
+                    <counter var="compara" op="=" value="4" key="1305" />
+                </case>
+                <case op="exact" value="17" key="1306" child_proc="false">
+                  <talk key="1307">Uma pessoa que fica em terceiro lugar em uma competição, recebe qual medalha?</talk>
+                  <talk key="1308">Lêtra A, Chumbo. 
+                        Lêtra B, Ouro. 
+                        Lêtra C, Prata. 
+                        Lêtra D, Bronze.</talk>
+                  <counter var="compara" op="=" value="4" key="1309" />
+                </case>
+                <case op="exact" value="18" key="1310" child_proc="false">
+                  <talk key="1311">Popularmente, como é chamada a pessoa que tem o hábito de falar palavrão?</talk>
+                  <talk key="1312">Lêtra A, Boca Aberta. 
+                        Lêtra B, Boca de Siri. 
+                        Lêtra C, Boca Fechada.
+                        Lêtra D, Boca Suja.</talk>
+                  <counter var="compara" op="=" value="4" key="1313" />
+                </case>
+                <case op="exact" value="19" key="1314" child_proc="false">
+                  <talk key="1315">Harry Potter é uma série de livros de:</talk>
+                  <talk key="1316">Lêtra A, Comédia. 
+                        Lêtra B, Romance. 
+                        Lêtra C, Terror. 
+                        Lêtra D, Fantasia.</talk>
+                  <counter var="compara" op="=" value="4" key="1317" />
+                </case>
+                <case op="exact" value="20" key="1318" child_proc="false">
+                  <talk key="1319">Quantos anos tem um século?</talk>
+                  <talk key="1320">Lêtra A, Dez. 
+                        Lêtra B, Quinhentos. 
+                        Lêtra C, Mil. 
+                        Lêtra D, Cem.</talk>
+                  <counter var="compara" op="=" value="4" key="1321" />
+                </case>
+            <default key="1322" child_proc="false" /></switch>
+            <listen key="1323" />
+            <switch var="$">
+                <case op="contain" value="A" key="1324" child_proc="false">
+                    <counter var="ponto" op="=" value="1" key="1325" />
+                </case>
+                <case op="contain" value="B" key="1326" child_proc="false">
+                    <counter var="ponto" op="=" value="2" key="1327" />
+                </case>  
+                <case op="contain" value="C" key="1328" child_proc="false">
+                    <counter var="ponto" op="=" value="3" key="1329" />
+                </case>  
+                <case op="contain" value="D" key="1330" child_proc="false">
+                    <counter var="ponto" op="=" value="4" key="1331" />
+                </case>
+                <default key="1332" child_proc="false">
+                  <counter var="ponto" op="=" value="0" key="1333" />
+                </default>   
+            </switch>
+            <switch var="#ponto">
+                <case op="eq" value="#compara" key="1334" child_proc="false">
+                  <evaEmotion emotion="HAPPY" key="1335" />
+                  <light state="ON" color="GREEN" key="1336" />
+                  <talk key="1337">Você acertou!</talk>
+                  <evaEmotion emotion="NEUTRAL" key="1338" />
+                  <light state="OFF" key="1339" />
+                  <counter var="acertos" op="+" value="1" key="1340" />
+                </case>
+                <case op="ne" value="#compara" key="1341" child_proc="false">
+                  <evaEmotion emotion="SAD" key="1342" />
+                  <light state="ON" color="RED" key="1343" />
+                  <talk key="1344">Errou, na próxima você acerta!</talk>
+                  <evaEmotion emotion="NEUTRAL" key="1345" />
+                  <light state="OFF" key="1346" />
+                </case>
+              <default key="1347" child_proc="false" /></switch>
+    <switch var="#acertos">
+            
+            <case op="eq" value="1" key="1348" child_proc="false">
+              <counter var="acertos" op="=" value="0" key="1349" />
+              <light state="ON" color="WHITE" key="1350" />
+              <talk key="1351">Vamos reiniciar a fase?</talk>
+              <listen key="1352" />
+              <switch var="$">
+                <case op="exact" value="sim" key="1353" child_proc="false">
+                  <goto target="iniciofacil" />
+                </case>
+                <case op="exact" value="não" key="1354" child_proc="false">
+                  <light state="OFF" key="1355" />
+                  <evaEmotion emotion="SAD" key="1356" />
+                  <talk key="1357">Tudo bem! Até a próxima $1!</talk>
+                  <stop />
+                </case>
+              <default key="1358" child_proc="false" /></switch>
+            </case>
+            
+            <case op="eq" value="2" key="1359" child_proc="false">
+              <random min="1" max="20" id="fimfacil" key="1360" />
+              <switch var="$">
+                <case op="eq" value="1" key="1361" child_proc="false">
+                  <counter var="perg3" op="=" value="1" key="1362" />
+                </case>
+                <case op="eq" value="2" key="1363" child_proc="false">
+                  <counter var="perg3" op="=" value="2" key="1364" />
+                </case>
+                <case op="eq" value="3" key="1365" child_proc="false">
+                  <counter var="perg3" op="=" value="3" key="1366" />
+                </case>
+                <case op="eq" value="4" key="1367" child_proc="false">
+                  <counter var="perg3" op="=" value="4" key="1368" />
+                </case>
+                <case op="eq" value="5" key="1369" child_proc="false">
+                  <counter var="perg3" op="=" value="5" key="1370" />
+                </case>
+                <case op="eq" value="6" key="1371" child_proc="false">
+                  <counter var="perg3" op="=" value="6" key="1372" />
+                </case>
+                <case op="eq" value="7" key="1373" child_proc="false">
+                  <counter var="perg3" op="=" value="7" key="1374" />
+                </case>
+                <case op="eq" value="8" key="1375" child_proc="false">
+                  <counter var="perg3" op="=" value="8" key="1376" />
+                </case>
+                <case op="eq" value="9" key="1377" child_proc="false">
+                  <counter var="perg3" op="=" value="9" key="1378" />
+                </case>
+                <case op="eq" value="10" key="1379" child_proc="false">
+                  <counter var="perg3" op="=" value="10" key="1380" />
+                </case>
+                <case op="eq" value="11" key="1381" child_proc="false">
+                  <counter var="perg3" op="=" value="11" key="1382" />
+                </case>
+                <case op="eq" value="12" key="1383" child_proc="false">
+                  <counter var="perg3" op="=" value="12" key="1384" />
+                </case>
+                <case op="eq" value="13" key="1385" child_proc="false">
+                  <counter var="perg3" op="=" value="13" key="1386" />
+                </case>
+                <case op="eq" value="14" key="1387" child_proc="false">
+                  <counter var="perg3" op="=" value="14" key="1388" />
+                </case>
+                <case op="eq" value="15" key="1389" child_proc="false">
+                  <counter var="perg3" op="=" value="15" key="1390" />
+                </case>
+                <case op="eq" value="16" key="1391" child_proc="false">
+                  <counter var="perg3" op="=" value="16" key="1392" />
+                </case>
+                <case op="eq" value="17" key="1393" child_proc="false">
+                  <counter var="perg3" op="=" value="17" key="1394" />
+                </case>
+                <case op="eq" value="18" key="1395" child_proc="false">
+                  <counter var="perg3" op="=" value="18" key="1396" />
+                </case>
+                <case op="eq" value="19" key="1397" child_proc="false">
+                  <counter var="perg3" op="=" value="19" key="1398" />
+                </case>
+                <case op="eq" value="20" key="1399" child_proc="false">
+                  <counter var="perg3" op="=" value="20" key="1400" />
+                </case>
+              <default key="1401" child_proc="false" /></switch>
+            </case>
+          <default key="1402" child_proc="false" /></switch>
+            <switch var="#perg3">
+              <case op="eq" value="#perg1" key="1403" child_proc="false">
+                <goto target="fimfacil" />
+              </case>
+              <case op="eq" value="#perg2" key="1404" child_proc="false">
+                <goto target="fimfacil" />
+              </case>
+              <default key="1405" child_proc="false">
+                <talk key="1406">Pergunta 3:</talk>
+                <light state="ON" color="YELLOW" key="1407" />
+                <evaEmotion emotion="NEUTRAL" key="1408" />
+            <switch var="$">
+                <case op="exact" value="1" key="1409" child_proc="false">
+                  <talk key="1410">A palavra Big em inglês significa:</talk>
+                  <talk key="1411">Lêtra A, Grande. 
+                        Lêtra B, Pequeno.
+                        Lêtra C, Bonito.
+                        Lêtra D, Porco.</talk>
+                  <counter var="compara" op="=" value="1" key="1412" />
+                </case>
+                <case op="exact" value="2" key="1413" child_proc="false">
+                  <talk key="1414">Quem produz um líquido quente chamado lava?</talk>
+                  <talk key="1415">Lêtra A, As tempestades.
+                        Lêtra B, Os furacões.
+                        Lêtra C, Os maremotos.
+                        Lêtra D, Os vulcões.</talk>
+                  <counter var="compara" op="=" value="4" key="1416" />
+                </case>
+                <case op="exact" value="3" key="1417" child_proc="false">
+                  <talk key="1418">Que feriado se comemora no dia vinte e cinco de dezembro?</talk>
+                  <talk key="1419">Lêtra A, Natal.
+                        Lêtra B, Páscoa.
+                        Lêtra C, Carnaval.
+                        Lêtra D, Tiradentes.</talk>
+                  <counter var="compara" op="=" value="1" key="1420" />
+                </case>
+                <case op="exact" value="4" key="1421" child_proc="false">
+                  <talk key="1422">O que é a Via Láctea?</talk>
+                  <talk key="1423">Lêtra A, Galáxia.
+                        Lêtra B, Marca de Leite.
+                        Lêtra C, Civilização antiga.
+                        Lêtra D, Marca de carro.</talk>
+                  <counter var="compara" op="=" value="1" key="1424" />
+                </case>
+                <case op="exact" value="5" key="1425" child_proc="false">
+                  <talk key="1426">Qual é a capital da França</talk>
+                  <talk key="1427">Lêtra A, Paris.
+                        Lêtra B, Lille.
+                        Lêtra C, Marselha.
+                        Lêtra D, Mônaco.</talk>
+                  <counter var="compara" op="=" value="1" key="1428" />
+                </case>
+                <case op="exact" value="6" key="1429" child_proc="false">
+                  <talk key="1430">Quem nasce em São Paulo é:</talk>
+                  <talk key="1431">Lêtra A, Capixaba.
+                        Lêtra B, Paulista.
+                        Lêtra C, São Paulino.
+                        Lêtra D, Santista.</talk>
+                  <counter var="compara" op="=" value="2" key="1432" />
+                </case>
+                <case op="exact" value="7" key="1433" child_proc="false">
+                  <talk key="1434">O Pluto é o cachorro de quem?</talk>
+                  <talk key="1435">Lêtra A, do Franjinha.
+                        Lêtra B, do Mickey.
+                        Lêtra C, do Salsicha.
+                        Lêtra D, do Homer Simpson.</talk>
+                  <counter var="compara" op="=" value="2" key="1436" />
+                </case>
+                <case op="exact" value="8" key="1437" child_proc="false">
+                  <talk key="1438">Qual é o nome do profissional que apaga incêndios?</talk>
+                  <talk key="1439">Lêtra A, Juiz.
+                        Lêtra B, Bombeiro.
+                        Lêtra C, Carpinteiro.
+                        Lêtra D, Eletricista.</talk>
+                  <counter var="compara" op="=" value="2" key="1440" />
+                </case>
+                <case op="exact" value="9" key="1441" child_proc="false">
+                  <talk key="1442">De onde as abelhas extraem mel?</talk>
+                  <talk key="1443">Lêtra A, das Rochas.
+                        Lêtra B, das Flores.
+                        Lêtra C, da Terra.
+                        Lêtra D, da Água.</talk>
+                  <counter var="compara" op="=" value="2" key="1444" />
+                </case>
+                <case op="exact" value="10" key="1445" child_proc="false">
+                  <talk key="1446">O estádio do Maracanã fica localizado em qual estado?</talk>
+                  <talk key="1447">Lêtra A, São Paulo.
+                        Lêtra B, Rio de Janeiro.
+                        Lêtra C, Rio Grande do Sul.
+                        Lêtra D, Belo Horizonte.</talk>
+                  <counter var="compara" op="=" value="2" key="1448" />
+                </case>
+                <case op="exact" value="11" key="1449" child_proc="false">
+                  <talk key="1450">Qual é o nome do boneco de neve do filme Frozen?</talk>
+                  <talk key="1451">Lêtra A, Geladinho.
+                        Lêtra B, Senhor Frio.
+                        Lêtra C, Olaf.
+                        Lêtra D, Neve.</talk>
+                  <counter var="compara" op="=" value="3" key="1452" />
+                </case>
+                <case op="exact" value="12" key="1453" child_proc="false">
+                  <talk key="1454">Quem nasce na "Cidade Maravilhosa" é:</talk>
+                  <talk key="1455">Lêtra A, Paulista.
+                        Lêtra B, Gaúcho. 
+                        Lêtra C, Carioca. 
+                        Lêtra D, Cearense.</talk>
+                  <counter var="compara" op="=" value="3" key="1456" />
+                </case>
+                <case op="exact" value="13" key="1457" child_proc="false">
+                  <talk key="1458">Qual fruta envenenada Branca de Neve comeu?</talk>
+                  <talk key="1459">Lêtra A, Pêra. 
+                        Lêtra B, Banana. 
+                        Lêtra C, Maçã. 
+                        Lêtra D, Laranja.</talk>
+                  <counter var="compara" op="=" value="3" key="1460" />
+                </case>
+                <case op="exact" value="14" key="1461" child_proc="false">
+                  <talk key="1462">Que personagem dos quadrinhos usa um coelho como arma e tem dentes grandes?</talk>
+                  <talk key="1463">Lêtra A, Magali.
+                        Lêtra B, Cebolinha. 
+                        Lêtra C, Mônica. 
+                        Lêtra D, Cascão.</talk>
+                  <counter var="compara" op="=" value="3" key="1464" />
+                </case>
+                <case op="exact" value="15" key="1465" child_proc="false">
+                  <talk key="1466">Quem é a mulher do Tarzan?</talk>
+                  <talk key="1467">Lêtra A, Diana. 
+                        Lêtra B, Louis Laine. 
+                        Lêtra C, Jane. 
+                        Lêtra D, Chita.</talk>
+                  <counter var="compara" op="=" value="3" key="1468" />
+                </case>
+                <case op="exact" value="16" key="1469" child_proc="false">
+                    <talk key="1470">Qual dos seguintes animais é um mamífero:</talk>
+                    <talk key="1471">Lêtra A, Pinguim. 
+                          Lêtra B, Jacaré. 
+                          Lêtra C, Gaivota. 
+                          Lêtra D, Cachorro.</talk>
+                    <counter var="compara" op="=" value="4" key="1472" />
+                </case>
+                <case op="exact" value="17" key="1473" child_proc="false">
+                  <talk key="1474">Uma pessoa que fica em terceiro lugar em uma competição, recebe qual medalha?</talk>
+                  <talk key="1475">Lêtra A, Chumbo. 
+                        Lêtra B, Ouro. 
+                        Lêtra C, Prata. 
+                        Lêtra D, Bronze.</talk>
+                  <counter var="compara" op="=" value="4" key="1476" />
+                </case>
+                <case op="exact" value="18" key="1477" child_proc="false">
+                  <talk key="1478">Popularmente, como é chamada a pessoa que tem o hábito de falar palavrão?</talk>
+                  <talk key="1479">Lêtra A, Boca Aberta. 
+                        Lêtra B, Boca de Siri. 
+                        Lêtra C, Boca Fechada.
+                        Lêtra D, Boca Suja.</talk>
+                  <counter var="compara" op="=" value="4" key="1480" />
+                </case>
+                <case op="exact" value="19" key="1481" child_proc="false">
+                  <talk key="1482">Harry Potter é uma série de livros de:</talk>
+                  <talk key="1483">Lêtra A, Comédia. 
+                        Lêtra B, Romance. 
+                        Lêtra C, Terror. 
+                        Lêtra D, Fantasia.</talk>
+                  <counter var="compara" op="=" value="4" key="1484" />
+                </case>
+                <case op="exact" value="20" key="1485" child_proc="false">
+                  <talk key="1486">Quantos anos tem um século?</talk>
+                  <talk key="1487">Lêtra A, Dez. 
+                        Lêtra B, Quinhentos. 
+                        Lêtra C, Mil. 
+                        Lêtra D, Cem.</talk>
+                  <counter var="compara" op="=" value="4" key="1488" />
+                </case>
+            <default key="1489" child_proc="false" /></switch>
+            <listen key="1490" />
+            <switch var="$">
+                <case op="contain" value="A" key="1491" child_proc="false">
+                    <counter var="ponto" op="=" value="1" key="1492" />
+                </case>
+                <case op="contain" value="B" key="1493" child_proc="false">
+                    <counter var="ponto" op="=" value="2" key="1494" />
+                </case>  
+                <case op="contain" value="C" key="1495" child_proc="false">
+                    <counter var="ponto" op="=" value="3" key="1496" />
+                </case>  
+                <case op="contain" value="D" key="1497" child_proc="false">
+                    <counter var="ponto" op="=" value="4" key="1498" />
+                </case>
+                <default key="1499" child_proc="false">
+                  <counter var="ponto" op="=" value="0" key="1500" />
+                </default>   
+            </switch>
+            <switch var="#ponto">
+                <case op="eq" value="#compara" key="1501" child_proc="false">
+                  <evaEmotion emotion="HAPPY" key="1502" />
+                  <light state="ON" color="GREEN" key="1503" />
+                  <talk key="1504">Você acertou!</talk>
+                  <evaEmotion emotion="NEUTRAL" key="1505" />
+                  <light state="OFF" key="1506" />
+                  <counter var="acertos" op="+" value="1" key="1507" />
+                </case>
+                <case op="ne" value="#compara" key="1508" child_proc="false">
+                  <evaEmotion emotion="SAD" key="1509" />
+                  <light state="ON" color="RED" key="1510" />
+                  <talk key="1511">Errou, na próxima você acerta!</talk>
+                  <evaEmotion emotion="NEUTRAL" key="1512" />
+                  <light state="OFF" key="1513" />
+                </case>
+              <default key="1514" child_proc="false" /></switch>
+    <switch var="#acertos">
+                  
+                  <case op="eq" value="2" key="1515" child_proc="false">
+                    <counter var="acertos" op="=" value="0" key="1516" />
+                    <light state="ON" color="WHITE" key="1517" />
+                    <talk key="1518">Vamos reiniciar a fase?</talk>
+                    <listen key="1519" />
+                    <switch var="$">
+                      <case op="exact" value="sim" key="1520" child_proc="false">
+                        <goto target="iniciofacil" />
+                      </case>
+                      <case op="exact" value="não" key="1521" child_proc="false">
+                        <light state="OFF" key="1522" />
+                        <evaEmotion emotion="SAD" key="1523" />
+                        <talk key="1524">Tudo bem! Até a próxima $1!</talk>
+                        <stop />
+                      </case>
+                    <default key="1525" child_proc="false" /></switch>
+                  </case>
+                  
+                  <case op="eq" value="3" key="1526" child_proc="false">
+                    <evaEmotion emotion="HAPPY" key="1527" />
+      <light state="ON" color="BLUE" key="1528" />
+      <talk key="1529">Muito bem! Você passou do nível fácil!</talk>
+      <audio source="applause-moderate" block="TRUE" key="1530" />
+      <light state="OFF" key="1531" />
+      <evaEmotion emotion="NEUTRAL" key="1532" />
+    </case>  
+                <default key="1533" child_proc="false" /></switch>
+              </default>  
+            </switch>    
+          </case>
+        <default key="1534" child_proc="false" /></switch>
+      </case>
+    <default key="1535" child_proc="false" /></switch>
+    
+    
+    <evaEmotion emotion="HAPPY" key="1536" />
+      <talk key="1537">Agora, você já pode jogar o nível médio.</talk>
+      <evaEmotion emotion="NEUTRAL" key="1538" />
+      <talk key="1539">Vamos continuar o Desafio das Perguntas?</talk>
+      <listen key="1540" />
+      <switch var="$">
+        <case op="exact" value="Sim" key="1541" child_proc="false">
+          <evaEmotion emotion="HAPPY" key="1542" />
+          <talk key="1543">Muito bem! Já vi que você gosta de um desafio </talk>
+          <audio source="applause-moderate" block="TRUE" key="1544" />
+          <evaEmotion emotion="NEUTRAL" key="1545" />
+        </case>
+        <case op="exact" value="Não" key="1546" child_proc="false">
+          <evaEmotion emotion="SAD" key="1547" />
+          <talk key="1548">Tudo bem! Parabéns por passar no nível fácil e até a próxima! $1</talk>
+          <stop />
+        </case>
+      <default key="1549" child_proc="false" /></switch>
+      <talk key="1550">
+            Vale lembrar que cada nível te faz três perguntas e para avançar para o próximo, você precisa acertar todas as respostas.
+            Se você errar uma pergunta, o nível é reiniciado! </talk>
+      <evaEmotion emotion="HAPPY" key="1551" />
+      <talk key="1552">Boa sorte!</talk>
+      <audio source="cheering" block="TRUE" key="1553" />
+      <evaEmotion emotion="NEUTRAL" key="1554" />
+    <counter var="acertos" op="=" value="0" key="1555" />
+    <counter var="perg1" op="=" value="0" key="1556" />
+    <counter var="perg2" op="=" value="0" key="1557" />
+    <counter var="perg3" op="=" value="0" key="1558" />
+
+    
+
+    <random min="1" max="20" id="iniciomedio" key="1559" />
+    <switch var="$">
+      <case op="eq" value="1" key="1560" child_proc="false">
+        <counter var="perg1" op="=" value="1" key="1561" />
+      </case>
+      <case op="eq" value="2" key="1562" child_proc="false">
+        <counter var="perg1" op="=" value="2" key="1563" />
+      </case>
+      <case op="eq" value="3" key="1564" child_proc="false">
+        <counter var="perg1" op="=" value="3" key="1565" />
+      </case>
+      <case op="eq" value="4" key="1566" child_proc="false">
+        <counter var="perg1" op="=" value="4" key="1567" />
+      </case>
+      <case op="eq" value="5" key="1568" child_proc="false">
+        <counter var="perg1" op="=" value="5" key="1569" />
+      </case>
+      <case op="eq" value="6" key="1570" child_proc="false">
+        <counter var="perg1" op="=" value="6" key="1571" />
+      </case>
+      <case op="eq" value="7" key="1572" child_proc="false">
+        <counter var="perg1" op="=" value="7" key="1573" />
+      </case>
+      <case op="eq" value="8" key="1574" child_proc="false">
+        <counter var="perg1" op="=" value="8" key="1575" />
+      </case>
+      <case op="eq" value="9" key="1576" child_proc="false">
+        <counter var="perg1" op="=" value="9" key="1577" />
+      </case>
+      <case op="eq" value="10" key="1578" child_proc="false">
+        <counter var="perg1" op="=" value="10" key="1579" />
+      </case>
+      <case op="eq" value="11" key="1580" child_proc="false">
+        <counter var="perg1" op="=" value="11" key="1581" />
+      </case>
+      <case op="eq" value="12" key="1582" child_proc="false">
+        <counter var="perg1" op="=" value="12" key="1583" />
+      </case>
+      <case op="eq" value="13" key="1584" child_proc="false">
+        <counter var="perg1" op="=" value="13" key="1585" />
+      </case>
+      <case op="eq" value="14" key="1586" child_proc="false">
+        <counter var="perg1" op="=" value="14" key="1587" />
+      </case>
+      <case op="eq" value="15" key="1588" child_proc="false">
+        <counter var="perg1" op="=" value="15" key="1589" />
+      </case>
+      <case op="eq" value="16" key="1590" child_proc="false">
+        <counter var="perg1" op="=" value="16" key="1591" />
+      </case>
+      <case op="eq" value="17" key="1592" child_proc="false">
+        <counter var="perg1" op="=" value="17" key="1593" />
+      </case>
+      <case op="eq" value="18" key="1594" child_proc="false">
+        <counter var="perg1" op="=" value="18" key="1595" />
+      </case>
+      <case op="eq" value="19" key="1596" child_proc="false">
+        <counter var="perg1" op="=" value="19" key="1597" />
+      </case>
+      <case op="eq" value="20" key="1598" child_proc="false">
+        <counter var="perg1" op="=" value="20" key="1599" />
+      </case>
+    <default key="1600" child_proc="false" /></switch>
+    <light state="OFF" key="1601" />
+    <talk key="1602">Pergunta 1:</talk>
+    <light state="ON" color="YELLOW" key="1603" />
+    <evaEmotion emotion="NEUTRAL" key="1604" />
+          <switch var="$">
+              <case op="exact" value="1" key="1605" child_proc="false">
+                <talk key="1606">Qual é o maior continente do mundo?</talk>
+                <talk key="1607">Lêtra A, Ásia. 
+                      Lêtra B, América.
+                      Lêtra C, África.
+                      Lêtra D, Europa.</talk>
+                <counter var="compara" op="=" value="1" key="1608" />
+              </case>
+              <case op="exact" value="2" key="1609" child_proc="false">
+                <talk key="1610">Qual destas figuras geométricas não faz parte da bandeira do Brasil?</talk>
+                <talk key="1611">Lêtra A, Triângulo.
+                      Lêtra B, Retângulo.
+                      Lêtra C, Círculo.
+                      Lêtra D, Losango.</talk>
+                <counter var="compara" op="=" value="1" key="1612" />
+              </case>
+              <case op="exact" value="3" key="1613" child_proc="false">
+                <talk key="1614">Qual destes esportes não tem goleiro na equipe?</talk>
+                <talk key="1615">Lêtra A, Beisebol.
+                      Lêtra B, Handebol.
+                      Lêtra C, Hóquei no Gelo.
+                      Lêtra D, Futebol.</talk>
+                <counter var="compara" op="=" value="1" key="1616" />
+              </case>
+              <case op="exact" value="4" key="1617" child_proc="false">
+                <talk key="1618">Qual data religiosa, muito importante para os cristãos, celebra o nascimento de Jesus Cristo?</talk>
+                <talk key="1619">Lêtra A, Natal.
+                      Lêtra B, Sexta-Feira Santa.
+                      Lêtra C, Corpus Christi.
+                      Lêtra D, Domingo de Ramos.</talk>
+                <counter var="compara" op="=" value="1" key="1620" />
+              </case>
+              <case op="exact" value="5" key="1621" child_proc="false">
+                <talk key="1622">Quantos naipes possui o baralho comum?</talk>
+                <talk key="1623">Lêtra A, Quatro.
+                      Lêtra B, Três.
+                      Lêtra C, Seis.
+                      Lêtra D, Sete.</talk>
+                <counter var="compara" op="=" value="1" key="1624" />
+              </case>
+              <case op="exact" value="6" key="1625" child_proc="false">
+                <talk key="1626">Em qual parte do corpo é usada a pantufa?</talk>
+                <talk key="1627">Lêtra A, Cabeça.
+                      Lêtra B, Pés.
+                      Lêtra C, Mãos.
+                      Lêtra D, Pescoço.</talk>
+                <counter var="compara" op="=" value="2" key="1628" />
+              </case>
+              <case op="exact" value="7" key="1629" child_proc="false">
+                <talk key="1630">Qual destes é um satélite natural da Terra?</talk>
+                <talk key="1631">Lêtra A, Saturno.
+                      Lêtra B, Lua.
+                      Lêtra C, Sol.
+                      Lêtra D, Plutão.</talk>
+                <counter var="compara" op="=" value="2" key="1632" />
+              </case>
+              <case op="exact" value="8" key="1633" child_proc="false">
+                <talk key="1634">Quantas folhas tem um trevo da sorte?</talk>
+                <talk key="1635">Lêtra A, Três.
+                      Lêtra B, Quatro.
+                      Lêtra C, Cinco.
+                      Lêtra D, Seis.</talk>
+                <counter var="compara" op="=" value="2" key="1636" />
+              </case>
+              <case op="exact" value="9" key="1637" child_proc="false">
+                <talk key="1638">Em qual país fica a grande muralha construída pelo homem?</talk>
+                <talk key="1639">Lêtra A, Japão.
+                      Lêtra B, China.
+                      Lêtra C, Afeganistão.
+                      Lêtra D, Índia.</talk>
+                <counter var="compara" op="=" value="2" key="1640" />
+              </case>
+              <case op="exact" value="10" key="1641" child_proc="false">
+                <talk key="1642">Qual o Oceano que banha o litoral brasileiro?</talk>
+                <talk key="1643">Lêtra A, Ártico.
+                      Lêtra B, Atlântico.
+                      Lêtra C, Índico.
+                      Lêtra D, Pacífico.</talk>
+                <counter var="compara" op="=" value="2" key="1644" />
+              </case>
+              <case op="exact" value="11" key="1645" child_proc="false">
+                <talk key="1646">Qual é a última nota musical?</talk>
+                <talk key="1647">Lêtra A, Mi.
+                      Lêtra B, Sol.
+                      Lêtra C, Si.
+                      Lêtra D, Lá.</talk>
+                <counter var="compara" op="=" value="3" key="1648" />
+              </case>
+              <case op="exact" value="12" key="1649" child_proc="false">
+                <talk key="1650">A palavra sól é:</talk>
+                <talk key="1651">Lêtra A, Trissílaba.
+                      Lêtra B, Polissílaba. 
+                      Lêtra C, Monossílaba. 
+                      Lêtra D, Dissílaba.</talk>
+                <counter var="compara" op="=" value="3" key="1652" />
+              </case>
+              <case op="exact" value="13" key="1653" child_proc="false">
+                <talk key="1654">Qual o resultado da soma de todos os lados de um dado?</talk>
+                <talk key="1655">Lêtra A, 17. 
+                      Lêtra B, 24. 
+                      Lêtra C, 21. 
+                      Lêtra D, 19.</talk>
+                <counter var="compara" op="=" value="3" key="1656" />
+              </case>
+              <case op="exact" value="14" key="1657" child_proc="false">
+                <talk key="1658">Quem foi Abraham Lincoln?</talk>
+                <talk key="1659">Lêtra A, Ator de Cinema.
+                      Lêtra B, Rei da Inglaterra. 
+                      Lêtra C, Presidente dos Estados Unidos. 
+                      Lêtra D, Cantor de Jazz.</talk>
+                <counter var="compara" op="=" value="3" key="1660" />
+              </case>
+              <case op="exact" value="15" key="1661" child_proc="false">
+                <talk key="1662">O "suxi" e o "saximi" são comidas típicas da culinária de qual país?</talk>
+                <talk key="1663">Lêtra A, China. 
+                      Lêtra B, Coréia do Sul. 
+                      Lêtra C, Japão. 
+                      Lêtra D, Malásia.</talk>
+                <counter var="compara" op="=" value="3" key="1664" />
+              </case>
+              <case op="exact" value="16" key="1665" child_proc="false">
+                  <talk key="1666">Qual destes símbolos indica que algo é perigoso ou contém veneno?</talk>
+                  <talk key="1667">Lêtra A, Raio. 
+                        Lêtra B, Dinamite. 
+                        Lêtra C, Cruz. 
+                        Lêtra D, Caveira.</talk>
+                  <counter var="compara" op="=" value="4" key="1668" />
+              </case>
+              <case op="exact" value="17" key="1669" child_proc="false">
+                <talk key="1670">A namorada do Pato Donald tem o mesmo nome de qual flor?</talk>
+                <talk key="1671">Lêtra A, Rosa. 
+                      Lêtra B, Dália. 
+                      Lêtra C, Hortênsia. 
+                      Lêtra D, Margarida.</talk>
+                <counter var="compara" op="=" value="4" key="1672" />
+              </case>
+              <case op="exact" value="18" key="1673" child_proc="false">
+                <talk key="1674">Qual é o resultado da oquissidação do Ferro?</talk>
+                <talk key="1675">Lêtra A, Ferrão. 
+                      Lêtra B, Ferroada. 
+                      Lêtra C, Ferreiro.
+                      Lêtra D, Ferrugem.</talk>
+                <counter var="compara" op="=" value="4" key="1676" />
+              </case>
+              <case op="exact" value="19" key="1677" child_proc="false">
+                <talk key="1678">As pessoas cegas leem em que código?</talk>
+                <talk key="1679">Lêtra A, Morse. 
+                      Lêtra B, Binário. 
+                      Lêtra C, Libras. 
+                      Lêtra D, Braille.</talk>
+                <counter var="compara" op="=" value="4" key="1680" />
+              </case>
+              <case op="exact" value="20" key="1681" child_proc="false">
+                <talk key="1682"> Que objeto usado na chuva o pinguim do Batma usa como arma?</talk>
+                <talk key="1683">Lêtra A, Capa. 
+                      Lêtra B, Galocha. 
+                      Lêtra C, Chapéu. 
+                      Lêtra D, Guarda-Chuva.</talk>
+                <counter var="compara" op="=" value="4" key="1684" />
+              </case>
+          <default key="1685" child_proc="false" /></switch>
+          <listen key="1686" />
+          <switch var="$">
+              <case op="contain" value="A" key="1687" child_proc="false">
+                  <counter var="ponto" op="=" value="1" key="1688" />
+              </case>
+              <case op="contain" value="B" key="1689" child_proc="false">
+                  <counter var="ponto" op="=" value="2" key="1690" />
+              </case>  
+              <case op="contain" value="C" key="1691" child_proc="false">
+                  <counter var="ponto" op="=" value="3" key="1692" />
+              </case>  
+              <case op="contain" value="D" key="1693" child_proc="false">
+                  <counter var="ponto" op="=" value="4" key="1694" />
+              </case>
+              <default key="1695" child_proc="false">
+                <counter var="ponto" op="=" value="0" key="1696" />
+              </default>   
+          </switch>
+          <switch var="#ponto">
+              <case op="eq" value="#compara" key="1697" child_proc="false">
+                <evaEmotion emotion="HAPPY" key="1698" />
+                <light state="ON" color="GREEN" key="1699" />
+                <talk key="1700">Você acertou!</talk>
+                <evaEmotion emotion="NEUTRAL" key="1701" />
+                <light state="OFF" key="1702" />
+                <counter var="acertos" op="+" value="1" key="1703" />
+              </case>
+              <case op="ne" value="#compara" key="1704" child_proc="false">
+                <evaEmotion emotion="SAD" key="1705" />
+                <light state="ON" color="RED" key="1706" />
+                <talk key="1707">Errou, na próxima você acerta!</talk>
+                <evaEmotion emotion="NEUTRAL" key="1708" />
+                <light state="OFF" key="1709" />
+              </case>
+            <default key="1710" child_proc="false" /></switch>
+    <switch var="#acertos">
+      
+      <case op="eq" value="0" key="1711" child_proc="false">
+        <counter var="acertos" op="=" value="0" key="1712" />
+        <light state="ON" color="WHITE" key="1713" />
+        <talk key="1714">Vamos reiniciar a fase?</talk>
+        <listen key="1715" />
+        <switch var="$">
+          <case op="exact" value="sim" key="1716" child_proc="false">
+            <goto target="iniciomedio" />
+          </case>
+          <case op="exact" value="não" key="1717" child_proc="false">
+            <light state="OFF" key="1718" />
+            <evaEmotion emotion="SAD" key="1719" />
+            <talk key="1720">Tudo bem! Até a próxima $1!</talk>
+            <stop />
+          </case>
+        <default key="1721" child_proc="false" /></switch>
+      </case>
+      
+      <case op="eq" value="1" key="1722" child_proc="false">
+        <random min="1" max="20" id="meiomedio" key="1723" />
+        <switch var="$">
+          <case op="eq" value="1" key="1724" child_proc="false">
+            <counter var="perg2" op="=" value="1" key="1725" />
+          </case>
+          <case op="eq" value="2" key="1726" child_proc="false">
+            <counter var="perg2" op="=" value="2" key="1727" />
+          </case>
+          <case op="eq" value="3" key="1728" child_proc="false">
+            <counter var="perg2" op="=" value="3" key="1729" />
+          </case>
+          <case op="eq" value="4" key="1730" child_proc="false">
+            <counter var="perg2" op="=" value="4" key="1731" />
+          </case>
+          <case op="eq" value="5" key="1732" child_proc="false">
+            <counter var="perg2" op="=" value="5" key="1733" />
+          </case>
+          <case op="eq" value="6" key="1734" child_proc="false">
+            <counter var="perg2" op="=" value="6" key="1735" />
+          </case>
+          <case op="eq" value="7" key="1736" child_proc="false">
+            <counter var="perg2" op="=" value="7" key="1737" />
+          </case>
+          <case op="eq" value="8" key="1738" child_proc="false">
+            <counter var="perg2" op="=" value="8" key="1739" />
+          </case>
+          <case op="eq" value="9" key="1740" child_proc="false">
+            <counter var="perg2" op="=" value="9" key="1741" />
+          </case>
+          <case op="eq" value="10" key="1742" child_proc="false">
+            <counter var="perg2" op="=" value="10" key="1743" />
+          </case>
+          <case op="eq" value="11" key="1744" child_proc="false">
+            <counter var="perg2" op="=" value="11" key="1745" />
+          </case>
+          <case op="eq" value="12" key="1746" child_proc="false">
+            <counter var="perg2" op="=" value="12" key="1747" />
+          </case>
+          <case op="eq" value="13" key="1748" child_proc="false">
+            <counter var="perg2" op="=" value="13" key="1749" />
+          </case>
+          <case op="eq" value="14" key="1750" child_proc="false">
+            <counter var="perg2" op="=" value="14" key="1751" />
+          </case>
+          <case op="eq" value="15" key="1752" child_proc="false">
+            <counter var="perg2" op="=" value="15" key="1753" />
+          </case>
+          <case op="eq" value="16" key="1754" child_proc="false">
+            <counter var="perg2" op="=" value="16" key="1755" />
+          </case>
+          <case op="eq" value="17" key="1756" child_proc="false">
+            <counter var="perg2" op="=" value="17" key="1757" />
+          </case>
+          <case op="eq" value="18" key="1758" child_proc="false">
+            <counter var="perg2" op="=" value="18" key="1759" />
+          </case>
+          <case op="eq" value="19" key="1760" child_proc="false">
+            <counter var="perg2" op="=" value="19" key="1761" />
+          </case>
+          <case op="eq" value="20" key="1762" child_proc="false">
+            <counter var="perg2" op="=" value="20" key="1763" />
+        </case>
+        <default key="1764" child_proc="false" /></switch>
+
+        <switch var="#perg2">
+          <case op="eq" value="#perg1" key="1765" child_proc="false">
+            <goto target="meiomedio" />
+          </case>
+          <case op="ne" value="#perg1" key="1766" child_proc="false">
+            <talk key="1767">Pergunta 2:</talk>
+            <light state="ON" color="YELLOW" key="1768" />
+            <evaEmotion emotion="NEUTRAL" key="1769" />
+          <switch var="$">
+              <case op="exact" value="1" key="1770" child_proc="false">
+                <talk key="1771">Qual é o maior continente do mundo?</talk>
+                <talk key="1772">Lêtra A, Ásia. 
+                      Lêtra B, América.
+                      Lêtra C, África.
+                      Lêtra D, Europa.</talk>
+                <counter var="compara" op="=" value="1" key="1773" />
+              </case>
+              <case op="exact" value="2" key="1774" child_proc="false">
+                <talk key="1775">Qual destas figuras geométricas não faz parte da bandeira do Brasil?</talk>
+                <talk key="1776">Lêtra A, Triângulo.
+                      Lêtra B, Retângulo.
+                      Lêtra C, Círculo.
+                      Lêtra D, Losango.</talk>
+                <counter var="compara" op="=" value="1" key="1777" />
+              </case>
+              <case op="exact" value="3" key="1778" child_proc="false">
+                <talk key="1779">Qual destes esportes não tem goleiro na equipe?</talk>
+                <talk key="1780">Lêtra A, Beisebol.
+                      Lêtra B, Handebol.
+                      Lêtra C, Hóquei no Gelo.
+                      Lêtra D, Futebol.</talk>
+                <counter var="compara" op="=" value="1" key="1781" />
+              </case>
+              <case op="exact" value="4" key="1782" child_proc="false">
+                <talk key="1783">Qual data religiosa, muito importante para os cristãos, celebra o nascimento de Jesus Cristo?</talk>
+                <talk key="1784">Lêtra A, Natal.
+                      Lêtra B, Sexta-Feira Santa.
+                      Lêtra C, Corpus Christi.
+                      Lêtra D, Domingo de Ramos.</talk>
+                <counter var="compara" op="=" value="1" key="1785" />
+              </case>
+              <case op="exact" value="5" key="1786" child_proc="false">
+                <talk key="1787">Quantos naipes possui o baralho comum?</talk>
+                <talk key="1788">Lêtra A, Quatro.
+                      Lêtra B, Três.
+                      Lêtra C, Seis.
+                      Lêtra D, Sete.</talk>
+                <counter var="compara" op="=" value="1" key="1789" />
+              </case>
+              <case op="exact" value="6" key="1790" child_proc="false">
+                <talk key="1791">Em qual parte do corpo é usada a pantufa?</talk>
+                <talk key="1792">Lêtra A, Cabeça.
+                      Lêtra B, Pés.
+                      Lêtra C, Mãos.
+                      Lêtra D, Pescoço.</talk>
+                <counter var="compara" op="=" value="2" key="1793" />
+              </case>
+              <case op="exact" value="7" key="1794" child_proc="false">
+                <talk key="1795">Qual destes é um satélite natural da Terra?</talk>
+                <talk key="1796">Lêtra A, Saturno.
+                      Lêtra B, Lua.
+                      Lêtra C, Sol.
+                      Lêtra D, Plutão.</talk>
+                <counter var="compara" op="=" value="2" key="1797" />
+              </case>
+              <case op="exact" value="8" key="1798" child_proc="false">
+                <talk key="1799">Quantas folhas tem um trevo da sorte?</talk>
+                <talk key="1800">Lêtra A, Três.
+                      Lêtra B, Quatro.
+                      Lêtra C, Cinco.
+                      Lêtra D, Seis.</talk>
+                <counter var="compara" op="=" value="2" key="1801" />
+              </case>
+              <case op="exact" value="9" key="1802" child_proc="false">
+                <talk key="1803">Em qual país fica a grande muralha construída pelo homem?</talk>
+                <talk key="1804">Lêtra A, Japão.
+                      Lêtra B, China.
+                      Lêtra C, Afeganistão.
+                      Lêtra D, Índia.</talk>
+                <counter var="compara" op="=" value="2" key="1805" />
+              </case>
+              <case op="exact" value="10" key="1806" child_proc="false">
+                <talk key="1807">Qual o Oceano que banha o litoral brasileiro?</talk>
+                <talk key="1808">Lêtra A, Ártico.
+                      Lêtra B, Atlântico.
+                      Lêtra C, Índico.
+                      Lêtra D, Pacífico.</talk>
+                <counter var="compara" op="=" value="2" key="1809" />
+              </case>
+              <case op="exact" value="11" key="1810" child_proc="false">
+                <talk key="1811">Qual é a última nota musical?</talk>
+                <talk key="1812">Lêtra A, Mi.
+                      Lêtra B, Sol.
+                      Lêtra C, Si.
+                      Lêtra D, Lá.</talk>
+                <counter var="compara" op="=" value="3" key="1813" />
+              </case>
+              <case op="exact" value="12" key="1814" child_proc="false">
+                <talk key="1815">A palavra sól é:</talk>
+                <talk key="1816">Lêtra A, Trissílaba.
+                      Lêtra B, Polissílaba. 
+                      Lêtra C, Monossílaba. 
+                      Lêtra D, Dissílaba.</talk>
+                <counter var="compara" op="=" value="3" key="1817" />
+              </case>
+              <case op="exact" value="13" key="1818" child_proc="false">
+                <talk key="1819">Qual o resultado da soma de todos os lados de um dado?</talk>
+                <talk key="1820">Lêtra A, 17. 
+                      Lêtra B, 24. 
+                      Lêtra C, 21. 
+                      Lêtra D, 19.</talk>
+                <counter var="compara" op="=" value="3" key="1821" />
+              </case>
+              <case op="exact" value="14" key="1822" child_proc="false">
+                <talk key="1823">Quem foi Abraham Lincoln?</talk>
+                <talk key="1824">Lêtra A, Ator de Cinema.
+                      Lêtra B, Rei da Inglaterra. 
+                      Lêtra C, Presidente dos Estados Unidos. 
+                      Lêtra D, Cantor de Jazz.</talk>
+                <counter var="compara" op="=" value="3" key="1825" />
+              </case>
+              <case op="exact" value="15" key="1826" child_proc="false">
+                <talk key="1827">O "suxi" e o "saximi" são comidas típicas da culinária de qual país?</talk>
+                <talk key="1828">Lêtra A, China. 
+                      Lêtra B, Coréia do Sul. 
+                      Lêtra C, Japão. 
+                      Lêtra D, Malásia.</talk>
+                <counter var="compara" op="=" value="3" key="1829" />
+              </case>
+              <case op="exact" value="16" key="1830" child_proc="false">
+                  <talk key="1831">Qual destes símbolos indica que algo é perigoso ou contém veneno?</talk>
+                  <talk key="1832">Lêtra A, Raio. 
+                        Lêtra B, Dinamite. 
+                        Lêtra C, Cruz. 
+                        Lêtra D, Caveira.</talk>
+                  <counter var="compara" op="=" value="4" key="1833" />
+              </case>
+              <case op="exact" value="17" key="1834" child_proc="false">
+                <talk key="1835">A namorada do Pato Donald tem o mesmo nome de qual flor?</talk>
+                <talk key="1836">Lêtra A, Rosa. 
+                      Lêtra B, Dália. 
+                      Lêtra C, Hortênsia. 
+                      Lêtra D, Margarida.</talk>
+                <counter var="compara" op="=" value="4" key="1837" />
+              </case>
+              <case op="exact" value="18" key="1838" child_proc="false">
+                <talk key="1839">Qual é o resultado da oquissidação do Ferro?</talk>
+                <talk key="1840">Lêtra A, Ferrão. 
+                      Lêtra B, Ferroada. 
+                      Lêtra C, Ferreiro.
+                      Lêtra D, Ferrugem.</talk>
+                <counter var="compara" op="=" value="4" key="1841" />
+              </case>
+              <case op="exact" value="19" key="1842" child_proc="false">
+                <talk key="1843">As pessoas cegas leem em que código?</talk>
+                <talk key="1844">Lêtra A, Morse. 
+                      Lêtra B, Binário. 
+                      Lêtra C, Libras. 
+                      Lêtra D, Braille.</talk>
+                <counter var="compara" op="=" value="4" key="1845" />
+              </case>
+              <case op="exact" value="20" key="1846" child_proc="false">
+                <talk key="1847"> Que objeto usado na chuva o pinguim do Batma usa como arma?</talk>
+                <talk key="1848">Lêtra A, Capa. 
+                      Lêtra B, Galocha. 
+                      Lêtra C, Chapéu. 
+                      Lêtra D, Guarda-Chuva.</talk>
+                <counter var="compara" op="=" value="4" key="1849" />
+              </case>
+          <default key="1850" child_proc="false" /></switch>
+          <listen key="1851" />
+          <switch var="$">
+              <case op="contain" value="A" key="1852" child_proc="false">
+                  <counter var="ponto" op="=" value="1" key="1853" />
+              </case>
+              <case op="contain" value="B" key="1854" child_proc="false">
+                  <counter var="ponto" op="=" value="2" key="1855" />
+              </case>  
+              <case op="contain" value="C" key="1856" child_proc="false">
+                  <counter var="ponto" op="=" value="3" key="1857" />
+              </case>  
+              <case op="contain" value="D" key="1858" child_proc="false">
+                  <counter var="ponto" op="=" value="4" key="1859" />
+              </case>
+              <default key="1860" child_proc="false">
+                <counter var="ponto" op="=" value="0" key="1861" />
+              </default>   
+          </switch>
+          <switch var="#ponto">
+              <case op="eq" value="#compara" key="1862" child_proc="false">
+                <evaEmotion emotion="HAPPY" key="1863" />
+                <light state="ON" color="GREEN" key="1864" />
+                <talk key="1865">Você acertou!</talk>
+                <evaEmotion emotion="NEUTRAL" key="1866" />
+                <light state="OFF" key="1867" />
+                <counter var="acertos" op="+" value="1" key="1868" />
+              </case>
+              <case op="ne" value="#compara" key="1869" child_proc="false">
+                <evaEmotion emotion="SAD" key="1870" />
+                <light state="ON" color="RED" key="1871" />
+                <talk key="1872">Errou, na próxima você acerta!</talk>
+                <evaEmotion emotion="NEUTRAL" key="1873" />
+                <light state="OFF" key="1874" />
+              </case>
+            <default key="1875" child_proc="false" /></switch>
+    <switch var="#acertos">
+            
+            <case op="eq" value="1" key="1876" child_proc="false">
+              <counter var="acertos" op="=" value="0" key="1877" />
+              <light state="ON" color="WHITE" key="1878" />
+              <talk key="1879">Vamos reiniciar a fase?</talk>
+              <listen key="1880" />
+              <switch var="$">
+                <case op="exact" value="sim" key="1881" child_proc="false">
+                  <goto target="iniciomedio" />
+                </case>
+                <case op="exact" value="não" key="1882" child_proc="false">
+                  <light state="OFF" key="1883" />
+                  <evaEmotion emotion="SAD" key="1884" />
+                  <talk key="1885">Tudo bem! Até a próxima $1!</talk>
+                  <stop />
+                </case>
+              <default key="1886" child_proc="false" /></switch>
+            </case>
+            
+            <case op="eq" value="2" key="1887" child_proc="false">
+              <random min="1" max="20" id="fimmedio" key="1888" />
+              <switch var="$">
+                <case op="eq" value="1" key="1889" child_proc="false">
+                  <counter var="perg3" op="=" value="1" key="1890" />
+                </case>
+                <case op="eq" value="2" key="1891" child_proc="false">
+                  <counter var="perg3" op="=" value="2" key="1892" />
+                </case>
+                <case op="eq" value="3" key="1893" child_proc="false">
+                  <counter var="perg3" op="=" value="3" key="1894" />
+                </case>
+                <case op="eq" value="4" key="1895" child_proc="false">
+                  <counter var="perg3" op="=" value="4" key="1896" />
+                </case>
+                <case op="eq" value="5" key="1897" child_proc="false">
+                  <counter var="perg3" op="=" value="5" key="1898" />
+                </case>
+                <case op="eq" value="6" key="1899" child_proc="false">
+                  <counter var="perg3" op="=" value="6" key="1900" />
+                </case>
+                <case op="eq" value="7" key="1901" child_proc="false">
+                  <counter var="perg3" op="=" value="7" key="1902" />
+                </case>
+                <case op="eq" value="8" key="1903" child_proc="false">
+                  <counter var="perg3" op="=" value="8" key="1904" />
+                </case>
+                <case op="eq" value="9" key="1905" child_proc="false">
+                  <counter var="perg3" op="=" value="9" key="1906" />
+                </case>
+                <case op="eq" value="10" key="1907" child_proc="false">
+                  <counter var="perg3" op="=" value="10" key="1908" />
+                </case>
+                <case op="eq" value="11" key="1909" child_proc="false">
+                  <counter var="perg3" op="=" value="11" key="1910" />
+                </case>
+                <case op="eq" value="12" key="1911" child_proc="false">
+                  <counter var="perg3" op="=" value="12" key="1912" />
+                </case>
+                <case op="eq" value="13" key="1913" child_proc="false">
+                  <counter var="perg3" op="=" value="13" key="1914" />
+                </case>
+                <case op="eq" value="14" key="1915" child_proc="false">
+                  <counter var="perg3" op="=" value="14" key="1916" />
+                </case>
+                <case op="eq" value="15" key="1917" child_proc="false">
+                  <counter var="perg3" op="=" value="15" key="1918" />
+                </case>
+                <case op="eq" value="16" key="1919" child_proc="false">
+                  <counter var="perg3" op="=" value="16" key="1920" />
+                </case>
+                <case op="eq" value="17" key="1921" child_proc="false">
+                  <counter var="perg3" op="=" value="17" key="1922" />
+                </case>
+                <case op="eq" value="18" key="1923" child_proc="false">
+                  <counter var="perg3" op="=" value="18" key="1924" />
+                </case>
+                <case op="eq" value="19" key="1925" child_proc="false">
+                  <counter var="perg3" op="=" value="19" key="1926" />
+                </case>
+                <case op="eq" value="20" key="1927" child_proc="false">
+                  <counter var="perg3" op="=" value="20" key="1928" />
+                </case>
+              <default key="1929" child_proc="false" /></switch>
+            </case>
+          <default key="1930" child_proc="false" /></switch>
+            <switch var="#perg3">
+              <case op="eq" value="#perg1" key="1931" child_proc="false">
+                <goto target="fimmedio" />
+              </case>
+              <case op="eq" value="#perg2" key="1932" child_proc="false">
+                <goto target="fimmedio" />
+              </case>
+              <default key="1933" child_proc="false">
+                <talk key="1934">Pergunta 3:</talk>
+                <light state="ON" color="YELLOW" key="1935" />
+                <evaEmotion emotion="NEUTRAL" key="1936" />
+          <switch var="$">
+              <case op="exact" value="1" key="1937" child_proc="false">
+                <talk key="1938">Qual é o maior continente do mundo?</talk>
+                <talk key="1939">Lêtra A, Ásia. 
+                      Lêtra B, América.
+                      Lêtra C, África.
+                      Lêtra D, Europa.</talk>
+                <counter var="compara" op="=" value="1" key="1940" />
+              </case>
+              <case op="exact" value="2" key="1941" child_proc="false">
+                <talk key="1942">Qual destas figuras geométricas não faz parte da bandeira do Brasil?</talk>
+                <talk key="1943">Lêtra A, Triângulo.
+                      Lêtra B, Retângulo.
+                      Lêtra C, Círculo.
+                      Lêtra D, Losango.</talk>
+                <counter var="compara" op="=" value="1" key="1944" />
+              </case>
+              <case op="exact" value="3" key="1945" child_proc="false">
+                <talk key="1946">Qual destes esportes não tem goleiro na equipe?</talk>
+                <talk key="1947">Lêtra A, Beisebol.
+                      Lêtra B, Handebol.
+                      Lêtra C, Hóquei no Gelo.
+                      Lêtra D, Futebol.</talk>
+                <counter var="compara" op="=" value="1" key="1948" />
+              </case>
+              <case op="exact" value="4" key="1949" child_proc="false">
+                <talk key="1950">Qual data religiosa, muito importante para os cristãos, celebra o nascimento de Jesus Cristo?</talk>
+                <talk key="1951">Lêtra A, Natal.
+                      Lêtra B, Sexta-Feira Santa.
+                      Lêtra C, Corpus Christi.
+                      Lêtra D, Domingo de Ramos.</talk>
+                <counter var="compara" op="=" value="1" key="1952" />
+              </case>
+              <case op="exact" value="5" key="1953" child_proc="false">
+                <talk key="1954">Quantos naipes possui o baralho comum?</talk>
+                <talk key="1955">Lêtra A, Quatro.
+                      Lêtra B, Três.
+                      Lêtra C, Seis.
+                      Lêtra D, Sete.</talk>
+                <counter var="compara" op="=" value="1" key="1956" />
+              </case>
+              <case op="exact" value="6" key="1957" child_proc="false">
+                <talk key="1958">Em qual parte do corpo é usada a pantufa?</talk>
+                <talk key="1959">Lêtra A, Cabeça.
+                      Lêtra B, Pés.
+                      Lêtra C, Mãos.
+                      Lêtra D, Pescoço.</talk>
+                <counter var="compara" op="=" value="2" key="1960" />
+              </case>
+              <case op="exact" value="7" key="1961" child_proc="false">
+                <talk key="1962">Qual destes é um satélite natural da Terra?</talk>
+                <talk key="1963">Lêtra A, Saturno.
+                      Lêtra B, Lua.
+                      Lêtra C, Sol.
+                      Lêtra D, Plutão.</talk>
+                <counter var="compara" op="=" value="2" key="1964" />
+              </case>
+              <case op="exact" value="8" key="1965" child_proc="false">
+                <talk key="1966">Quantas folhas tem um trevo da sorte?</talk>
+                <talk key="1967">Lêtra A, Três.
+                      Lêtra B, Quatro.
+                      Lêtra C, Cinco.
+                      Lêtra D, Seis.</talk>
+                <counter var="compara" op="=" value="2" key="1968" />
+              </case>
+              <case op="exact" value="9" key="1969" child_proc="false">
+                <talk key="1970">Em qual país fica a grande muralha construída pelo homem?</talk>
+                <talk key="1971">Lêtra A, Japão.
+                      Lêtra B, China.
+                      Lêtra C, Afeganistão.
+                      Lêtra D, Índia.</talk>
+                <counter var="compara" op="=" value="2" key="1972" />
+              </case>
+              <case op="exact" value="10" key="1973" child_proc="false">
+                <talk key="1974">Qual o Oceano que banha o litoral brasileiro?</talk>
+                <talk key="1975">Lêtra A, Ártico.
+                      Lêtra B, Atlântico.
+                      Lêtra C, Índico.
+                      Lêtra D, Pacífico.</talk>
+                <counter var="compara" op="=" value="2" key="1976" />
+              </case>
+              <case op="exact" value="11" key="1977" child_proc="false">
+                <talk key="1978">Qual é a última nota musical?</talk>
+                <talk key="1979">Lêtra A, Mi.
+                      Lêtra B, Sol.
+                      Lêtra C, Si.
+                      Lêtra D, Lá.</talk>
+                <counter var="compara" op="=" value="3" key="1980" />
+              </case>
+              <case op="exact" value="12" key="1981" child_proc="false">
+                <talk key="1982">A palavra sól é:</talk>
+                <talk key="1983">Lêtra A, Trissílaba.
+                      Lêtra B, Polissílaba. 
+                      Lêtra C, Monossílaba. 
+                      Lêtra D, Dissílaba.</talk>
+                <counter var="compara" op="=" value="3" key="1984" />
+              </case>
+              <case op="exact" value="13" key="1985" child_proc="false">
+                <talk key="1986">Qual o resultado da soma de todos os lados de um dado?</talk>
+                <talk key="1987">Lêtra A, 17. 
+                      Lêtra B, 24. 
+                      Lêtra C, 21. 
+                      Lêtra D, 19.</talk>
+                <counter var="compara" op="=" value="3" key="1988" />
+              </case>
+              <case op="exact" value="14" key="1989" child_proc="false">
+                <talk key="1990">Quem foi Abraham Lincoln?</talk>
+                <talk key="1991">Lêtra A, Ator de Cinema.
+                      Lêtra B, Rei da Inglaterra. 
+                      Lêtra C, Presidente dos Estados Unidos. 
+                      Lêtra D, Cantor de Jazz.</talk>
+                <counter var="compara" op="=" value="3" key="1992" />
+              </case>
+              <case op="exact" value="15" key="1993" child_proc="false">
+                <talk key="1994">O "suxi" e o "saximi" são comidas típicas da culinária de qual país?</talk>
+                <talk key="1995">Lêtra A, China. 
+                      Lêtra B, Coréia do Sul. 
+                      Lêtra C, Japão. 
+                      Lêtra D, Malásia.</talk>
+                <counter var="compara" op="=" value="3" key="1996" />
+              </case>
+              <case op="exact" value="16" key="1997" child_proc="false">
+                  <talk key="1998">Qual destes símbolos indica que algo é perigoso ou contém veneno?</talk>
+                  <talk key="1999">Lêtra A, Raio. 
+                        Lêtra B, Dinamite. 
+                        Lêtra C, Cruz. 
+                        Lêtra D, Caveira.</talk>
+                  <counter var="compara" op="=" value="4" key="2000" />
+              </case>
+              <case op="exact" value="17" key="2001" child_proc="false">
+                <talk key="2002">A namorada do Pato Donald tem o mesmo nome de qual flor?</talk>
+                <talk key="2003">Lêtra A, Rosa. 
+                      Lêtra B, Dália. 
+                      Lêtra C, Hortênsia. 
+                      Lêtra D, Margarida.</talk>
+                <counter var="compara" op="=" value="4" key="2004" />
+              </case>
+              <case op="exact" value="18" key="2005" child_proc="false">
+                <talk key="2006">Qual é o resultado da oquissidação do Ferro?</talk>
+                <talk key="2007">Lêtra A, Ferrão. 
+                      Lêtra B, Ferroada. 
+                      Lêtra C, Ferreiro.
+                      Lêtra D, Ferrugem.</talk>
+                <counter var="compara" op="=" value="4" key="2008" />
+              </case>
+              <case op="exact" value="19" key="2009" child_proc="false">
+                <talk key="2010">As pessoas cegas leem em que código?</talk>
+                <talk key="2011">Lêtra A, Morse. 
+                      Lêtra B, Binário. 
+                      Lêtra C, Libras. 
+                      Lêtra D, Braille.</talk>
+                <counter var="compara" op="=" value="4" key="2012" />
+              </case>
+              <case op="exact" value="20" key="2013" child_proc="false">
+                <talk key="2014"> Que objeto usado na chuva o pinguim do Batma usa como arma?</talk>
+                <talk key="2015">Lêtra A, Capa. 
+                      Lêtra B, Galocha. 
+                      Lêtra C, Chapéu. 
+                      Lêtra D, Guarda-Chuva.</talk>
+                <counter var="compara" op="=" value="4" key="2016" />
+              </case>
+          <default key="2017" child_proc="false" /></switch>
+          <listen key="2018" />
+          <switch var="$">
+              <case op="contain" value="A" key="2019" child_proc="false">
+                  <counter var="ponto" op="=" value="1" key="2020" />
+              </case>
+              <case op="contain" value="B" key="2021" child_proc="false">
+                  <counter var="ponto" op="=" value="2" key="2022" />
+              </case>  
+              <case op="contain" value="C" key="2023" child_proc="false">
+                  <counter var="ponto" op="=" value="3" key="2024" />
+              </case>  
+              <case op="contain" value="D" key="2025" child_proc="false">
+                  <counter var="ponto" op="=" value="4" key="2026" />
+              </case>
+              <default key="2027" child_proc="false">
+                <counter var="ponto" op="=" value="0" key="2028" />
+              </default>   
+          </switch>
+          <switch var="#ponto">
+              <case op="eq" value="#compara" key="2029" child_proc="false">
+                <evaEmotion emotion="HAPPY" key="2030" />
+                <light state="ON" color="GREEN" key="2031" />
+                <talk key="2032">Você acertou!</talk>
+                <evaEmotion emotion="NEUTRAL" key="2033" />
+                <light state="OFF" key="2034" />
+                <counter var="acertos" op="+" value="1" key="2035" />
+              </case>
+              <case op="ne" value="#compara" key="2036" child_proc="false">
+                <evaEmotion emotion="SAD" key="2037" />
+                <light state="ON" color="RED" key="2038" />
+                <talk key="2039">Errou, na próxima você acerta!</talk>
+                <evaEmotion emotion="NEUTRAL" key="2040" />
+                <light state="OFF" key="2041" />
+              </case>
+            <default key="2042" child_proc="false" /></switch>
+    <switch var="#acertos">
+                  
+                  <case op="eq" value="2" key="2043" child_proc="false">
+                    <counter var="acertos" op="=" value="0" key="2044" />
+                    <light state="ON" color="WHITE" key="2045" />
+                    <talk key="2046">Vamos reiniciar a fase?</talk>
+                    <listen key="2047" />
+                    <switch var="$">
+                      <case op="exact" value="sim" key="2048" child_proc="false">
+                        <goto target="iniciomedio" />
+                      </case>
+                      <case op="exact" value="não" key="2049" child_proc="false">
+                        <light state="OFF" key="2050" />
+                        <evaEmotion emotion="SAD" key="2051" />
+                        <talk key="2052">Tudo bem! Até a próxima $1!</talk>
+                        <stop />
+                      </case>
+                    <default key="2053" child_proc="false" /></switch>
+                  </case>
+                  
+                  <case op="eq" value="3" key="2054" child_proc="false">
+                    <evaEmotion emotion="HAPPY" key="2055" />
+      <light state="ON" color="BLUE" key="2056" />
+      <talk key="2057">Meus Parabéns! Você acaba de concluir o nível médio! Está ficando fera nesse jogo!</talk>
+      <audio source="applause-moderate" block="TRUE" key="2058" />
+      <light state="OFF" key="2059" />
+      <evaEmotion emotion="NEUTRAL" key="2060" />
+    </case>  
+                <default key="2061" child_proc="false" /></switch>
+              </default>  
+            </switch>    
+          </case>
+        <default key="2062" child_proc="false" /></switch>
+      </case>
+    <default key="2063" child_proc="false" /></switch>
+
+    
+    <evaEmotion emotion="HAPPY" key="2064" />
+      <talk key="2065">Agora, você já pode jogar o último nível, o tão temido nível difícil.</talk>
+      <evaEmotion emotion="NEUTRAL" key="2066" />
+      <talk key="2067">Vamos continuar o Desafio das Perguntas?</talk>
+      <listen key="2068" />
+      <switch var="$">
+        <case op="exact" value="Sim" key="2069" child_proc="false">
+          <evaEmotion emotion="HAPPY" key="2070" />
+          <talk key="2071">Assim que se fala! Vou te dar o maior desafio até então, prepare-se! </talk>
+          <audio source="applause-moderate" block="TRUE" key="2072" />
+          <evaEmotion emotion="NEUTRAL" key="2073" />
+        </case>
+        <case op="exact" value="Não" key="2074" child_proc="false">
+          <evaEmotion emotion="SAD" key="2075" />
+          <talk key="2076">Tudo bem! Parabéns por completar os níveis fácil e médio. Até a próxima, $1!</talk>
+          <stop />
+        </case>
+      <default key="2077" child_proc="false" /></switch>
+      <talk key="2078">
+            Vale lembrar que cada nível te faz três perguntas e para completá-lo, você precisa acertar todas as respostas.
+            Se você errar uma pergunta, o nível é reiniciado! </talk>
+      <evaEmotion emotion="HAPPY" key="2079" />
+      <talk key="2080">Boa sorte!</talk>
+      <audio source="cheering" block="TRUE" key="2081" />
+      <evaEmotion emotion="NEUTRAL" key="2082" />
+    <counter var="acertos" op="=" value="0" key="2083" />
+    <counter var="perg1" op="=" value="0" key="2084" />
+    <counter var="perg2" op="=" value="0" key="2085" />
+    <counter var="perg3" op="=" value="0" key="2086" />
+    
+    
+
+    <random min="1" max="20" id="iniciodificil" key="2087" />
+    <switch var="$">
+      <case op="eq" value="1" key="2088" child_proc="false">
+        <counter var="perg1" op="=" value="1" key="2089" />
+      </case>
+      <case op="eq" value="2" key="2090" child_proc="false">
+        <counter var="perg1" op="=" value="2" key="2091" />
+      </case>
+      <case op="eq" value="3" key="2092" child_proc="false">
+        <counter var="perg1" op="=" value="3" key="2093" />
+      </case>
+      <case op="eq" value="4" key="2094" child_proc="false">
+        <counter var="perg1" op="=" value="4" key="2095" />
+      </case>
+      <case op="eq" value="5" key="2096" child_proc="false">
+        <counter var="perg1" op="=" value="5" key="2097" />
+      </case>
+      <case op="eq" value="6" key="2098" child_proc="false">
+        <counter var="perg1" op="=" value="6" key="2099" />
+      </case>
+      <case op="eq" value="7" key="2100" child_proc="false">
+        <counter var="perg1" op="=" value="7" key="2101" />
+      </case>
+      <case op="eq" value="8" key="2102" child_proc="false">
+        <counter var="perg1" op="=" value="8" key="2103" />
+      </case>
+      <case op="eq" value="9" key="2104" child_proc="false">
+        <counter var="perg1" op="=" value="9" key="2105" />
+      </case>
+      <case op="eq" value="10" key="2106" child_proc="false">
+        <counter var="perg1" op="=" value="10" key="2107" />
+      </case>
+      <case op="eq" value="11" key="2108" child_proc="false">
+        <counter var="perg1" op="=" value="11" key="2109" />
+      </case>
+      <case op="eq" value="12" key="2110" child_proc="false">
+        <counter var="perg1" op="=" value="12" key="2111" />
+      </case>
+      <case op="eq" value="13" key="2112" child_proc="false">
+        <counter var="perg1" op="=" value="13" key="2113" />
+      </case>
+      <case op="eq" value="14" key="2114" child_proc="false">
+        <counter var="perg1" op="=" value="14" key="2115" />
+      </case>
+      <case op="eq" value="15" key="2116" child_proc="false">
+        <counter var="perg1" op="=" value="15" key="2117" />
+      </case>
+      <case op="eq" value="16" key="2118" child_proc="false">
+        <counter var="perg1" op="=" value="16" key="2119" />
+      </case>
+      <case op="eq" value="17" key="2120" child_proc="false">
+        <counter var="perg1" op="=" value="17" key="2121" />
+      </case>
+      <case op="eq" value="18" key="2122" child_proc="false">
+        <counter var="perg1" op="=" value="18" key="2123" />
+      </case>
+      <case op="eq" value="19" key="2124" child_proc="false">
+        <counter var="perg1" op="=" value="19" key="2125" />
+      </case>
+      <case op="eq" value="20" key="2126" child_proc="false">
+        <counter var="perg1" op="=" value="20" key="2127" />
+      </case>
+    <default key="2128" child_proc="false" /></switch>
+    <light state="OFF" key="2129" />
+    <talk key="2130">Pergunta 1:</talk>
+    <light state="ON" color="YELLOW" key="2131" />
+    <evaEmotion emotion="NEUTRAL" key="2132" />
+          <switch var="$">
+              <case op="exact" value="1" key="2133" child_proc="false">
+                <talk key="2134">Como é chamada a pessoa que enxerga mal de longe?</talk>
+                <talk key="2135">Lêtra A, Míope. 
+                      Lêtra B, Estrábica.
+                      Lêtra C, Vesga.
+                      Lêtra D, Cega.</talk>
+                <counter var="compara" op="=" value="1" key="2136" />
+              </case>
+              <case op="exact" value="2" key="2137" child_proc="false">
+                <talk key="2138">Que cientista quase morreu na fogueira da inquisição, por afimar que a Terra girava em torno do sol?</talk>
+                <talk key="2139">Lêtra A, Galileu Galilei.
+                      Lêtra B, Leonardo da Vinci.
+                      Lêtra C, Isaac Newton.
+                      Lêtra D, Albert Einstein.</talk>
+                <counter var="compara" op="=" value="1" key="2140" />
+              </case>
+              <case op="exact" value="3" key="2141" child_proc="false">
+                <talk key="2142">Quem acabou com a escravidão no Brasil ao assinar a "Lei Áurea"?</talk>
+                <talk key="2143">Lêtra A, Princesa Isabel.
+                      Lêtra B, Dom Pedro Primeiro.
+                      Lêtra C, Tiradentes.
+                      Lêtra D, Marechal Deodoro da Fonseca.</talk>
+                <counter var="compara" op="=" value="1" key="2144" />
+              </case>
+              <case op="exact" value="4" key="2145" child_proc="false">
+                <talk key="2146">A prôa fica em que parte de um navio?</talk>
+                <talk key="2147">Lêtra A, na frente.
+                      Lêtra B, no meio.
+                      Lêtra C, atrás.
+                      Lêtra D, embaixo.</talk>
+                <counter var="compara" op="=" value="1" key="2148" />
+              </case>
+              <case op="exact" value="5" key="2149" child_proc="false">
+                <talk key="2150">Qual é o menor continente do mundo?</talk>
+                <talk key="2151">Lêtra A, Oceania.
+                      Lêtra B, Europa.
+                      Lêtra C, Ásia.
+                      Lêtra D, Antártida.</talk>
+                <counter var="compara" op="=" value="1" key="2152" />
+              </case>
+              <case op="exact" value="6" key="2153" child_proc="false">
+                <talk key="2154">Que monumento brasileiro é uma das sete maravilhas do mundo moderno?</talk>
+                <talk key="2155">Lêtra A, Elevador Lacerda.
+                      Lêtra B, Cristo Redentor.
+                      Lêtra C, Catedral da Sé.
+                      Lêtra D, Arcos da Lapa.</talk>
+                <counter var="compara" op="=" value="2" key="2156" />
+              </case>
+              <case op="exact" value="7" key="2157" child_proc="false">
+                <talk key="2158">Qual o nome da queda d'água localizada na fronteira entre os Estados Unidos e o Canadá?</talk>
+                <talk key="2159">Lêtra A, Cataratas do Reno.
+                      Lêtra B, Cataratas do Niágara.
+                      Lêtra C, Cataratas do Iguaçu.
+                      Lêtra D, Cataratas do Tugela.</talk>
+                <counter var="compara" op="=" value="2" key="2160" />
+              </case>
+              <case op="exact" value="8" key="2161" child_proc="false">
+                <talk key="2162">Qual é a última palavra da letra do "Hino Nacional do Brasil"?</talk>
+                <talk key="2163">Lêtra A, Amada.
+                      Lêtra B, Brasil.
+                      Lêtra C, Gentil.
+                      Lêtra D, Pátria.</talk>
+                <counter var="compara" op="=" value="2" key="2164" />
+              </case>
+              <case op="exact" value="9" key="2165" child_proc="false">
+                <talk key="2166">Qual país abriga a maior comunidade japonesa fora do Japão?</talk>
+                <talk key="2167">Lêtra A, Austrália.
+                      Lêtra B, Brasil.
+                      Lêtra C, China.
+                      Lêtra D, Estados Unidos.</talk>
+                <counter var="compara" op="=" value="2" key="2168" />
+              </case>
+              <case op="exact" value="10" key="2169" child_proc="false">
+                <talk key="2170">La Paz é a capital de qual país da América do Sul?</talk>
+                <talk key="2171">Lêtra A, Argentina.
+                      Lêtra B, Bolívia.
+                      Lêtra C, Chile.
+                      Lêtra D, Colômbia.</talk>
+                <counter var="compara" op="=" value="2" key="2172" />
+              </case>
+              <case op="exact" value="11" key="2173" child_proc="false">
+                <talk key="2174">Qual destas árvores é uma das mais utilizadas para a produção de papel no brasil?</talk>
+                <talk key="2175">Lêtra A, Seringueira.
+                      Lêtra B, Jatobá.
+                      Lêtra C, Eucalipto.
+                      Lêtra D, Pau-Brasil.</talk>
+                <counter var="compara" op="=" value="3" key="2176" />
+              </case>
+              <case op="exact" value="12" key="2177" child_proc="false">
+                <talk key="2178">O que é um astrolábio?</talk>
+                <talk key="2179">Lêtra A, um tipo de batom.
+                      Lêtra B, um cometa enorme. 
+                      Lêtra C, um instrumento de navegação. 
+                      Lêtra D, um astrólogo famoso.</talk>
+                <counter var="compara" op="=" value="3" key="2180" />
+              </case>
+              <case op="exact" value="13" key="2181" child_proc="false">
+                <talk key="2182">A Copa do Mundo de 2014 foi disputada em que país?</talk>
+                <talk key="2183">Lêtra A, Catar. 
+                      Lêtra B, Rússia. 
+                      Lêtra C, Brasil. 
+                      Lêtra D, África do Sul.</talk>
+                <counter var="compara" op="=" value="3" key="2184" />
+              </case>
+              <case op="exact" value="14" key="2185" child_proc="false">
+                <talk key="2186">Que tipo de corrida acontece em um velódromo?</talk>
+                <talk key="2187">Lêtra A, Corrida de motos.
+                      Lêtra B, Corrida de cavalos. 
+                      Lêtra C, Corrida de bicicletas. 
+                      Lêtra D, Corrida de carros.</talk>
+                <counter var="compara" op="=" value="3" key="2188" />
+              </case>
+              <case op="exact" value="15" key="2189" child_proc="false">
+                <talk key="2190">Qual o masculino de sereia?</talk>
+                <talk key="2191">Lêtra A, Sereio. 
+                      Lêtra B, Homem-Sereia. 
+                      Lêtra C, Tritão. 
+                      Lêtra D, Sereno.</talk>
+                <counter var="compara" op="=" value="3" key="2192" />
+              </case>
+              <case op="exact" value="16" key="2193" child_proc="false">
+                  <talk key="2194">Que ave tem o maior bico do reino animal, com 50 centímetros de comprimento, quase do tamanho do braço humano?</talk>
+                  <talk key="2195">Lêtra A, Tucano. 
+                        Lêtra B, Cegonha. 
+                        Lêtra C, Gaivota. 
+                        Lêtra D, Pelicano-Australiano.</talk>
+                  <counter var="compara" op="=" value="4" key="2196" />
+              </case>
+              <case op="exact" value="17" key="2197" child_proc="false">
+                <talk key="2198">Quando algo é compartilhado milhares de vezes na internet, se torna:</talk>
+                <talk key="2199">Lêtra A, Vírus. 
+                      Lêtra B, Sucesso. 
+                      Lêtra C, Fenômeno. 
+                      Lêtra D, Viral.</talk>
+                <counter var="compara" op="=" value="4" key="2200" />
+              </case>
+              <case op="exact" value="18" key="2201" child_proc="false">
+                <talk key="2202">As águas pluviais são aquelas produzidas pela ação do quê?</talk>
+                <talk key="2203">Lêtra A, dos Rios. 
+                      Lêtra B, das Marés. 
+                      Lêtra C, do Derretimento de Geleiras.
+                      Lêtra D, das Chuvas.</talk>
+                <counter var="compara" op="=" value="4" key="2204" />
+              </case>
+              <case op="exact" value="19" key="2205" child_proc="false">
+                <talk key="2206">Qual skatista de 13 anos é a brasileira mais jovem a ganhar uma medalha nas olimpíadas?</talk>
+                <talk key="2207">Lêtra A, Isadora Pacheco. 
+                      Lêtra B, Stephanie Balduccini. 
+                      Lêtra C, Duda Arakaki. 
+                      Lêtra D, Rayssa Leal.</talk>
+                <counter var="compara" op="=" value="4" key="2208" />
+              </case>
+              <case op="exact" value="20" key="2209" child_proc="false">
+                <talk key="2210"> Qual é o masculino de cabra?</talk>
+                <talk key="2211">Lêtra A, Carneiro. 
+                      Lêtra B, Ovelha. 
+                      Lêtra C, Cabrito. 
+                      Lêtra D, Bode.</talk>
+                <counter var="compara" op="=" value="4" key="2212" />
+              </case>
+          <default key="2213" child_proc="false" /></switch>
+          <listen key="2214" />
+          <switch var="$">
+              <case op="contain" value="A" key="2215" child_proc="false">
+                  <counter var="ponto" op="=" value="1" key="2216" />
+              </case>
+              <case op="contain" value="B" key="2217" child_proc="false">
+                  <counter var="ponto" op="=" value="2" key="2218" />
+              </case>  
+              <case op="contain" value="C" key="2219" child_proc="false">
+                  <counter var="ponto" op="=" value="3" key="2220" />
+              </case>  
+              <case op="contain" value="D" key="2221" child_proc="false">
+                  <counter var="ponto" op="=" value="4" key="2222" />
+              </case>
+              <default key="2223" child_proc="false">
+                <counter var="ponto" op="=" value="0" key="2224" />
+              </default>   
+          </switch>
+          <switch var="#ponto">
+              <case op="eq" value="#compara" key="2225" child_proc="false">
+                <evaEmotion emotion="HAPPY" key="2226" />
+                <light state="ON" color="GREEN" key="2227" />
+                <talk key="2228">Você acertou!</talk>
+                <evaEmotion emotion="NEUTRAL" key="2229" />
+                <light state="OFF" key="2230" />
+                <counter var="acertos" op="+" value="1" key="2231" />
+              </case>
+              <case op="ne" value="#compara" key="2232" child_proc="false">
+                <evaEmotion emotion="SAD" key="2233" />
+                <light state="ON" color="RED" key="2234" />
+                <talk key="2235">Errou, na próxima você acerta!</talk>
+                <evaEmotion emotion="NEUTRAL" key="2236" />
+                <light state="OFF" key="2237" />
+              </case>
+            <default key="2238" child_proc="false" /></switch>
+    <switch var="#acertos">
+      
+      <case op="eq" value="0" key="2239" child_proc="false">
+        <counter var="acertos" op="=" value="0" key="2240" />
+        <light state="ON" color="WHITE" key="2241" />
+        <talk key="2242">Vamos reiniciar a fase?</talk>
+        <listen key="2243" />
+        <switch var="$">
+          <case op="exact" value="sim" key="2244" child_proc="false">
+            <goto target="iniciodificil" />
+          </case>
+          <case op="exact" value="não" key="2245" child_proc="false">
+            <light state="OFF" key="2246" />
+            <evaEmotion emotion="SAD" key="2247" />
+            <talk key="2248">Tudo bem! Até a próxima $1!</talk>
+            <stop />
+          </case>
+        <default key="2249" child_proc="false" /></switch>
+      </case>
+      
+      <case op="eq" value="1" key="2250" child_proc="false">
+        <random min="1" max="20" id="meiodificil" key="2251" />
+        <switch var="$">
+          <case op="eq" value="1" key="2252" child_proc="false">
+            <counter var="perg2" op="=" value="1" key="2253" />
+          </case>
+          <case op="eq" value="2" key="2254" child_proc="false">
+            <counter var="perg2" op="=" value="2" key="2255" />
+          </case>
+          <case op="eq" value="3" key="2256" child_proc="false">
+            <counter var="perg2" op="=" value="3" key="2257" />
+          </case>
+          <case op="eq" value="4" key="2258" child_proc="false">
+            <counter var="perg2" op="=" value="4" key="2259" />
+          </case>
+          <case op="eq" value="5" key="2260" child_proc="false">
+            <counter var="perg2" op="=" value="5" key="2261" />
+          </case>
+          <case op="eq" value="6" key="2262" child_proc="false">
+            <counter var="perg2" op="=" value="6" key="2263" />
+          </case>
+          <case op="eq" value="7" key="2264" child_proc="false">
+            <counter var="perg2" op="=" value="7" key="2265" />
+          </case>
+          <case op="eq" value="8" key="2266" child_proc="false">
+            <counter var="perg2" op="=" value="8" key="2267" />
+          </case>
+          <case op="eq" value="9" key="2268" child_proc="false">
+            <counter var="perg2" op="=" value="9" key="2269" />
+          </case>
+          <case op="eq" value="10" key="2270" child_proc="false">
+            <counter var="perg2" op="=" value="10" key="2271" />
+          </case>
+          <case op="eq" value="11" key="2272" child_proc="false">
+            <counter var="perg2" op="=" value="11" key="2273" />
+          </case>
+          <case op="eq" value="12" key="2274" child_proc="false">
+            <counter var="perg2" op="=" value="12" key="2275" />
+          </case>
+          <case op="eq" value="13" key="2276" child_proc="false">
+            <counter var="perg2" op="=" value="13" key="2277" />
+          </case>
+          <case op="eq" value="14" key="2278" child_proc="false">
+            <counter var="perg2" op="=" value="14" key="2279" />
+          </case>
+          <case op="eq" value="15" key="2280" child_proc="false">
+            <counter var="perg2" op="=" value="15" key="2281" />
+          </case>
+          <case op="eq" value="16" key="2282" child_proc="false">
+            <counter var="perg2" op="=" value="16" key="2283" />
+          </case>
+          <case op="eq" value="17" key="2284" child_proc="false">
+            <counter var="perg2" op="=" value="17" key="2285" />
+          </case>
+          <case op="eq" value="18" key="2286" child_proc="false">
+            <counter var="perg2" op="=" value="18" key="2287" />
+          </case>
+          <case op="eq" value="19" key="2288" child_proc="false">
+            <counter var="perg2" op="=" value="19" key="2289" />
+          </case>
+          <case op="eq" value="20" key="2290" child_proc="false">
+            <counter var="perg2" op="=" value="20" key="2291" />
+        </case>
+        <default key="2292" child_proc="false" /></switch>
+
+        <switch var="#perg2">
+          <case op="eq" value="#perg1" key="2293" child_proc="false">
+            <goto target="meiodificil" />
+          </case>
+          <case op="ne" value="#perg1" key="2294" child_proc="false">
+            <talk key="2295">Pergunta 2:</talk>
+            <light state="ON" color="YELLOW" key="2296" />
+            <evaEmotion emotion="NEUTRAL" key="2297" />
+          <switch var="$">
+              <case op="exact" value="1" key="2298" child_proc="false">
+                <talk key="2299">Como é chamada a pessoa que enxerga mal de longe?</talk>
+                <talk key="2300">Lêtra A, Míope. 
+                      Lêtra B, Estrábica.
+                      Lêtra C, Vesga.
+                      Lêtra D, Cega.</talk>
+                <counter var="compara" op="=" value="1" key="2301" />
+              </case>
+              <case op="exact" value="2" key="2302" child_proc="false">
+                <talk key="2303">Que cientista quase morreu na fogueira da inquisição, por afimar que a Terra girava em torno do sol?</talk>
+                <talk key="2304">Lêtra A, Galileu Galilei.
+                      Lêtra B, Leonardo da Vinci.
+                      Lêtra C, Isaac Newton.
+                      Lêtra D, Albert Einstein.</talk>
+                <counter var="compara" op="=" value="1" key="2305" />
+              </case>
+              <case op="exact" value="3" key="2306" child_proc="false">
+                <talk key="2307">Quem acabou com a escravidão no Brasil ao assinar a "Lei Áurea"?</talk>
+                <talk key="2308">Lêtra A, Princesa Isabel.
+                      Lêtra B, Dom Pedro Primeiro.
+                      Lêtra C, Tiradentes.
+                      Lêtra D, Marechal Deodoro da Fonseca.</talk>
+                <counter var="compara" op="=" value="1" key="2309" />
+              </case>
+              <case op="exact" value="4" key="2310" child_proc="false">
+                <talk key="2311">A prôa fica em que parte de um navio?</talk>
+                <talk key="2312">Lêtra A, na frente.
+                      Lêtra B, no meio.
+                      Lêtra C, atrás.
+                      Lêtra D, embaixo.</talk>
+                <counter var="compara" op="=" value="1" key="2313" />
+              </case>
+              <case op="exact" value="5" key="2314" child_proc="false">
+                <talk key="2315">Qual é o menor continente do mundo?</talk>
+                <talk key="2316">Lêtra A, Oceania.
+                      Lêtra B, Europa.
+                      Lêtra C, Ásia.
+                      Lêtra D, Antártida.</talk>
+                <counter var="compara" op="=" value="1" key="2317" />
+              </case>
+              <case op="exact" value="6" key="2318" child_proc="false">
+                <talk key="2319">Que monumento brasileiro é uma das sete maravilhas do mundo moderno?</talk>
+                <talk key="2320">Lêtra A, Elevador Lacerda.
+                      Lêtra B, Cristo Redentor.
+                      Lêtra C, Catedral da Sé.
+                      Lêtra D, Arcos da Lapa.</talk>
+                <counter var="compara" op="=" value="2" key="2321" />
+              </case>
+              <case op="exact" value="7" key="2322" child_proc="false">
+                <talk key="2323">Qual o nome da queda d'água localizada na fronteira entre os Estados Unidos e o Canadá?</talk>
+                <talk key="2324">Lêtra A, Cataratas do Reno.
+                      Lêtra B, Cataratas do Niágara.
+                      Lêtra C, Cataratas do Iguaçu.
+                      Lêtra D, Cataratas do Tugela.</talk>
+                <counter var="compara" op="=" value="2" key="2325" />
+              </case>
+              <case op="exact" value="8" key="2326" child_proc="false">
+                <talk key="2327">Qual é a última palavra da letra do "Hino Nacional do Brasil"?</talk>
+                <talk key="2328">Lêtra A, Amada.
+                      Lêtra B, Brasil.
+                      Lêtra C, Gentil.
+                      Lêtra D, Pátria.</talk>
+                <counter var="compara" op="=" value="2" key="2329" />
+              </case>
+              <case op="exact" value="9" key="2330" child_proc="false">
+                <talk key="2331">Qual país abriga a maior comunidade japonesa fora do Japão?</talk>
+                <talk key="2332">Lêtra A, Austrália.
+                      Lêtra B, Brasil.
+                      Lêtra C, China.
+                      Lêtra D, Estados Unidos.</talk>
+                <counter var="compara" op="=" value="2" key="2333" />
+              </case>
+              <case op="exact" value="10" key="2334" child_proc="false">
+                <talk key="2335">La Paz é a capital de qual país da América do Sul?</talk>
+                <talk key="2336">Lêtra A, Argentina.
+                      Lêtra B, Bolívia.
+                      Lêtra C, Chile.
+                      Lêtra D, Colômbia.</talk>
+                <counter var="compara" op="=" value="2" key="2337" />
+              </case>
+              <case op="exact" value="11" key="2338" child_proc="false">
+                <talk key="2339">Qual destas árvores é uma das mais utilizadas para a produção de papel no brasil?</talk>
+                <talk key="2340">Lêtra A, Seringueira.
+                      Lêtra B, Jatobá.
+                      Lêtra C, Eucalipto.
+                      Lêtra D, Pau-Brasil.</talk>
+                <counter var="compara" op="=" value="3" key="2341" />
+              </case>
+              <case op="exact" value="12" key="2342" child_proc="false">
+                <talk key="2343">O que é um astrolábio?</talk>
+                <talk key="2344">Lêtra A, um tipo de batom.
+                      Lêtra B, um cometa enorme. 
+                      Lêtra C, um instrumento de navegação. 
+                      Lêtra D, um astrólogo famoso.</talk>
+                <counter var="compara" op="=" value="3" key="2345" />
+              </case>
+              <case op="exact" value="13" key="2346" child_proc="false">
+                <talk key="2347">A Copa do Mundo de 2014 foi disputada em que país?</talk>
+                <talk key="2348">Lêtra A, Catar. 
+                      Lêtra B, Rússia. 
+                      Lêtra C, Brasil. 
+                      Lêtra D, África do Sul.</talk>
+                <counter var="compara" op="=" value="3" key="2349" />
+              </case>
+              <case op="exact" value="14" key="2350" child_proc="false">
+                <talk key="2351">Que tipo de corrida acontece em um velódromo?</talk>
+                <talk key="2352">Lêtra A, Corrida de motos.
+                      Lêtra B, Corrida de cavalos. 
+                      Lêtra C, Corrida de bicicletas. 
+                      Lêtra D, Corrida de carros.</talk>
+                <counter var="compara" op="=" value="3" key="2353" />
+              </case>
+              <case op="exact" value="15" key="2354" child_proc="false">
+                <talk key="2355">Qual o masculino de sereia?</talk>
+                <talk key="2356">Lêtra A, Sereio. 
+                      Lêtra B, Homem-Sereia. 
+                      Lêtra C, Tritão. 
+                      Lêtra D, Sereno.</talk>
+                <counter var="compara" op="=" value="3" key="2357" />
+              </case>
+              <case op="exact" value="16" key="2358" child_proc="false">
+                  <talk key="2359">Que ave tem o maior bico do reino animal, com 50 centímetros de comprimento, quase do tamanho do braço humano?</talk>
+                  <talk key="2360">Lêtra A, Tucano. 
+                        Lêtra B, Cegonha. 
+                        Lêtra C, Gaivota. 
+                        Lêtra D, Pelicano-Australiano.</talk>
+                  <counter var="compara" op="=" value="4" key="2361" />
+              </case>
+              <case op="exact" value="17" key="2362" child_proc="false">
+                <talk key="2363">Quando algo é compartilhado milhares de vezes na internet, se torna:</talk>
+                <talk key="2364">Lêtra A, Vírus. 
+                      Lêtra B, Sucesso. 
+                      Lêtra C, Fenômeno. 
+                      Lêtra D, Viral.</talk>
+                <counter var="compara" op="=" value="4" key="2365" />
+              </case>
+              <case op="exact" value="18" key="2366" child_proc="false">
+                <talk key="2367">As águas pluviais são aquelas produzidas pela ação do quê?</talk>
+                <talk key="2368">Lêtra A, dos Rios. 
+                      Lêtra B, das Marés. 
+                      Lêtra C, do Derretimento de Geleiras.
+                      Lêtra D, das Chuvas.</talk>
+                <counter var="compara" op="=" value="4" key="2369" />
+              </case>
+              <case op="exact" value="19" key="2370" child_proc="false">
+                <talk key="2371">Qual skatista de 13 anos é a brasileira mais jovem a ganhar uma medalha nas olimpíadas?</talk>
+                <talk key="2372">Lêtra A, Isadora Pacheco. 
+                      Lêtra B, Stephanie Balduccini. 
+                      Lêtra C, Duda Arakaki. 
+                      Lêtra D, Rayssa Leal.</talk>
+                <counter var="compara" op="=" value="4" key="2373" />
+              </case>
+              <case op="exact" value="20" key="2374" child_proc="false">
+                <talk key="2375"> Qual é o masculino de cabra?</talk>
+                <talk key="2376">Lêtra A, Carneiro. 
+                      Lêtra B, Ovelha. 
+                      Lêtra C, Cabrito. 
+                      Lêtra D, Bode.</talk>
+                <counter var="compara" op="=" value="4" key="2377" />
+              </case>
+          <default key="2378" child_proc="false" /></switch>
+          <listen key="2379" />
+          <switch var="$">
+              <case op="contain" value="A" key="2380" child_proc="false">
+                  <counter var="ponto" op="=" value="1" key="2381" />
+              </case>
+              <case op="contain" value="B" key="2382" child_proc="false">
+                  <counter var="ponto" op="=" value="2" key="2383" />
+              </case>  
+              <case op="contain" value="C" key="2384" child_proc="false">
+                  <counter var="ponto" op="=" value="3" key="2385" />
+              </case>  
+              <case op="contain" value="D" key="2386" child_proc="false">
+                  <counter var="ponto" op="=" value="4" key="2387" />
+              </case>
+              <default key="2388" child_proc="false">
+                <counter var="ponto" op="=" value="0" key="2389" />
+              </default>   
+          </switch>
+          <switch var="#ponto">
+              <case op="eq" value="#compara" key="2390" child_proc="false">
+                <evaEmotion emotion="HAPPY" key="2391" />
+                <light state="ON" color="GREEN" key="2392" />
+                <talk key="2393">Você acertou!</talk>
+                <evaEmotion emotion="NEUTRAL" key="2394" />
+                <light state="OFF" key="2395" />
+                <counter var="acertos" op="+" value="1" key="2396" />
+              </case>
+              <case op="ne" value="#compara" key="2397" child_proc="false">
+                <evaEmotion emotion="SAD" key="2398" />
+                <light state="ON" color="RED" key="2399" />
+                <talk key="2400">Errou, na próxima você acerta!</talk>
+                <evaEmotion emotion="NEUTRAL" key="2401" />
+                <light state="OFF" key="2402" />
+              </case>
+            <default key="2403" child_proc="false" /></switch>
+    <switch var="#acertos">
+            
+            <case op="eq" value="1" key="2404" child_proc="false">
+              <counter var="acertos" op="=" value="0" key="2405" />
+              <light state="ON" color="WHITE" key="2406" />
+              <talk key="2407">Vamos reiniciar a fase?</talk>
+              <listen key="2408" />
+              <switch var="$">
+                <case op="exact" value="sim" key="2409" child_proc="false">
+                  <goto target="iniciodificil" />
+                </case>
+                <case op="exact" value="não" key="2410" child_proc="false">
+                  <light state="OFF" key="2411" />
+                  <evaEmotion emotion="SAD" key="2412" />
+                  <talk key="2413">Tudo bem! Até a próxima $1!</talk>
+                  <stop />
+                </case>
+              <default key="2414" child_proc="false" /></switch>
+            </case>
+            
+            <case op="eq" value="2" key="2415" child_proc="false">
+              <random min="1" max="20" id="fimdificil" key="2416" />
+              <switch var="$">
+                <case op="eq" value="1" key="2417" child_proc="false">
+                  <counter var="perg3" op="=" value="1" key="2418" />
+                </case>
+                <case op="eq" value="2" key="2419" child_proc="false">
+                  <counter var="perg3" op="=" value="2" key="2420" />
+                </case>
+                <case op="eq" value="3" key="2421" child_proc="false">
+                  <counter var="perg3" op="=" value="3" key="2422" />
+                </case>
+                <case op="eq" value="4" key="2423" child_proc="false">
+                  <counter var="perg3" op="=" value="4" key="2424" />
+                </case>
+                <case op="eq" value="5" key="2425" child_proc="false">
+                  <counter var="perg3" op="=" value="5" key="2426" />
+                </case>
+                <case op="eq" value="6" key="2427" child_proc="false">
+                  <counter var="perg3" op="=" value="6" key="2428" />
+                </case>
+                <case op="eq" value="7" key="2429" child_proc="false">
+                  <counter var="perg3" op="=" value="7" key="2430" />
+                </case>
+                <case op="eq" value="8" key="2431" child_proc="false">
+                  <counter var="perg3" op="=" value="8" key="2432" />
+                </case>
+                <case op="eq" value="9" key="2433" child_proc="false">
+                  <counter var="perg3" op="=" value="9" key="2434" />
+                </case>
+                <case op="eq" value="10" key="2435" child_proc="false">
+                  <counter var="perg3" op="=" value="10" key="2436" />
+                </case>
+                <case op="eq" value="11" key="2437" child_proc="false">
+                  <counter var="perg3" op="=" value="11" key="2438" />
+                </case>
+                <case op="eq" value="12" key="2439" child_proc="false">
+                  <counter var="perg3" op="=" value="12" key="2440" />
+                </case>
+                <case op="eq" value="13" key="2441" child_proc="false">
+                  <counter var="perg3" op="=" value="13" key="2442" />
+                </case>
+                <case op="eq" value="14" key="2443" child_proc="false">
+                  <counter var="perg3" op="=" value="14" key="2444" />
+                </case>
+                <case op="eq" value="15" key="2445" child_proc="false">
+                  <counter var="perg3" op="=" value="15" key="2446" />
+                </case>
+                <case op="eq" value="16" key="2447" child_proc="false">
+                  <counter var="perg3" op="=" value="16" key="2448" />
+                </case>
+                <case op="eq" value="17" key="2449" child_proc="false">
+                  <counter var="perg3" op="=" value="17" key="2450" />
+                </case>
+                <case op="eq" value="18" key="2451" child_proc="false">
+                  <counter var="perg3" op="=" value="18" key="2452" />
+                </case>
+                <case op="eq" value="19" key="2453" child_proc="false">
+                  <counter var="perg3" op="=" value="19" key="2454" />
+                </case>
+                <case op="eq" value="20" key="2455" child_proc="false">
+                  <counter var="perg3" op="=" value="20" key="2456" />
+                </case>
+              <default key="2457" child_proc="false" /></switch>
+            </case>
+          <default key="2458" child_proc="false" /></switch>
+            <switch var="#perg3">
+              <case op="eq" value="#perg1" key="2459" child_proc="false">
+                <goto target="fimdificil" />
+              </case>
+              <case op="eq" value="#perg2" key="2460" child_proc="false">
+                <goto target="fimdificil" />
+              </case>
+              <default key="2461" child_proc="false">
+                <talk key="2462">Pergunta 3:</talk>
+                <light state="ON" color="YELLOW" key="2463" />
+                <evaEmotion emotion="NEUTRAL" key="2464" />
+          <switch var="$">
+              <case op="exact" value="1" key="2465" child_proc="false">
+                <talk key="2466">Como é chamada a pessoa que enxerga mal de longe?</talk>
+                <talk key="2467">Lêtra A, Míope. 
+                      Lêtra B, Estrábica.
+                      Lêtra C, Vesga.
+                      Lêtra D, Cega.</talk>
+                <counter var="compara" op="=" value="1" key="2468" />
+              </case>
+              <case op="exact" value="2" key="2469" child_proc="false">
+                <talk key="2470">Que cientista quase morreu na fogueira da inquisição, por afimar que a Terra girava em torno do sol?</talk>
+                <talk key="2471">Lêtra A, Galileu Galilei.
+                      Lêtra B, Leonardo da Vinci.
+                      Lêtra C, Isaac Newton.
+                      Lêtra D, Albert Einstein.</talk>
+                <counter var="compara" op="=" value="1" key="2472" />
+              </case>
+              <case op="exact" value="3" key="2473" child_proc="false">
+                <talk key="2474">Quem acabou com a escravidão no Brasil ao assinar a "Lei Áurea"?</talk>
+                <talk key="2475">Lêtra A, Princesa Isabel.
+                      Lêtra B, Dom Pedro Primeiro.
+                      Lêtra C, Tiradentes.
+                      Lêtra D, Marechal Deodoro da Fonseca.</talk>
+                <counter var="compara" op="=" value="1" key="2476" />
+              </case>
+              <case op="exact" value="4" key="2477" child_proc="false">
+                <talk key="2478">A prôa fica em que parte de um navio?</talk>
+                <talk key="2479">Lêtra A, na frente.
+                      Lêtra B, no meio.
+                      Lêtra C, atrás.
+                      Lêtra D, embaixo.</talk>
+                <counter var="compara" op="=" value="1" key="2480" />
+              </case>
+              <case op="exact" value="5" key="2481" child_proc="false">
+                <talk key="2482">Qual é o menor continente do mundo?</talk>
+                <talk key="2483">Lêtra A, Oceania.
+                      Lêtra B, Europa.
+                      Lêtra C, Ásia.
+                      Lêtra D, Antártida.</talk>
+                <counter var="compara" op="=" value="1" key="2484" />
+              </case>
+              <case op="exact" value="6" key="2485" child_proc="false">
+                <talk key="2486">Que monumento brasileiro é uma das sete maravilhas do mundo moderno?</talk>
+                <talk key="2487">Lêtra A, Elevador Lacerda.
+                      Lêtra B, Cristo Redentor.
+                      Lêtra C, Catedral da Sé.
+                      Lêtra D, Arcos da Lapa.</talk>
+                <counter var="compara" op="=" value="2" key="2488" />
+              </case>
+              <case op="exact" value="7" key="2489" child_proc="false">
+                <talk key="2490">Qual o nome da queda d'água localizada na fronteira entre os Estados Unidos e o Canadá?</talk>
+                <talk key="2491">Lêtra A, Cataratas do Reno.
+                      Lêtra B, Cataratas do Niágara.
+                      Lêtra C, Cataratas do Iguaçu.
+                      Lêtra D, Cataratas do Tugela.</talk>
+                <counter var="compara" op="=" value="2" key="2492" />
+              </case>
+              <case op="exact" value="8" key="2493" child_proc="false">
+                <talk key="2494">Qual é a última palavra da letra do "Hino Nacional do Brasil"?</talk>
+                <talk key="2495">Lêtra A, Amada.
+                      Lêtra B, Brasil.
+                      Lêtra C, Gentil.
+                      Lêtra D, Pátria.</talk>
+                <counter var="compara" op="=" value="2" key="2496" />
+              </case>
+              <case op="exact" value="9" key="2497" child_proc="false">
+                <talk key="2498">Qual país abriga a maior comunidade japonesa fora do Japão?</talk>
+                <talk key="2499">Lêtra A, Austrália.
+                      Lêtra B, Brasil.
+                      Lêtra C, China.
+                      Lêtra D, Estados Unidos.</talk>
+                <counter var="compara" op="=" value="2" key="2500" />
+              </case>
+              <case op="exact" value="10" key="2501" child_proc="false">
+                <talk key="2502">La Paz é a capital de qual país da América do Sul?</talk>
+                <talk key="2503">Lêtra A, Argentina.
+                      Lêtra B, Bolívia.
+                      Lêtra C, Chile.
+                      Lêtra D, Colômbia.</talk>
+                <counter var="compara" op="=" value="2" key="2504" />
+              </case>
+              <case op="exact" value="11" key="2505" child_proc="false">
+                <talk key="2506">Qual destas árvores é uma das mais utilizadas para a produção de papel no brasil?</talk>
+                <talk key="2507">Lêtra A, Seringueira.
+                      Lêtra B, Jatobá.
+                      Lêtra C, Eucalipto.
+                      Lêtra D, Pau-Brasil.</talk>
+                <counter var="compara" op="=" value="3" key="2508" />
+              </case>
+              <case op="exact" value="12" key="2509" child_proc="false">
+                <talk key="2510">O que é um astrolábio?</talk>
+                <talk key="2511">Lêtra A, um tipo de batom.
+                      Lêtra B, um cometa enorme. 
+                      Lêtra C, um instrumento de navegação. 
+                      Lêtra D, um astrólogo famoso.</talk>
+                <counter var="compara" op="=" value="3" key="2512" />
+              </case>
+              <case op="exact" value="13" key="2513" child_proc="false">
+                <talk key="2514">A Copa do Mundo de 2014 foi disputada em que país?</talk>
+                <talk key="2515">Lêtra A, Catar. 
+                      Lêtra B, Rússia. 
+                      Lêtra C, Brasil. 
+                      Lêtra D, África do Sul.</talk>
+                <counter var="compara" op="=" value="3" key="2516" />
+              </case>
+              <case op="exact" value="14" key="2517" child_proc="false">
+                <talk key="2518">Que tipo de corrida acontece em um velódromo?</talk>
+                <talk key="2519">Lêtra A, Corrida de motos.
+                      Lêtra B, Corrida de cavalos. 
+                      Lêtra C, Corrida de bicicletas. 
+                      Lêtra D, Corrida de carros.</talk>
+                <counter var="compara" op="=" value="3" key="2520" />
+              </case>
+              <case op="exact" value="15" key="2521" child_proc="false">
+                <talk key="2522">Qual o masculino de sereia?</talk>
+                <talk key="2523">Lêtra A, Sereio. 
+                      Lêtra B, Homem-Sereia. 
+                      Lêtra C, Tritão. 
+                      Lêtra D, Sereno.</talk>
+                <counter var="compara" op="=" value="3" key="2524" />
+              </case>
+              <case op="exact" value="16" key="2525" child_proc="false">
+                  <talk key="2526">Que ave tem o maior bico do reino animal, com 50 centímetros de comprimento, quase do tamanho do braço humano?</talk>
+                  <talk key="2527">Lêtra A, Tucano. 
+                        Lêtra B, Cegonha. 
+                        Lêtra C, Gaivota. 
+                        Lêtra D, Pelicano-Australiano.</talk>
+                  <counter var="compara" op="=" value="4" key="2528" />
+              </case>
+              <case op="exact" value="17" key="2529" child_proc="false">
+                <talk key="2530">Quando algo é compartilhado milhares de vezes na internet, se torna:</talk>
+                <talk key="2531">Lêtra A, Vírus. 
+                      Lêtra B, Sucesso. 
+                      Lêtra C, Fenômeno. 
+                      Lêtra D, Viral.</talk>
+                <counter var="compara" op="=" value="4" key="2532" />
+              </case>
+              <case op="exact" value="18" key="2533" child_proc="false">
+                <talk key="2534">As águas pluviais são aquelas produzidas pela ação do quê?</talk>
+                <talk key="2535">Lêtra A, dos Rios. 
+                      Lêtra B, das Marés. 
+                      Lêtra C, do Derretimento de Geleiras.
+                      Lêtra D, das Chuvas.</talk>
+                <counter var="compara" op="=" value="4" key="2536" />
+              </case>
+              <case op="exact" value="19" key="2537" child_proc="false">
+                <talk key="2538">Qual skatista de 13 anos é a brasileira mais jovem a ganhar uma medalha nas olimpíadas?</talk>
+                <talk key="2539">Lêtra A, Isadora Pacheco. 
+                      Lêtra B, Stephanie Balduccini. 
+                      Lêtra C, Duda Arakaki. 
+                      Lêtra D, Rayssa Leal.</talk>
+                <counter var="compara" op="=" value="4" key="2540" />
+              </case>
+              <case op="exact" value="20" key="2541" child_proc="false">
+                <talk key="2542"> Qual é o masculino de cabra?</talk>
+                <talk key="2543">Lêtra A, Carneiro. 
+                      Lêtra B, Ovelha. 
+                      Lêtra C, Cabrito. 
+                      Lêtra D, Bode.</talk>
+                <counter var="compara" op="=" value="4" key="2544" />
+              </case>
+          <default key="2545" child_proc="false" /></switch>
+          <listen key="2546" />
+          <switch var="$">
+              <case op="contain" value="A" key="2547" child_proc="false">
+                  <counter var="ponto" op="=" value="1" key="2548" />
+              </case>
+              <case op="contain" value="B" key="2549" child_proc="false">
+                  <counter var="ponto" op="=" value="2" key="2550" />
+              </case>  
+              <case op="contain" value="C" key="2551" child_proc="false">
+                  <counter var="ponto" op="=" value="3" key="2552" />
+              </case>  
+              <case op="contain" value="D" key="2553" child_proc="false">
+                  <counter var="ponto" op="=" value="4" key="2554" />
+              </case>
+              <default key="2555" child_proc="false">
+                <counter var="ponto" op="=" value="0" key="2556" />
+              </default>   
+          </switch>
+          <switch var="#ponto">
+              <case op="eq" value="#compara" key="2557" child_proc="false">
+                <evaEmotion emotion="HAPPY" key="2558" />
+                <light state="ON" color="GREEN" key="2559" />
+                <talk key="2560">Você acertou!</talk>
+                <evaEmotion emotion="NEUTRAL" key="2561" />
+                <light state="OFF" key="2562" />
+                <counter var="acertos" op="+" value="1" key="2563" />
+              </case>
+              <case op="ne" value="#compara" key="2564" child_proc="false">
+                <evaEmotion emotion="SAD" key="2565" />
+                <light state="ON" color="RED" key="2566" />
+                <talk key="2567">Errou, na próxima você acerta!</talk>
+                <evaEmotion emotion="NEUTRAL" key="2568" />
+                <light state="OFF" key="2569" />
+              </case>
+            <default key="2570" child_proc="false" /></switch>
+    <switch var="#acertos">
+                  
+                  <case op="eq" value="2" key="2571" child_proc="false">
+                    <counter var="acertos" op="=" value="0" key="2572" />
+                    <light state="ON" color="WHITE" key="2573" />
+                    <talk key="2574">Vamos reiniciar a fase?</talk>
+                    <listen key="2575" />
+                    <switch var="$">
+                      <case op="exact" value="sim" key="2576" child_proc="false">
+                        <goto target="iniciodificil" />
+                      </case>
+                      <case op="exact" value="não" key="2577" child_proc="false">
+                        <light state="OFF" key="2578" />
+                        <evaEmotion emotion="SAD" key="2579" />
+                        <talk key="2580">Tudo bem! Até a próxima $1!</talk>
+                        <stop />
+                      </case>
+                    <default key="2581" child_proc="false" /></switch>
+                  </case>
+                  
+                  <case op="eq" value="3" key="2582" child_proc="false">
+                    <evaEmotion emotion="HAPPY" key="2583" />
+      <light state="ON" color="BLUE" key="2584" />
+      <talk key="2585">Meus Parabéns! Você provou sua inteligência e acabou de concluir o nível mais difícil do desafio!</talk>
+      <audio source="applause-moderate" block="TRUE" key="2586" />
+      <light state="OFF" key="2587" />
+      <evaEmotion emotion="NEUTRAL" key="2588" />
+      <talk key="2589">Com isso, me despeço de você. Obrigada por jogar comigo, até a próxima $1!</talk>
+      <evaEmotion emotion="HAPPY" key="2590" />
+    </case>  
+                <default key="2591" child_proc="false" /></switch>
+              </default>  
+            </switch>    
+          </case>
+        <default key="2592" child_proc="false" /></switch>
+      </case>
+    <default key="2593" child_proc="false" /></switch>
+  </script>
+
+  </evaml>

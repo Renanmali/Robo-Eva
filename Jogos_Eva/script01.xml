@@ -8,7 +8,6 @@
     <lightEffects mode="ON" />
     <audioEffects mode="ON" />
   </settings>
-  <script>
-    <userEmotion />
+  <script>  
   </script>
 </evaml>

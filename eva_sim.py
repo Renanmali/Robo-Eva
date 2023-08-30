@@ -540,13 +540,14 @@ def exec_comando(node):
         # Assume the default UTF-8 (Gera o hashing do arquivo de audio)
         # Also, uses the voice tone attribute in file hashing
         hash_object = hashlib.md5(texto[ind_random].encode())
+        for el in root.find("settings"):
+            print(el.keys())
         file_name = "_audio_"  + root.find("settings")[0].attrib["tone"] + hash_object.hexdigest()
 
         # verifica se o audio da fala já existe na pasta
         if not (os.path.isfile("audio_cache_files/" + file_name + ".mp3")): # se nao existe chama o watson
             # Eva tts functions
             with open("audio_cache_files/" + file_name + ".mp3", 'wb') as audio_file:
-                print("Aqui")
                 try:
                     res = tts.synthesize(texto[ind_random], accept = "audio/mp3", voice = root.find("settings")[0].attrib["tone"]).get_result()
                     audio_file.write(res.content)
@@ -825,7 +826,7 @@ def exec_comando(node):
         Label(pop, image=img_open).place(x = 421, y = 50)
         Label(pop, image=img_three).place(x = 558, y = 50)
         Radiobutton(pop, text = "Thumbs_UP", variable = var, font = font1, command = None, value = "THUMBS_UP").place(x = 25, y = 185)
-        Radiobutton(pop, text = "Thumbs_DOWN", variable = var, font = font1, command = None, value = "THUMBS_DOWN").place(x = 142, y = 185)
+        Radiobutton(pop, text = "Thumbs_DOWN", variable = var, font = font1, command = None, value = "THUMBS_DOWN").place(x = 152, y = 185)
         Radiobutton(pop, text = "Peace", variable = var, font = font1, command = None, value = "PEACE").place(x = 302, y = 185)
         Radiobutton(pop, text = "Open", variable = var, font = font1, command = None, value = "OPEN").place(x = 442, y = 185)
         Radiobutton(pop, text = "Three", variable = var, font = font1, command = None, value = "THREE").place(x = 575, y = 185)
