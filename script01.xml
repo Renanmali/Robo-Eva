@@ -9,5 +9,6 @@
     <audioEffects mode="ON" />
   </settings>
   <script>  
+    <userHandPose />
   </script>
 </evaml>
