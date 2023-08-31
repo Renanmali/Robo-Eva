@@ -5,6 +5,56 @@
     <audioEffects mode="ON" />
   </settings>
   <script>  
-    <userHandPose key="1001" />
-  </script>
-<links><link from="1000" to="1001" /></links></evaml>
+    <talk key="1001">Olá, agora vamos testar a captura de gestos.</talk>
+    <talk key="1002">Faça o gesto de gostei.</talk>
+    <userHandPose key="1003" />
+    <switch var="$">
+      <case op="exact" value="THUMBS_UP" key="1004" child_proc="true" var="$">
+        <talk key="1005">Certo, vamos para o próximo.</talk>
+      </case>
+      <default key="1006" child_proc="true" value="" op="exact">
+        <talk key="1007">Você não fez o gesto correto, vamos para o próximo.</talk>
+      </default>
+    </switch>
+    <talk key="1008">Agora faça o gesto da mão aberta.</talk>
+    <userHandPose key="1009" />
+    <switch var="$">
+      <case op="exact" value="OPEN" key="1010" child_proc="true" var="$">
+        <talk key="1011">Certo, vamos para o próximo.</talk>
+      </case>
+      <default key="1012" child_proc="true" value="" op="exact">
+        <talk key="1013">Você não fez o gesto correto, vamos para o próximo.</talk>
+      </default>
+    </switch>
+    <talk key="1014">Agora faça o gesto com três dedos</talk>
+    <userHandPose key="1015" />
+    <switch var="$">
+      <case op="exact" value="THREE" key="1016" child_proc="true" var="$">
+        <talk key="1017">Certo, vamos para o próximo.</talk>
+      </case>
+      <default key="1018" child_proc="true" value="" op="exact">
+        <talk key="1019">Você não fez o gesto correto, vamos para a próxima</talk>
+      </default>
+    </switch>
+    <talk key="1020">Agora faça o gesto do não gostei</talk>
+    <userHandPose key="1021" />
+    <switch var="$">
+      <case op="exact" value="THUMBS_DOWN" key="1022" child_proc="true" var="$">
+        <talk key="1023">Certo, vamos para o próximo.</talk>
+      </case>
+      <default key="1024" child_proc="true" value="" op="exact">
+        <talk key="1025">Você não fez o gesto correto, vamos para a próxima</talk>
+      </default>
+    </switch>
+    <talk key="1026">Por último, faça o gesto de dois dedos.</talk>
+    <userHandPose key="1027" />
+    <switch var="$">
+      <case op="exact" value="PEACE" key="1028" child_proc="true" var="$">
+        <talk key="1029">Certo, vamos para o próximo.</talk>
+      </case>
+      <default key="1030" child_proc="true" value="" op="exact">
+        <talk key="1031">Você não fez o gesto correto, vamos para a próxima</talk>
+      </default>
+    </switch>
+  </script> 
+<links><link from="1000" to="1001" /><link from="1001" to="1002" /><link from="1002" to="1003" /><link from="1003" to="1004" /><link from="1004" to="1005" /><link from="1003" to="1006" /><link from="1006" to="1007" /><link from="1005" to="1008" /><link from="1007" to="1008" /><link from="1008" to="1009" /><link from="1009" to="1010" /><link from="1010" to="1011" /><link from="1009" to="1012" /><link from="1012" to="1013" /><link from="1011" to="1014" /><link from="1013" to="1014" /><link from="1014" to="1015" /><link from="1015" to="1016" /><link from="1016" to="1017" /><link from="1015" to="1018" /><link from="1018" to="1019" /><link from="1017" to="1020" /><link from="1019" to="1020" /><link from="1020" to="1021" /><link from="1021" to="1022" /><link from="1022" to="1023" /><link from="1021" to="1024" /><link from="1024" to="1025" /><link from="1023" to="1026" /><link from="1025" to="1026" /><link from="1026" to="1027" /><link from="1027" to="1028" /><link from="1028" to="1029" /><link from="1027" to="1030" /><link from="1030" to="1031" /></links></evaml>

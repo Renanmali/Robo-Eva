@@ -1,3 +1,5 @@
+# Comentários linha 197 até a 200
+
 #!/usr/bin/env python3
 import hashlib
 from logging import exception
@@ -192,10 +194,10 @@ def evaInit():
     evaEmotion("POWER_ON")
     terminal.insert(INSERT, "\nstate: Initializing.")
     playsound("my_sounds/power_on.mp3", block = True)
-    terminal.insert(INSERT, "\nstate: Speaking a greeting text.")
-    playsound("my_sounds/greetings.mp3", block = True)
-    terminal.insert(INSERT, '\nstate: Speaking "Load a script file and enjoy."')
-    playsound("my_sounds/load_a_script.mp3", block = True)
+    # terminal.insert(INSERT, "\nstate: Speaking a greeting text.")
+    # playsound("my_sounds/greetings.mp3", block = True)
+    # terminal.insert(INSERT, '\nstate: Speaking "Load a script file and enjoy."')
+    # playsound("my_sounds/load_a_script.mp3", block = True)
     terminal.insert(INSERT, "\nstate: Entering in standby mode.")
     bt_import['state'] = NORMAL
     evaMatrix("white")
@@ -540,8 +542,6 @@ def exec_comando(node):
         # Assume the default UTF-8 (Gera o hashing do arquivo de audio)
         # Also, uses the voice tone attribute in file hashing
         hash_object = hashlib.md5(texto[ind_random].encode())
-        for el in root.find("settings"):
-            print(el.keys())
         file_name = "_audio_"  + root.find("settings")[0].attrib["tone"] + hash_object.hexdigest()
 
         # verifica se o audio da fala já existe na pasta

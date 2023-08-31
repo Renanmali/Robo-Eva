@@ -9,6 +9,56 @@
     <audioEffects mode="ON" />
   </settings>
   <script>  
+    <talk>Olá, agora vamos testar a captura de gestos.</talk>
+    <talk>Faça o gesto de gostei.</talk>
     <userHandPose />
-  </script>
+    <switch var="$">
+      <case op="exact" value="THUMBS_UP">
+        <talk>Certo, vamos para o próximo.</talk>
+      </case>
+      <default>
+        <talk>Você não fez o gesto correto, vamos para o próximo.</talk>
+      </default>
+    </switch>
+    <talk>Agora faça o gesto da mão aberta.</talk>
+    <userHandPose />
+    <switch var="$">
+      <case op="exact" value="OPEN">
+        <talk>Certo, vamos para o próximo.</talk>
+      </case>
+      <default>
+        <talk>Você não fez o gesto correto, vamos para o próximo.</talk>
+      </default>
+    </switch>
+    <talk>Agora faça o gesto com três dedos</talk>
+    <userHandPose />
+    <switch var="$">
+      <case op="exact" value="THREE">
+        <talk>Certo, vamos para o próximo.</talk>
+      </case>
+      <default>
+        <talk>Você não fez o gesto correto, vamos para a próxima</talk>
+      </default>
+    </switch>
+    <talk>Agora faça o gesto do não gostei</talk>
+    <userHandPose />
+    <switch var="$">
+      <case op="exact" value="THUMBS_DOWN">
+        <talk>Certo, vamos para o próximo.</talk>
+      </case>
+      <default>
+        <talk>Você não fez o gesto correto, vamos para a próxima</talk>
+      </default>
+    </switch>
+    <talk>Por último, faça o gesto de dois dedos.</talk>
+    <userHandPose />
+    <switch var="$">
+      <case op="exact" value="PEACE">
+        <talk>Certo, vamos para o próximo.</talk>
+      </case>
+      <default>
+        <talk>Você não fez o gesto correto, vamos para a próxima</talk>
+      </default>
+    </switch>
+  </script> 
 </evaml>
