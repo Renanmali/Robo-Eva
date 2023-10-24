@@ -50,10 +50,10 @@
     <userHandPose key="1027" />
     <switch var="$">
       <case op="exact" value="PEACE" key="1028" child_proc="true" var="$">
-        <talk key="1029">Certo, vamos para o próximo.</talk>
+        <talk key="1029">Certo, acabamos por aqui.</talk>
       </case>
       <default key="1030" child_proc="true" value="" op="exact">
-        <talk key="1031">Você não fez o gesto correto, vamos para a próxima</talk>
+        <talk key="1031">Você não fez o gesto correto, acabamos por aqui.</talk>
       </default>
     </switch>
   </script> 

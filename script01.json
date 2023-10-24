@@ -284,7 +284,7 @@
         "type": "speak",
         "color": "#00ff00",
         "isGroup": false,
-        "text": "Certo, vamos para o próximo.",
+        "text": "Certo, acabamos por aqui.",
         "__gohashid": 29
       },
       {
@@ -303,7 +303,7 @@
         "type": "speak",
         "color": "#00ff00",
         "isGroup": false,
-        "text": "Você não fez o gesto correto, vamos para a próxima",
+        "text": "Você não fez o gesto correto, acabamos por aqui.",
         "__gohashid": 31
       }
     ],

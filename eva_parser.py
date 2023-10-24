@@ -82,7 +82,7 @@ if run:
 	if save or compile:
 		time.sleep(3) # tempo necessário para o restart do serviço do Eva
 	key_value = {'id': root.attrib['id']} # parametros do request
-	url_eva = 'http://192.168.1.100:3000/interaccion/iniciarInteracciong?'
+	url_eva = 'http://192.168.1.98:3000/interaccion/iniciarInteracciong?'
 	r = requests.get(url_eva, params = key_value)
 	print("==> Runnig script: " + root.attrib['name'] + ", id: " + root.attrib['id'])
 
