@@ -1,28 +1,11 @@
-<evaml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="TESTE_VOZ_EVA" xsi:noNamespaceSchemaLocation="EvaML-Schema/evaml_schema.xsd" id="96465c3d0061d4d9c0130fb6f348f3a6">
-  <settings>
-    <voice tone="pt-BR_IsabelaV3Voice" key="1000" />
-    <lightEffects mode="ON" />
-    <audioEffects mode="ON" />
-  </settings>
-  <script>  
-    <talk key="1001">Olá, sou o robô EVA</talk>
-    <talk key="1002">Agora eu irei te apresentar as minhas emoções</talk>
-    <talk key="1003">Desse jeito estou feliz</talk>
-    <evaEmotion emotion="HAPPY" key="1004" />
-    <wait duration="10" key="1005" />
-    <light state="ON" color="PINK" key="1006" />
-    <talk key="1007">Desse jeito estou triste</talk>
-    <wait duration="10" key="1008" />
-    <light state="ON" color="BLUE" key="1009" />
-    <talk key="1010">Desse jeito estou com raiva</talk>
-    <wait duration="10" key="1011" />
-    <light state="ON" color="RED" key="1012" />
-    <talk key="1013">E assim estou neutro</talk>
-    <evaEmotion emotion="NEUTRAL" key="1014" />
-    <wait duration="10" key="1015" />
-    <light state="ON" color="WHITE" key="1016" />
+<evaml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Teste_Renan_Listen" xsi:noNamespaceSchemaLocation="EvaML-Schema/evaml_schema.xsd" id="0fe19a441c82ad1544b4e0b1eb960c5b">
+    <settings>
+      <voice tone="pt-BR_IsabelaV3Voice" key="1000" />
+      <lightEffects mode="ON" />
+      <audioEffects mode="ON" />
+    </settings>
+    <script> 
+        <listen key="1001" />
+    </script>
 
-    <talk key="1017">Essas são as minhas emoções, até a próxima</talk>
-
-  </script> 
 </evaml>

@@ -1,5 +1,8 @@
 # Comentários linha 197 até a 200
 
+
+#Para utilizar o Listen via voz basta comentar da linha 501 até a linha 543, caso contrário comentar da linha 457 até a 499
+
 #!/usr/bin/env python3
 import hashlib
 from logging import exception
@@ -27,6 +30,12 @@ import threading
 from ibm_watson import TextToSpeechV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
+
+# importando bibliotecas para colocar o Listen utilizando API
+
+import sounddevice as sd
+from google.cloud import speech_v1p1beta1 as speech
+from google.oauth2 import service_account
 
 # variaveis globais da vm
 root = {}
@@ -443,7 +452,53 @@ def exec_comando(node):
     elif node.tag == "listen":
         lock_thread_pop()
         ledAnimation("LISTEN")
-        # função de fechamento da janela pop up para a tecla <return)
+        
+
+        def transcrever_audio_em_tempo_real():
+            # Configurar as credenciais do Google Cloud
+            credencial_path = "Api.json"
+            credenciais = service_account.Credentials.from_service_account_file(credencial_path)
+
+            client = speech.SpeechClient(credentials=credenciais)
+
+            # Configurar parâmetros do áudio
+            duration = 4  # duração da gravação em segundos
+            sample_rate = 16000  # taxa de amostragem em Hz
+
+            try:
+                audio_data = sd.rec(int(duration * sample_rate), samplerate=sample_rate, channels=1, dtype='int16')
+                sd.wait()
+
+                audio_content = audio_data.tobytes()
+
+                audio = speech.RecognitionAudio(content=audio_content)
+                config = speech.RecognitionConfig(
+                    encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
+                    sample_rate_hertz=sample_rate,
+                    language_code="pt-BR",
+                )
+
+                response = client.recognize(config=config, audio=audio)
+
+                for result in response.results:
+                    transcript = result.alternatives[0].transcript
+                    
+                var = StringVar(value=transcript)
+
+                eva_memory.var_dolar.append([var.get(), "<listen>"])
+                terminal.insert(INSERT, "\nstate: Listening : var=$" + ", value=" + eva_memory.var_dolar[-1][0])
+                tab_load_mem_dollar()
+                terminal.see(tkinter.END)
+                unlock_thread_pop()
+            
+            except KeyboardInterrupt:
+                print("\n")
+
+
+        if __name__ == "__main__":
+            transcrever_audio_em_tempo_real()
+
+        ''' # função de fechamento da janela pop up para a tecla <return)
         def fechar_pop_ret(self): 
             print(var.get())
             eva_memory.var_dolar.append([var.get(), "<listen>"])
@@ -482,10 +537,10 @@ def exec_comando(node):
         E1 = Entry(pop, textvariable = var, font = ('Arial', 10))
         E1.bind("<Return>", fechar_pop_ret)
         E1.pack()
-        Button(pop, text="    OK    ", font = font1, command=fechar_pop_bt).pack(pady=20)
-        # espera pela liberacao, aguardando a resposta do usuario
-        while thread_pop_pause: 
-            time.sleep(0.5)
+        Button(pop, text="    OK    ", font = font1, command=fechar_pop_bt).pack(pady=20) 
+        # espera pela liberacao, aguardando a resposta do usuario '''
+        ''' while thread_pop_pause: 
+            time.sleep(0.5)'''
         ledAnimation("STOP")
 
 
