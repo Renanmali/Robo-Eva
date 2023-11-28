@@ -1,7 +1,7 @@
 # Comentários linha 197 até a 200
 
 
-#Para utilizar o Listen via voz basta comentar da linha 501 até a linha 543, caso contrário comentar da linha 457 até a 499
+#Caso deseje utilizar o listen via texto, passar a flag -r ou --real
 
 #!/usr/bin/env python3
 import hashlib
@@ -36,6 +36,17 @@ from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 import sounddevice as sd
 from google.cloud import speech_v1p1beta1 as speech
 from google.oauth2 import service_account
+
+#Importando biblioteca para flag
+
+import argparse
+
+argparser = argparse.ArgumentParser()
+argparser.add_argument('-r', '--real', action='store_true')
+
+args = argparser.parse_args()
+
+REALMODE = args.real
 
 # variaveis globais da vm
 root = {}
@@ -453,94 +464,95 @@ def exec_comando(node):
         lock_thread_pop()
         ledAnimation("LISTEN")
         
+        if REALMODE :
 
-        def transcrever_audio_em_tempo_real():
-            # Configurar as credenciais do Google Cloud
-            credencial_path = "Api.json"
-            credenciais = service_account.Credentials.from_service_account_file(credencial_path)
+            def transcrever_audio_em_tempo_real():
+                # Configurar as credenciais do Google Cloud
+                credencial_path = "Api.json"
+                credenciais = service_account.Credentials.from_service_account_file(credencial_path)
 
-            client = speech.SpeechClient(credentials=credenciais)
+                client = speech.SpeechClient(credentials=credenciais)
 
-            # Configurar parâmetros do áudio
-            duration = 4  # duração da gravação em segundos
-            sample_rate = 16000  # taxa de amostragem em Hz
+                # Configurar parâmetros do áudio
+                duration = 7 # duração da gravação em segundos
+                sample_rate = 16000  # taxa de amostragem em Hz
 
-            try:
-                audio_data = sd.rec(int(duration * sample_rate), samplerate=sample_rate, channels=1, dtype='int16')
-                sd.wait()
+                try:
+                    audio_data = sd.rec(int(duration * sample_rate), samplerate=sample_rate, channels=1, dtype='int16')
+                    sd.wait()
 
-                audio_content = audio_data.tobytes()
+                    audio_content = audio_data.tobytes()
 
-                audio = speech.RecognitionAudio(content=audio_content)
-                config = speech.RecognitionConfig(
-                    encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
-                    sample_rate_hertz=sample_rate,
-                    language_code="pt-BR",
-                )
+                    audio = speech.RecognitionAudio(content=audio_content)
+                    config = speech.RecognitionConfig(
+                        encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
+                        sample_rate_hertz=sample_rate,
+                        language_code="pt-BR",
+                    )
 
-                response = client.recognize(config=config, audio=audio)
+                    response = client.recognize(config=config, audio=audio)
 
-                for result in response.results:
-                    transcript = result.alternatives[0].transcript
-                    
-                var = StringVar(value=transcript)
+                    for result in response.results:
+                        transcript = result.alternatives[0].transcript
+                        
+                    var = StringVar(value=transcript)
 
+                    eva_memory.var_dolar.append([var.get(), "<listen>"])
+                    terminal.insert(INSERT, "\nstate: Listening : var=$" + ", value=" + eva_memory.var_dolar[-1][0])
+                    tab_load_mem_dollar()
+                    terminal.see(tkinter.END)
+                    unlock_thread_pop()
+                
+                except KeyboardInterrupt:
+                    print("\n")
+
+
+            if __name__ == "__main__":
+                transcrever_audio_em_tempo_real()
+        else:
+            # função de fechamento da janela pop up para a tecla <return)
+            def fechar_pop_ret(self): 
+                print(var.get())
                 eva_memory.var_dolar.append([var.get(), "<listen>"])
                 terminal.insert(INSERT, "\nstate: Listening : var=$" + ", value=" + eva_memory.var_dolar[-1][0])
                 tab_load_mem_dollar()
                 terminal.see(tkinter.END)
-                unlock_thread_pop()
+                pop.destroy()
+                unlock_thread_pop() # reativa a thread de processamento do script
             
-            except KeyboardInterrupt:
-                print("\n")
-
-
-        if __name__ == "__main__":
-            transcrever_audio_em_tempo_real()
-
-        ''' # função de fechamento da janela pop up para a tecla <return)
-        def fechar_pop_ret(self): 
-            print(var.get())
-            eva_memory.var_dolar.append([var.get(), "<listen>"])
-            terminal.insert(INSERT, "\nstate: Listening : var=$" + ", value=" + eva_memory.var_dolar[-1][0])
-            tab_load_mem_dollar()
-            terminal.see(tkinter.END)
-            pop.destroy()
-            unlock_thread_pop() # reativa a thread de processamento do script
-        
-        # função de fechamento da janela pop up par o botão ok
-        def fechar_pop_bt(): 
-            print(var.get())
-            eva_memory.var_dolar.append([var.get(), "<listen>"])
-            terminal.insert(INSERT, "\nstate: Listening : var=$" + ", value=" + eva_memory.var_dolar[-1][0])
-            tab_load_mem_dollar()
-            terminal.see(tkinter.END)
-            pop.destroy()
-            unlock_thread_pop() # reativa a thread de processamento do script
-        # criacao da janela
-        var = StringVar()
-        pop = Toplevel(window)
-        pop.title("Listen Command")
-        # Disable the max and close buttons
-        pop.resizable(False, False)
-        pop.protocol("WM_DELETE_WINDOW", False)
-        w = 300
-        h = 150
-        ws = window.winfo_screenwidth()
-        hs = window.winfo_screenheight()
-        x = (ws/2) - (w/2)
-        y = (hs/2) - (h/2)  
-        pop.geometry('%dx%d+%d+%d' % (w, h, x, y))
-        pop.grab_set()
-        label = Label(pop, text="Eva is listening... Please, enter your answer!", font = ('Arial', 10))
-        label.pack(pady=20)
-        E1 = Entry(pop, textvariable = var, font = ('Arial', 10))
-        E1.bind("<Return>", fechar_pop_ret)
-        E1.pack()
-        Button(pop, text="    OK    ", font = font1, command=fechar_pop_bt).pack(pady=20) 
-        # espera pela liberacao, aguardando a resposta do usuario '''
-        ''' while thread_pop_pause: 
-            time.sleep(0.5)'''
+            # função de fechamento da janela pop up par o botão ok
+            def fechar_pop_bt(): 
+                print(var.get())
+                eva_memory.var_dolar.append([var.get(), "<listen>"])
+                terminal.insert(INSERT, "\nstate: Listening : var=$" + ", value=" + eva_memory.var_dolar[-1][0])
+                tab_load_mem_dollar()
+                terminal.see(tkinter.END)
+                pop.destroy()
+                unlock_thread_pop() # reativa a thread de processamento do script
+            # criacao da janela
+            var = StringVar()
+            pop = Toplevel(window)
+            pop.title("Listen Command")
+            # Disable the max and close buttons
+            pop.resizable(False, False)
+            pop.protocol("WM_DELETE_WINDOW", False)
+            w = 300
+            h = 150
+            ws = window.winfo_screenwidth()
+            hs = window.winfo_screenheight()
+            x = (ws/2) - (w/2)
+            y = (hs/2) - (h/2)  
+            pop.geometry('%dx%d+%d+%d' % (w, h, x, y))
+            pop.grab_set()
+            label = Label(pop, text="Eva is listening... Please, enter your answer!", font = ('Arial', 10))
+            label.pack(pady=20)
+            E1 = Entry(pop, textvariable = var, font = ('Arial', 10))
+            E1.bind("<Return>", fechar_pop_ret)
+            E1.pack()
+            Button(pop, text="    OK    ", font = font1, command=fechar_pop_bt).pack(pady=20) 
+            # espera pela liberacao, aguardando a resposta do usuario 
+            while thread_pop_pause: 
+                time.sleep(0.5) 
         ledAnimation("STOP")
 
 
@@ -839,11 +851,6 @@ def exec_comando(node):
             time.sleep(0.5)
 
     elif node.tag == "userHandPose":
-
-
-        global img_thumbsup, img_thumbsdown, img_peace, img_open, img_three
-        lock_thread_pop()
-
         def fechar_pop(): # função de fechamento da janela pop up
             print(var.get())
             eva_memory.var_dolar.append([var.get(), "<userHandPose>"])
@@ -853,42 +860,165 @@ def exec_comando(node):
             pop.destroy()
             unlock_thread_pop() # reativa a thread de processamento do script
 
-        var = StringVar()
-        var.set("OPEN")
-        img_thumbsup = PhotoImage(file = "images/img_thumbsup.png")
-        img_thumbsdown = PhotoImage(file = "images/img_thumbsdown.png")
-        img_peace = PhotoImage(file = "images/img_peace.png")
-        img_open = PhotoImage(file = "images/img_open.png")
-        img_three = PhotoImage(file = "images/img_three.png")
-        pop = Toplevel(window)
-        pop.title("userHandPose Command")
-        # Disable the max and close buttons
-        pop.resizable(False, False)
-        pop.protocol("WM_DELETE_WINDOW", False)
-        w = 697
-        h = 250
-        ws = window.winfo_screenwidth()
-        hs = window.winfo_screenheight()
-        x = (ws/2) - (w/2)
-        y = (hs/2) - (h/2)  
-        pop.geometry('%dx%d+%d+%d' % (w, h, x, y))
-        pop.grab_set() # faz com que a janela receba todos os eventos
-        Label(pop, text="Eva is analysing your hands. Please, choose one gesture!", font = ('Arial', 10)).place(x = 146, y = 10)
-        # imagens são exibidas usando os lables
-        Label(pop, image=img_thumbsup).place(x = 10, y = 50)
-        Label(pop, image=img_thumbsdown).place(x = 147, y = 50)
-        Label(pop, image=img_peace).place(x = 284, y = 50)
-        Label(pop, image=img_open).place(x = 421, y = 50)
-        Label(pop, image=img_three).place(x = 558, y = 50)
-        Radiobutton(pop, text = "Thumbs_UP", variable = var, font = font1, command = None, value = "THUMBS_UP").place(x = 25, y = 185)
-        Radiobutton(pop, text = "Thumbs_DOWN", variable = var, font = font1, command = None, value = "THUMBS_DOWN").place(x = 152, y = 185)
-        Radiobutton(pop, text = "Peace", variable = var, font = font1, command = None, value = "PEACE").place(x = 302, y = 185)
-        Radiobutton(pop, text = "Open", variable = var, font = font1, command = None, value = "OPEN").place(x = 442, y = 185)
-        Radiobutton(pop, text = "Three", variable = var, font = font1, command = None, value = "THREE").place(x = 575, y = 185)
-        Button(pop, text = "     OK     ", font = font1, command = fechar_pop).place(x = 310, y = 215)
-        # espera pela liberacao, aguardando a resposta do usuario
-        while thread_pop_pause: 
-            time.sleep(0.5)
+
+        if REALMODE:
+            import HandTrackingModule as htm
+            from poses import poses, defined_poses, thumbs_orientation
+
+            def indexOf(finger, distance=0):
+                if finger < 1 or finger > 5 or distance < 0 or distance > 3: return -1
+                return (finger*4)-distance
+
+            def dist(x1, y1, x2, y2):
+                return ((x2 - x1)**2 + (y2 - y1)**2)**0.5
+                
+            def is_closed(finger, lmList):
+                if finger == 1:
+                    # d1 = tip of thumb to ring finger knuckle
+                    # d2 = tip of thumb to thumb knuckle
+                    d1 = dist(lmList[4][1], lmList[4][2], lmList[13][1], lmList[13][2])
+                    d2 = dist(lmList[4][1], lmList[4][2], lmList[2][1], lmList[2][2])
+                else:
+                    # d1 = tip to wrist 
+                    # d2 = proximal joint to wrist
+                    d1 = dist(lmList[indexOf(finger)][1], lmList[indexOf(finger)][2], lmList[0][1], lmList[0][2])
+                    d2 = dist(lmList[indexOf(finger, 2)][1], lmList[indexOf(finger, 2)][2], lmList[0][1], lmList[0][2])
+                return d1 < d2
+
+
+            pTime = 0
+            MAX_HANDS = 1
+
+            detector = htm.handDetector(maxHands=MAX_HANDS, detectionCon=0.75)
+
+            __UNDEF = "undefined"
+
+            def getPose(fingers, lmList):
+                totalFingers = fingers.count(True)
+                for pose in poses[totalFingers]:
+                    if poses[totalFingers][pose] == fingers:
+                        if pose == "THUMB":
+                            return "THUMBS_" + thumbs_orientation(lmList)
+                        return pose
+                return __UNDEF
+
+            INTERVAL = 0.50
+                
+            timer = time.time()
+
+            hands = dict()
+            for i in range(MAX_HANDS):
+                hands[i] = dict()
+                hands[i][__UNDEF] = 0
+                for p in poses:
+                    for k in p:
+                        hands[i][k] = 0
+                hands[i]["THUMBS_UP"] = 0
+                hands[i]["THUMBS_DOWN"] = 0
+                
+            def evaluate(g):
+                max_key = max(g, key=g.get)
+                return max_key
+
+            def read_hand(img, handNo=0):
+                
+                lmList = detector.findPosition(img, handNo=handNo, draw=False)
+
+                if len(lmList) != 0:
+                    
+                    fingers = []
+                    for i in range(1,6):
+                        fingers.append(not is_closed(i, lmList))
+                    hands[handNo][getPose(fingers, lmList)] += 1
+                    #print(fingers, getPose(fingers))
+
+
+            import cv2
+
+            wCam, hCam = 640, 480
+
+            cap = cv2.VideoCapture(0)
+            cap.set(3, wCam)
+            cap.set(4, hCam)
+
+                
+            while True:
+
+                success, img = cap.read()
+                numHands, img = detector.findHands(img.copy())
+
+                for i in range(numHands):
+                    read_hand(img, handNo=i)
+
+                cTime = time.time()
+                fps = 1 / (cTime - pTime)
+                pTime = cTime
+
+                t = time.time() - timer
+                
+                if t > INTERVAL:
+
+                    for i in range(numHands):
+                        hand = hands[i]
+                        result = evaluate(hand)
+                        if result != __UNDEF:
+                            var = StringVar()
+                            var.set(result)
+                            fechar_pop()
+                            break
+                        timer += t
+
+                if True:
+                    
+                    img=cv2.flip(img,1)
+
+                    cv2.putText(img, f'FPS: {int(fps)}', (20, 50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
+                    cv2.imshow("Image", img)
+                    if cv2.waitKey(1) & 0xFF == ord('q') or cv2.waitKey(1) & 0xFF == ord('Q'):
+                        break
+
+        else:    
+            global img_thumbsup, img_thumbsdown, img_peace, img_open, img_three
+            lock_thread_pop()
+
+            
+
+            var = StringVar()
+            var.set("OPEN")
+            img_thumbsup = PhotoImage(file = "images/img_thumbsup.png")
+            img_thumbsdown = PhotoImage(file = "images/img_thumbsdown.png")
+            img_peace = PhotoImage(file = "images/img_peace.png")
+            img_open = PhotoImage(file = "images/img_open.png")
+            img_three = PhotoImage(file = "images/img_three.png")
+            pop = Toplevel(window)
+            pop.title("userHandPose Command")
+            # Disable the max and close buttons
+            pop.resizable(False, False)
+            pop.protocol("WM_DELETE_WINDOW", False)
+            w = 697
+            h = 250
+            ws = window.winfo_screenwidth()
+            hs = window.winfo_screenheight()
+            x = (ws/2) - (w/2)
+            y = (hs/2) - (h/2)  
+            pop.geometry('%dx%d+%d+%d' % (w, h, x, y))
+            pop.grab_set() # faz com que a janela receba todos os eventos
+            Label(pop, text="Eva is analysing your hands. Please, choose one gesture!", font = ('Arial', 10)).place(x = 146, y = 10)
+            # imagens são exibidas usando os lables
+            Label(pop, image=img_thumbsup).place(x = 10, y = 50)
+            Label(pop, image=img_thumbsdown).place(x = 147, y = 50)
+            Label(pop, image=img_peace).place(x = 284, y = 50)
+            Label(pop, image=img_open).place(x = 421, y = 50)
+            Label(pop, image=img_three).place(x = 558, y = 50)
+            Radiobutton(pop, text = "Thumbs_UP", variable = var, font = font1, command = None, value = "THUMBS_UP").place(x = 25, y = 185)
+            Radiobutton(pop, text = "Thumbs_DOWN", variable = var, font = font1, command = None, value = "THUMBS_DOWN").place(x = 152, y = 185)
+            Radiobutton(pop, text = "Peace", variable = var, font = font1, command = None, value = "PEACE").place(x = 302, y = 185)
+            Radiobutton(pop, text = "Open", variable = var, font = font1, command = None, value = "OPEN").place(x = 442, y = 185)
+            Radiobutton(pop, text = "Three", variable = var, font = font1, command = None, value = "THREE").place(x = 575, y = 185)
+            Button(pop, text = "     OK     ", font = font1, command = fechar_pop).place(x = 310, y = 215)
+            # espera pela liberacao, aguardando a resposta do usuario
+            while thread_pop_pause: 
+                time.sleep(0.5)
 
 
 
