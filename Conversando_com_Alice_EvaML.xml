@@ -1,0 +1,10 @@
+<evaml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Conversando_com_Alice" xsi:noNamespaceSchemaLocation="EvaML-Schema/evaml_schema.xsd" id="1bbac2123a43f8a1f548a3bb04035e59">
+  <settings>
+    <voice tone="pt-BR_IsabelaV3Voice" key="1000" />
+    <lightEffects mode="ON" />
+    <audioEffects mode="ON" />
+  </settings>
+  <script>
+    <userHandPose key="1001" />
+  </script>
+<links><link from="1000" to="1001" /></links></evaml>

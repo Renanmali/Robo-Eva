@@ -1,0 +1,312 @@
+<evaml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Jogo_da_repetição" xsi:noNamespaceSchemaLocation="EvaML-Schema/evaml_schema.xsd" id="b44015f82f6a93801a50a23d679ef763">
+  <settings>
+    <voice tone="pt-BR_IsabelaV3Voice" key="1000" />
+    <lightEffects mode="ON" />
+    <audioEffects mode="ON" />
+  </settings>
+  <script>
+    <led animation="LISTEN" id="retorna" key="1001" />
+    <counter var="animal1" op="=" value="0" key="1002" />
+        <counter var="cor1" op="=" value="0" key="1003" />
+        <counter var="pch1" op="=" value="0" key="1004" />
+        <counter var="fruta1" op="=" value="0" key="1005" />
+        <counter var="aut1" op="=" value="0" key="1006" />
+        <counter var="pont_fim" op="=" value="0" key="1007" />
+    <random min="1" max="5" key="1008" />
+        <switch var="$">
+            <case op="exact" value="1" key="1009" child_proc="true" var="$">
+                <talk key="1010">azul</talk>
+                <counter var="cor" op="=" value="1" key="1011" />
+            </case>
+            <case op="exact" value="2" key="1012" child_proc="true" var="$">
+                <talk key="1013">vermelho</talk>
+                <counter var="cor" op="=" value="2" key="1014" />
+            </case>
+            <case op="exact" value="3" key="1015" child_proc="true" var="$">
+                <talk key="1016">amarelo</talk>
+                <counter var="cor" op="=" value="3" key="1017" />
+            </case>
+            <case op="exact" value="4" key="1018" child_proc="true" var="$">
+                <talk key="1019">rosa</talk>
+                <counter var="cor" op="=" value="4" key="1020" />
+            </case>
+            <case op="exact" value="5" key="1021" child_proc="true" var="$">
+                <talk key="1022">verde</talk>
+                <counter var="cor" op="=" value="5" key="1023" />
+            </case>
+        <default key="1024" child_proc="false" value="" op="exact" /></switch>
+    <random min="6" max="10" key="1025" />
+        <switch var="$">
+            <case op="eq" value="6" key="1026" child_proc="true" var="$">
+                <talk key="1027">cabeça</talk>
+                <counter var="pch" op="=" value="6" key="1028" />
+            </case>
+            <case op="eq" value="7" key="1029" child_proc="true" var="$">
+                <talk key="1030">ombro</talk>
+                <counter var="pch" op="=" value="7" key="1031" />
+            </case>
+            <case op="eq" value="8" key="1032" child_proc="true" var="$">
+                <talk key="1033">joelho</talk>
+                <counter var="pch" op="=" value="8" key="1034" />
+            </case>
+            <case op="eq" value="9" key="1035" child_proc="true" var="$">
+                <talk key="1036">pé</talk>
+                <counter var="pch" op="=" value="9" key="1037" />
+            </case>
+            <case op="eq" value="10" key="1038" child_proc="true" var="$">
+                <talk key="1039">ouvido</talk>
+                <counter var="pch" op="=" value="10" key="1040" />
+            </case>
+        <default key="1041" child_proc="false" value="" op="exact" /></switch>
+    <random min="11" max="15" key="1042" />
+        <switch var="$">
+            <case op="eq" value="11" key="1043" child_proc="true" var="$">
+                <talk key="1044">carro</talk>
+                <counter var="automovel" op="=" value="11" key="1045" />
+            </case>
+            <case op="eq" value="12" key="1046" child_proc="true" var="$">
+                <talk key="1047">trem</talk>
+                <counter var="automovel" op="=" value="12" key="1048" />
+            </case>
+            <case op="eq" value="13" key="1049" child_proc="true" var="$">
+                <talk key="1050">ônibus</talk>
+                <counter var="automovel" op="=" value="13" key="1051" />
+            </case>
+            <case op="eq" value="14" key="1052" child_proc="true" var="$">
+                <talk key="1053">moto</talk>
+                <counter var="automovel" op="=" value="14" key="1054" />
+            </case>
+            <case op="eq" value="15" key="1055" child_proc="true" var="$">
+                <talk key="1056">barco</talk>
+                <counter var="automovel" op="=" value="15" key="1057" />
+            </case>
+        <default key="1058" child_proc="false" value="" op="exact" /></switch>
+    <random min="16" max="20" key="1059" />
+        <switch var="$">
+            <case op="eq" value="16" key="1060" child_proc="true" var="$">
+                <talk key="1061">uva</talk>
+                <counter var="fruta" op="=" value="16" key="1062" />
+            </case>
+            <case op="eq" value="17" key="1063" child_proc="true" var="$">
+                <talk key="1064">melancia</talk>
+                <counter var="fruta" op="=" value="17" key="1065" />
+            </case>
+            <case op="eq" value="18" key="1066" child_proc="true" var="$">
+                <talk key="1067">morango</talk>
+                <counter var="fruta" op="=" value="18" key="1068" />
+            </case>
+            <case op="eq" value="19" key="1069" child_proc="true" var="$">
+                <talk key="1070">laranja</talk>
+                <counter var="fruta" op="=" value="19" key="1071" />
+            </case>
+            <case op="eq" value="20" key="1072" child_proc="true" var="$">
+                <talk key="1073">amora</talk>
+                <counter var="fruta" op="=" value="20" key="1074" />
+            </case>
+        <default key="1075" child_proc="false" value="" op="exact" /></switch>
+    <random min="21" max="25" key="1076" />
+        <switch var="$">
+            <case op="eq" value="21" key="1077" child_proc="true" var="$">
+                <talk key="1078">pato</talk>
+                <counter var="animal" op="=" value="21" key="1079" />
+            </case>
+            <case op="eq" value="22" key="1080" child_proc="true" var="$">
+                <talk key="1081">baleia</talk>
+                <counter var="animal" op="=" value="22" key="1082" />
+            </case>
+            <case op="eq" value="23" key="1083" child_proc="true" var="$">
+                <talk key="1084">pôrco</talk>
+                <counter var="animal" op="=" value="23" key="1085" />
+            </case>
+            <case op="eq" value="24" key="1086" child_proc="true" var="$">
+                <talk key="1087">cabra</talk>
+                <counter var="animal" op="=" value="24" key="1088" />
+            </case>
+            <case op="eq" value="25" key="1089" child_proc="true" var="$">
+                <talk key="1090">gato</talk>
+                <counter var="animal" op="=" value="25" key="1091" />
+            </case>
+        <default key="1092" child_proc="false" value="" op="exact" /></switch>
+    <listen key="1093" />
+    <switch var="$">
+            <case op="contain" value="azul" key="1094" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="1" key="1095" />
+            </case>
+            <case op="contain" value="vermelho" key="1096" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="2" key="1097" />
+            </case>
+            <case op="contain" value="amarelo" key="1098" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="3" key="1099" />
+            </case>
+            <case op="contain" value="rosa" key="1100" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="4" key="1101" />
+            </case>
+            <case op="contain" value="verde" key="1102" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="5" key="1103" />
+            </case>
+            <default key="1104" child_proc="true" value="" op="exact">
+                <counter var="ponto" op="=" value="0" key="1105" />
+            </default>
+        </switch>
+        <switch var="#ponto">
+            <case op="eq" value="#cor" key="1106" child_proc="true" var="#ponto">
+                <counter var="cor1" op="=" value="10" key="1107" />
+            </case>
+            <case op="ne" value="#cor" key="1108" child_proc="true" var="#ponto">
+                <goto target="pula" />
+            </case>
+        <default key="1109" child_proc="false" value="" op="exact" /></switch>
+    <switch var="#cor1">
+            <case op="eq" value="10" key="1110" child_proc="true" var="#cor1">
+                <counter var="pont_fim" op="+" value="1" key="1111" />
+            </case>
+        <default key="1112" child_proc="false" value="" op="exact" /></switch>
+    <led animation="LISTEN" id="pula" key="1113" />
+    <switch var="$">
+        <case op="contain" value="cabeça" key="1114" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="6" key="1115" />
+            </case>
+            <case op="contain" value="ombro" key="1116" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="7" key="1117" />
+            </case>
+            <case op="contain" value="joelho" key="1118" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="8" key="1119" />
+            </case>
+            <case op="contain" value="pé" key="1120" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="9" key="1121" />
+            </case>
+            <case op="contain" value="ouvido" key="1122" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="10" key="1123" />
+            </case>
+            <default key="1124" child_proc="true" value="" op="exact">
+                <counter var="ponto" op="=" value="0" key="1125" />
+            </default>
+        </switch>
+        <switch var="#ponto">
+            <case op="eq" value="#pch" key="1126" child_proc="true" var="#ponto">
+                <counter var="pch1" op="=" value="10" key="1127" />
+            </case>
+            <case op="ne" value="#pch" key="1128" child_proc="true" var="#ponto">
+                <goto target="pula_1" />
+            </case>
+        <default key="1129" child_proc="false" value="" op="exact" /></switch>
+        
+    <switch var="#pch1">
+            <case op="eq" value="10" key="1130" child_proc="true" var="#pch1">
+                <counter var="pont_fim" op="+" value="1" key="1131" />
+            </case>
+        <default key="1132" child_proc="false" value="" op="exact" /></switch>
+    <led animation="LISTEN" id="pula_1" key="1133" />
+    <switch var="$">
+            <case op="contain" value="carro" key="1134" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="11" key="1135" />
+            </case>
+            <case op="contain" value="trem" key="1136" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="12" key="1137" />
+            </case>
+            <case op="contain" value="onibus" key="1138" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="13" key="1139" />
+            </case>
+            <case op="contain" value="moto" key="1140" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="14" key="1141" />
+            </case>
+            <case op="contain" value="barco" key="1142" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="15" key="1143" />
+            </case>
+            <default key="1144" child_proc="true" value="" op="exact">
+                <counter var="ponto" op="=" value="0" key="1145" />
+            </default>
+        </switch>
+        <switch var="#ponto">
+            <case op="eq" value="#automovel" key="1146" child_proc="true" var="#ponto">
+                <counter var="aut1" op="=" value="10" key="1147" />
+            </case>
+            <case op="ne" value="#automovel" key="1148" child_proc="true" var="#ponto">
+                <goto target="pula_2" />
+            </case>
+        <default key="1149" child_proc="false" value="" op="exact" /></switch>
+    <switch var="#aut1">
+            <case op="eq" value="10" key="1150" child_proc="true" var="#aut1">
+                <counter var="pont_fim" op="+" value="1" key="1151" />
+            </case>
+        <default key="1152" child_proc="false" value="" op="exact" /></switch>
+    <led animation="LISTEN" id="pula_2" key="1153" />
+    <switch var="$">
+            <case op="contain" value="uva" key="1154" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="16" key="1155" />
+            </case>
+            <case op="contain" value="melancia" key="1156" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="17" key="1157" />
+            </case>
+            <case op="contain" value="morango" key="1158" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="18" key="1159" />
+            </case>
+            <case op="contain" value="laranja" key="1160" child_proc="true" var="$">
+             <counter var="ponto" op="=" value="19" key="1161" />
+            </case>
+            <case op="contain" value="amora" key="1162" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="20" key="1163" />
+            </case>
+            <default key="1164" child_proc="true" value="" op="exact">
+                <counter var="ponto" op="=" value="0" key="1165" />
+            </default>
+        </switch>
+        <switch var="#ponto">
+            <case op="eq" value="#fruta" key="1166" child_proc="true" var="#ponto">
+                <counter var="fruta1" op="=" value="10" key="1167" />
+            </case>
+            <case op="ne" value="#fruta" key="1168" child_proc="true" var="#ponto">
+                <goto target="pula_3" />
+            </case>
+        <default key="1169" child_proc="false" value="" op="exact" /></switch>
+    <switch var="#fruta1">
+            <case op="eq" value="10" key="1170" child_proc="true" var="#fruta1">
+                <counter var="pont_fim" op="+" value="1" key="1171" />
+            </case>
+        <default key="1172" child_proc="false" value="" op="exact" /></switch>
+    <led animation="LISTEN" id="pula_3" key="1173" />
+    <switch var="$">
+            <case op="contain" value="pato" key="1174" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="21" key="1175" />
+            </case>
+            <case op="contain" value="baleia" key="1176" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="22" key="1177" />
+            </case>
+            <case op="contain" value="porco" key="1178" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="23" key="1179" />
+            </case>
+            <case op="contain" value="cabra" key="1180" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="24" key="1181" />
+            </case>
+            <case op="contain" value="gato" key="1182" child_proc="true" var="$">
+                <counter var="ponto" op="=" value="25" key="1183" />
+            </case>
+            <default key="1184" child_proc="true" value="" op="exact">
+                <counter var="ponto" op="=" value="0" key="1185" />
+            </default>
+        </switch>
+        <switch var="#ponto">
+            <case op="eq" value="#animal" key="1186" child_proc="true" var="#ponto">
+                <counter var="animal1" op="=" value="10" key="1187" />
+            </case>
+            <case op="ne" value="#animal" key="1188" child_proc="true" var="#ponto">
+                <goto target="Fim" />
+            </case>
+        <default key="1189" child_proc="false" value="" op="exact" /></switch>
+    <switch var="#animal1">
+            <case op="eq" value="10" key="1190" child_proc="true" var="#animal1">
+                <counter var="pont_fim" op="+" value="1" key="1191" />
+            </case>
+        <default key="1192" child_proc="false" value="" op="exact" /></switch>
+    <talk id="Fim" key="1193">Quer jogar de novo?</talk>
+    <listen key="1194" />
+    <switch var="$">
+        <case op="exact" value="sim" key="1195" child_proc="true" var="$">
+            <goto target="retorna" />
+        </case>
+        <case op="exact" value="não" key="1196" child_proc="true" var="$">
+            <talk key="1197">Ok, torço para que tenha gostado da experiência.</talk>
+        </case>
+    <default key="1198" child_proc="false" value="" op="exact" /></switch>
+  </script>
+  <links><link from="1000" to="1001" /><link from="1001" to="1002" /><link from="1002" to="1003" /><link from="1003" to="1004" /><link from="1004" to="1005" /><link from="1005" to="1006" /><link from="1006" to="1007" /><link from="1007" to="1008" /><link from="1008" to="1009" /><link from="1009" to="1010" /><link from="1010" to="1011" /><link from="1008" to="1012" /><link from="1012" to="1013" /><link from="1013" to="1014" /><link from="1008" to="1015" /><link from="1015" to="1016" /><link from="1016" to="1017" /><link from="1008" to="1018" /><link from="1018" to="1019" /><link from="1019" to="1020" /><link from="1008" to="1021" /><link from="1021" to="1022" /><link from="1022" to="1023" /><link from="1008" to="1024" /><link from="1011" to="1025" /><link from="1014" to="1025" /><link from="1017" to="1025" /><link from="1020" to="1025" /><link from="1023" to="1025" /><link from="1024" to="1025" /><link from="1025" to="1026" /><link from="1026" to="1027" /><link from="1027" to="1028" /><link from="1025" to="1029" /><link from="1029" to="1030" /><link from="1030" to="1031" /><link from="1025" to="1032" /><link from="1032" to="1033" /><link from="1033" to="1034" /><link from="1025" to="1035" /><link from="1035" to="1036" /><link from="1036" to="1037" /><link from="1025" to="1038" /><link from="1038" to="1039" /><link from="1039" to="1040" /><link from="1025" to="1041" /><link from="1028" to="1042" /><link from="1031" to="1042" /><link from="1034" to="1042" /><link from="1037" to="1042" /><link from="1040" to="1042" /><link from="1041" to="1042" /><link from="1042" to="1043" /><link from="1043" to="1044" /><link from="1044" to="1045" /><link from="1042" to="1046" /><link from="1046" to="1047" /><link from="1047" to="1048" /><link from="1042" to="1049" /><link from="1049" to="1050" /><link from="1050" to="1051" /><link from="1042" to="1052" /><link from="1052" to="1053" /><link from="1053" to="1054" /><link from="1042" to="1055" /><link from="1055" to="1056" /><link from="1056" to="1057" /><link from="1042" to="1058" /><link from="1045" to="1059" /><link from="1048" to="1059" /><link from="1051" to="1059" /><link from="1054" to="1059" /><link from="1057" to="1059" /><link from="1058" to="1059" /><link from="1059" to="1060" /><link from="1060" to="1061" /><link from="1061" to="1062" /><link from="1059" to="1063" /><link from="1063" to="1064" /><link from="1064" to="1065" /><link from="1059" to="1066" /><link from="1066" to="1067" /><link from="1067" to="1068" /><link from="1059" to="1069" /><link from="1069" to="1070" /><link from="1070" to="1071" /><link from="1059" to="1072" /><link from="1072" to="1073" /><link from="1073" to="1074" /><link from="1059" to="1075" /><link from="1062" to="1076" /><link from="1065" to="1076" /><link from="1068" to="1076" /><link from="1071" to="1076" /><link from="1074" to="1076" /><link from="1075" to="1076" /><link from="1076" to="1077" /><link from="1077" to="1078" /><link from="1078" to="1079" /><link from="1076" to="1080" /><link from="1080" to="1081" /><link from="1081" to="1082" /><link from="1076" to="1083" /><link from="1083" to="1084" /><link from="1084" to="1085" /><link from="1076" to="1086" /><link from="1086" to="1087" /><link from="1087" to="1088" /><link from="1076" to="1089" /><link from="1089" to="1090" /><link from="1090" to="1091" /><link from="1076" to="1092" /><link from="1079" to="1093" /><link from="1082" to="1093" /><link from="1085" to="1093" /><link from="1088" to="1093" /><link from="1091" to="1093" /><link from="1092" to="1093" /><link from="1093" to="1094" /><link from="1094" to="1095" /><link from="1093" to="1096" /><link from="1096" to="1097" /><link from="1093" to="1098" /><link from="1098" to="1099" /><link from="1093" to="1100" /><link from="1100" to="1101" /><link from="1093" to="1102" /><link from="1102" to="1103" /><link from="1093" to="1104" /><link from="1104" to="1105" /><link from="1095" to="1106" /><link from="1106" to="1107" /><link from="1095" to="1108" /><link from="1108" to="1113" /><link from="1095" to="1109" /><link from="1097" to="1106" /><link from="1097" to="1108" /><link from="1097" to="1109" /><link from="1099" to="1106" /><link from="1099" to="1108" /><link from="1099" to="1109" /><link from="1101" to="1106" /><link from="1101" to="1108" /><link from="1101" to="1109" /><link from="1103" to="1106" /><link from="1103" to="1108" /><link from="1103" to="1109" /><link from="1105" to="1106" /><link from="1105" to="1108" /><link from="1105" to="1109" /><link from="1107" to="1110" /><link from="1110" to="1111" /><link from="1107" to="1112" /><link from="1109" to="1110" /><link from="1109" to="1112" /><link from="1111" to="1113" /><link from="1112" to="1113" /><link from="1113" to="1114" /><link from="1114" to="1115" /><link from="1113" to="1116" /><link from="1116" to="1117" /><link from="1113" to="1118" /><link from="1118" to="1119" /><link from="1113" to="1120" /><link from="1120" to="1121" /><link from="1113" to="1122" /><link from="1122" to="1123" /><link from="1113" to="1124" /><link from="1124" to="1125" /><link from="1115" to="1126" /><link from="1126" to="1127" /><link from="1115" to="1128" /><link from="1128" to="1133" /><link from="1115" to="1129" /><link from="1117" to="1126" /><link from="1117" to="1128" /><link from="1117" to="1129" /><link from="1119" to="1126" /><link from="1119" to="1128" /><link from="1119" to="1129" /><link from="1121" to="1126" /><link from="1121" to="1128" /><link from="1121" to="1129" /><link from="1123" to="1126" /><link from="1123" to="1128" /><link from="1123" to="1129" /><link from="1125" to="1126" /><link from="1125" to="1128" /><link from="1125" to="1129" /><link from="1127" to="1130" /><link from="1130" to="1131" /><link from="1127" to="1132" /><link from="1129" to="1130" /><link from="1129" to="1132" /><link from="1131" to="1133" /><link from="1132" to="1133" /><link from="1133" to="1134" /><link from="1134" to="1135" /><link from="1133" to="1136" /><link from="1136" to="1137" /><link from="1133" to="1138" /><link from="1138" to="1139" /><link from="1133" to="1140" /><link from="1140" to="1141" /><link from="1133" to="1142" /><link from="1142" to="1143" /><link from="1133" to="1144" /><link from="1144" to="1145" /><link from="1135" to="1146" /><link from="1146" to="1147" /><link from="1135" to="1148" /><link from="1148" to="1153" /><link from="1135" to="1149" /><link from="1137" to="1146" /><link from="1137" to="1148" /><link from="1137" to="1149" /><link from="1139" to="1146" /><link from="1139" to="1148" /><link from="1139" to="1149" /><link from="1141" to="1146" /><link from="1141" to="1148" /><link from="1141" to="1149" /><link from="1143" to="1146" /><link from="1143" to="1148" /><link from="1143" to="1149" /><link from="1145" to="1146" /><link from="1145" to="1148" /><link from="1145" to="1149" /><link from="1147" to="1150" /><link from="1150" to="1151" /><link from="1147" to="1152" /><link from="1149" to="1150" /><link from="1149" to="1152" /><link from="1151" to="1153" /><link from="1152" to="1153" /><link from="1153" to="1154" /><link from="1154" to="1155" /><link from="1153" to="1156" /><link from="1156" to="1157" /><link from="1153" to="1158" /><link from="1158" to="1159" /><link from="1153" to="1160" /><link from="1160" to="1161" /><link from="1153" to="1162" /><link from="1162" to="1163" /><link from="1153" to="1164" /><link from="1164" to="1165" /><link from="1155" to="1166" /><link from="1166" to="1167" /><link from="1155" to="1168" /><link from="1168" to="1173" /><link from="1155" to="1169" /><link from="1157" to="1166" /><link from="1157" to="1168" /><link from="1157" to="1169" /><link from="1159" to="1166" /><link from="1159" to="1168" /><link from="1159" to="1169" /><link from="1161" to="1166" /><link from="1161" to="1168" /><link from="1161" to="1169" /><link from="1163" to="1166" /><link from="1163" to="1168" /><link from="1163" to="1169" /><link from="1165" to="1166" /><link from="1165" to="1168" /><link from="1165" to="1169" /><link from="1167" to="1170" /><link from="1170" to="1171" /><link from="1167" to="1172" /><link from="1169" to="1170" /><link from="1169" to="1172" /><link from="1171" to="1173" /><link from="1172" to="1173" /><link from="1173" to="1174" /><link from="1174" to="1175" /><link from="1173" to="1176" /><link from="1176" to="1177" /><link from="1173" to="1178" /><link from="1178" to="1179" /><link from="1173" to="1180" /><link from="1180" to="1181" /><link from="1173" to="1182" /><link from="1182" to="1183" /><link from="1173" to="1184" /><link from="1184" to="1185" /><link from="1175" to="1186" /><link from="1186" to="1187" /><link from="1175" to="1188" /><link from="1188" to="1193" /><link from="1175" to="1189" /><link from="1177" to="1186" /><link from="1177" to="1188" /><link from="1177" to="1189" /><link from="1179" to="1186" /><link from="1179" to="1188" /><link from="1179" to="1189" /><link from="1181" to="1186" /><link from="1181" to="1188" /><link from="1181" to="1189" /><link from="1183" to="1186" /><link from="1183" to="1188" /><link from="1183" to="1189" /><link from="1185" to="1186" /><link from="1185" to="1188" /><link from="1185" to="1189" /><link from="1187" to="1190" /><link from="1190" to="1191" /><link from="1187" to="1192" /><link from="1189" to="1190" /><link from="1189" to="1192" /><link from="1191" to="1193" /><link from="1192" to="1193" /><link from="1193" to="1194" /><link from="1194" to="1195" /><link from="1195" to="1001" /><link from="1194" to="1196" /><link from="1196" to="1197" /><link from="1194" to="1198" /></links></evaml>

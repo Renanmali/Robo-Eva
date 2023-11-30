@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<evaml
+  name="Conversando_com_Alice"
+  xsi:noNamespaceSchemaLocation="EvaML-Schema/evaml_schema.xsd"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <settings>
+    <voice tone="pt-BR_IsabelaV3Voice" />
+    <lightEffects mode="ON" />
+    <audioEffects mode="ON" />
+  </settings>
+  <script>
+    <light state="ON" color="PINK"/>
+    <evaEmotion emotion="HAPPY" />
+    <audio source="mario-game-intro" block="TRUE" />
+    <talk>Oi princesa, qual é o seu nome?</talk>
+    <listen />
+    <evaEmotion emotion="NEUTRAL" />
+    <talk>$, você é muito linda, quer brincar comigo?</talk>
+    <listen />
+    <switch var="$">
+        <case op="exact" value="sim">
+            <talk>Vou te mostrar como são minhas emoções</talk>
+            <talk>Assim estou triste</talk>
+            <evaEmotion emotion="SAD" />
+            <light state="ON" color="BLUE"/>
+            <talk>Olha como fico quando estou feliz</talk>
+            <evaEmotion emotion="HAPPY" />
+            <light state="ON" color="PINK"/>
+            <talk>Tchau linda</talk>
+            <audio source="mario-end-01" block="TRUE" />
+        </case>
+    </switch>
+
+
+  </script>
+
+</evaml>

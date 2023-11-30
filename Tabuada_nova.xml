@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <evaml
-  name="Jogo_Da_Tabuada_Nova1"
+  name="Jogo_Da_Tabuada_Demo"
   xsi:noNamespaceSchemaLocation="EvaML-Schema/evaml_schema.xsd"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <settings>
@@ -63,14 +63,14 @@
                       </loop>
                       <useMacro macro="final" />
                     </case>
-                    <case op="exact" value="nao">
+                    <case op="exact" value="não">
                       <useMacro macro="final" />
                     </case>
                   </switch>
                </case>
               </switch>
             </case>
-            <case op="exact" value="nao">
+            <case op="exact" value="não">
               <useMacro macro="final" />
             </case>
           </switch>
@@ -111,14 +111,14 @@
                         </loop>
                         <useMacro macro="final" />
                       </case>
-                      <case op="exact" value="nao">
+                      <case op="exact" value="não">
                         <useMacro macro="final" />
                       </case>
                     </switch>
                  </case>
                 </switch>
               </case>
-              <case op="exact" value="nao">
+              <case op="exact" value="não">
                 <useMacro macro="final" />
               </case>
             </switch>
@@ -142,7 +142,7 @@
                     </loop>
                       <useMacro macro="final" />
                   </case>
-                  <case op="exact" value="nao">
+                  <case op="exact" value="não">
                     <useMacro macro="final" />
                   </case>
                 </switch>
@@ -175,14 +175,14 @@
                         </loop>
                         <useMacro macro="final" />
                       </case>
-                      <case op="exact" value="nao">
+                      <case op="exact" value="não">
                         <useMacro macro="final" />
                       </case>
                     </switch>
                  </case>
                 </switch>
               </case>
-              <case op="exact" value="nao">
+              <case op="exact" value="não">
                 <useMacro macro="final" />
               </case>
             </switch>
@@ -193,7 +193,7 @@
       </case>
     </switch>  
       </case>
-      <case op="exact" value="nao">
+      <case op="exact" value="não">
         <talk>Certo. Então vamos começar, mas antes preciso te fazer algumas perguntas.
         </talk>
     <useMacro macro="Multiplicando" />
@@ -241,14 +241,14 @@
                       </loop>
                       <useMacro macro="final" />
                     </case>
-                    <case op="exact" value="nao">
+                    <case op="exact" value="não">
                       <useMacro macro="final" />
                     </case>
                   </switch>
                </case>
               </switch>
             </case>
-            <case op="exact" value="nao">
+            <case op="exact" value="não">
               <useMacro macro="final" />
             </case>
           </switch>
@@ -289,14 +289,14 @@
                         </loop>
                         <useMacro macro="final" />
                       </case>
-                      <case op="exact" value="nao">
+                      <case op="exact" value="não">
                         <useMacro macro="final" />
                       </case>
                     </switch>
                  </case>
                 </switch>
               </case>
-              <case op="exact" value="nao">
+              <case op="exact" value="não">
                 <useMacro macro="final" />
               </case>
             </switch>
@@ -320,7 +320,7 @@
                     </loop>
                       <useMacro macro="final" />
                   </case>
-                  <case op="exact" value="nao">
+                  <case op="exact" value="não">
                     <useMacro macro="final" />
                   </case>
                 </switch>
@@ -353,14 +353,14 @@
                         </loop>
                         <useMacro macro="final" />
                       </case>
-                      <case op="exact" value="nao">
+                      <case op="exact" value="não">
                         <useMacro macro="final" />
                       </case>
                     </switch>
                  </case>
                 </switch>
               </case>
-              <case op="exact" value="nao">
+              <case op="exact" value="não">
                 <useMacro macro="final" />
               </case>
             </switch>
